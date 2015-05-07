@@ -99,7 +99,7 @@ function injectScript() {
                        'var script = document.createElement("script");' + 
                        'script.innerHTML = "var IntentMediaProperties =" + IntentMediaProperties + ";";' + 
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
-                    '}());' + 
+                    '}());' 
     });
     chrome.tabs.executeScript(null,{file: "https://andrewwolfram.github.io/selfservechromeextension/content-script.js"});
 
