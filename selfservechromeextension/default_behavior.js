@@ -101,10 +101,10 @@ function injectScript() {
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' 
     });
-    chrome.tabs.executeScript(null,{file: "https://andrewwolfram.github.io/selfservechromeextension/content-script.js"});
+    chrome.tabs.executeScript({file: "https://andrewwolfram.github.io/selfservechromeextension/content-script.js"});
 
     if(frequency)
-    chrome.tabs.executeScript(null,{file: "https://andrewwolfram.github.io/selfservechromeextension/content-script1.js"});
+    chrome.tabs.executeScript({file: "https://andrewwolfram.github.io/selfservechromeextension/content-script1.js"});
 
 //    window.close();
 
