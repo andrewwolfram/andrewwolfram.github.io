@@ -76,16 +76,6 @@ function injectScript() {
         '"car_dropoff_location_type": "AIRPORT",' +
         '"car_dropoff_airport": "MIA"';
 
-   var frequency_cap_code = "";
-   if(frequency) {
-      frequency_cap_code=
-        '(function() {' + 
-           'var script = document.createElement("script");' + 
-           'script.innerHTML = "setTimeout(function(){IntentMedia.ExitUnitOpener.options.is_frequency_capped = function() { return false; }; IntentMedia.ExitUnitOpener.is_cross_site_eu_frequency_capped = function() { return false; }; IntentMedia.ExitUnitOpener.opener_is_deactivated = function() { return false; };}, 1000);";' + 
-           'document.getElementsByTagName("head")[0].appendChild(script);' +
-        '}());';  
-   }
-
    var intent_media_parameters = "";
 
    if(beacon) {
@@ -110,13 +100,11 @@ function injectScript() {
                        'script.innerHTML = "var IntentMediaProperties =" + IntentMediaProperties + ";";' + 
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' + 
-        '(function() {' + 
-           'var script = document.createElement("script");' + 
-           'var url = "//a.cdn.intentmedia.net/javascripts/v1/intent_media_core.js";' +
-           'script.src = url;' +
-           'document.getElementsByTagName("head")[0].appendChild(script);' +
-        '}());' + frequency_cap_code 
     });
+    chrome.tabs.executeScript(null,{file: "https://andrewwolfram.github.io/selfservechromeextension/content-script.js"});
+
+    if(frequency)
+    chrome.tabs.executeScript(null,{file: "https://andrewwolfram.github.io/selfservechromeextension/content-script1.js"});
 
     window.close();
 
