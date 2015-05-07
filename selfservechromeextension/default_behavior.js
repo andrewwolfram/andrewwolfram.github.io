@@ -97,7 +97,7 @@ function injectScript() {
         'var IntentMediaProperties = ' + "'" + intent_media_parameters + "'" + ';' + 
         '(function() {' + 
                        'var script = document.createElement("script");' + 
-                       'script.innerHTML = "var IntentMediaProperties =" + IntentMediaProperties + ";";' + 
+                       'script.innerHTML = "var IntentMediaProperties =\'" + IntentMediaProperties + "\';";' + 
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' 
     });
