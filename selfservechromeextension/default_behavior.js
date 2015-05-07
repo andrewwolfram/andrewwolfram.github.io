@@ -106,7 +106,7 @@ function injectScript() {
     if(frequency)
     chrome.tabs.executeScript(null,{file: "https://andrewwolfram.github.io/selfservechromeextension/content-script1.js"});
 
-    window.close();
+//    window.close();
 
 }
 
