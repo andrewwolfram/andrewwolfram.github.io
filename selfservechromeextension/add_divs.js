@@ -38,7 +38,7 @@ function addDivs() {
     
     function removeMyDiv(e) { 
             document.body.removeEventListener('mouseover', handler, false); 
-            document.body.removeChild(document.getElementById("myDiv"));));
+            document.body.removeChild(document.getElementById("myDiv"));
             e.stopPropogation();
     }
 
