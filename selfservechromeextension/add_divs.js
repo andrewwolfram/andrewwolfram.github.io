@@ -14,7 +14,7 @@ function addDivs() {
     if(adArray.length == 0)
         return;
 
-    window.addEventListener("mousedown", stopExits, true);
+    window.addEventListener("mousedown", stopFlash, true);
 
     function stopFlash(e) {
         e.stopPropagation();
