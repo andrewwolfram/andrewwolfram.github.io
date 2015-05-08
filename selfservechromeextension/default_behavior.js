@@ -91,35 +91,31 @@ function injectScript() {
        intent_media_parameters = intent_media_parameters.substring(0, intent_media_parameters.length -1);
        intent_media_parameters = '{' + intent_media_parameters + '}';
    }
-    
-    chrome.tabs.executeScript({
-        code:
+   
+   var codeObject = {code: 
         'var IntentMediaProperties = ' + "'" + intent_media_parameters + "'" + ';' + 
         '(function() {' + 
                        'var script = document.createElement("script");' + 
                        'script.innerHTML = "var IntentMediaProperties =JSON.parse(\'" + IntentMediaProperties + "\');";' + 
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
-                    '}());' 
-    });
-    chrome.tabs.executeScript({
-        code:
+                    '}());' + 
         '(function() {' + 
                        'var script = document.createElement("script");' + 
                        'script.url = "https://andrewwolfram.github.io/selfservechromeextension/content-script.js";' + 
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' 
-    });
+   };
 
     if(frequency) {
-    chrome.tabs.executeScript({
-        code:
+        codeObject.code +=
         '(function() {' + 
                        'var script = document.createElement("script");' + 
                        'script.url = "https://andrewwolfram.github.io/selfservechromeextension/content-script1.js";' + 
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' 
-    });
     }
+
+    chrome.tabs.executeScript(codeObject);
 
 //    window.close();
 
