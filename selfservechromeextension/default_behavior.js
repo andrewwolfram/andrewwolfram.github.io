@@ -110,7 +110,7 @@ function injectScript() {
                     '}());' 
     });
 
-    if(frequency)
+    if(frequency) {
     chrome.tabs.executeScript({
         code:
         '(function() {' + 
@@ -119,6 +119,7 @@ function injectScript() {
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' 
     });
+    }
 
 //    window.close();
 
