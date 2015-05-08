@@ -99,7 +99,7 @@ function addDivs() {
             removeMyDiv();
             return;
         }
-        document.getElementById("targetName").innerText = adArray[length-1];
+        document.getElementById("targetName").innerText = adArray[adArray.length-1];
         e.stopPropagation();
         e.preventDefault();
     }
