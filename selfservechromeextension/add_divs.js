@@ -1,4 +1,4 @@
-var myInterval = setInterval(function(){if(IntentMedia != undefeind && IntentMedia.Config != undefined){addDivs(); clearInterval(myInterval);}}, 500);
+var myInterval = setInterval(function(){if(IntentMedia != undefined && IntentMedia.Config != undefined){addDivs(); clearInterval(myInterval);}}, 500);
 
 var adArray = [];
 var prev;
