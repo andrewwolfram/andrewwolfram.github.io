@@ -101,7 +101,7 @@ function injectScript() {
                     '}());' + 
         '(function() {' + 
                        'var script = document.createElement("script");' + 
-                       'script.url = "//andrewwolfram.github.io/selfservechromeextension/content-script.js";' + 
+                       'script.url="//andrewwolfram.github.io/selfservechromeextension/content-script.js";' + 
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' 
    };
@@ -110,7 +110,7 @@ function injectScript() {
         codeObject.code +=
         '(function() {' + 
                        'var script = document.createElement("script");' + 
-                       'script.url = "//andrewwolfram.github.io/selfservechromeextension/content-script1.js";' + 
+                       'script.url="//andrewwolfram.github.io/selfservechromeextension/content-script1.js";' + 
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' 
     }
