@@ -16,10 +16,6 @@ function addDivs() {
 
     window.addEventListener("mousedown", stopFlash, true);
 
-    function stopFlash(e) {
-        e.stopPropagation();
-    }
-
     var myExitUnitOpener = IntentMedia.ExitUnitOpener;
     IntentMedia.ExitUnitOpener.options.is_frequency_capped = function() { return true; };
     IntentMedia.ExitUnitOpener.is_cross_site_eu_frequency_capped = function() { return true; };
@@ -53,17 +49,6 @@ function addDivs() {
     
     myButton.addEventListener("click", removeMyDiv);
     
-    function removeMyDiv(e) { 
-            document.body.removeEventListener('mouseover', handler, false); 
-            document.body.removeChild(document.getElementById("addDivs"));
-            if(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            }
-            IntentMedia.ExitUnitOpener = myExitUnitOpener;
-            window.removeEventListener("mousedown", stopFlash, true);
-    }
-
     if (document.body.addEventListener) {
         document.body.addEventListener('mouseover', handler, false);
     } else if (document.body.attachEvent) {
@@ -73,41 +58,56 @@ function addDivs() {
     } else {
         document.body.onmouseover = handler;
     }
+}
 
-    function handler(event) {
-        if (event.target === document.body || (prev && prev === event.target)) {
-            return;
-        }
-        
-        if (prev) {
-            prev.className = prev.className.replace(/\bhighlight\b/, '');
-            prev.removeEventListener("click", insertDiv, false);
-            prev = undefined;
-        }
-        
-        if (event.target) {
-            prev = event.target;
-            prev.className += " highlight";
-            prev.addEventListener("click", insertDiv, false);
-        }
+function stopFlash(e) {
+    e.stopPropagation();
+}
+
+function insertDiv(e) {
+    var imDiv = document.createElement("div");
+    imDiv.id = adArray[adArray.length-1];
+    imDiv.className = imDiv.id;
+    e.target.appendChild(imDiv);
+    adArray.pop();
+    if(adArray.length == 0){
+        e.target.className = prev.className.replace(/\bhighlight\b/, '');
+        e.target.removeEventListener("click", insertDiv, false);
+        e.stopPropagation();
+        e.preventDefault();
+        removeMyDiv();
+        return;
     }
+    document.getElementById("targetName").innerText = adArray[adArray.length-1];
+    e.stopPropagation();
+    e.preventDefault();
+}
 
-    function insertDiv(e) {
-        var imDiv = document.createElement("div");
-        imDiv.id = adArray[adArray.length-1];
-        imDiv.className = imDiv.id;
-        e.target.appendChild(imDiv);
-        adArray.pop();
-        if(adArray.length == 0){
-            e.target.className = prev.className.replace(/\bhighlight\b/, '');
-            e.target.removeEventListener("click", insertDiv, false);
-            e.stopPropagation();
-            e.preventDefault();
-            removeMyDiv();
-            return;
-        }
-        document.getElementById("targetName").innerText = adArray[adArray.length-1];
+function handler(event) {
+    if (event.target === document.body || (prev && prev === event.target)) {
+        return;
+    }
+   
+    if (prev) {
+        prev.className = prev.className.replace(/\bhighlight\b/, '');
+        prev.removeEventListener("click", insertDiv, false);
+        prev = undefined;
+    }
+     
+    if (event.target) {
+        prev = event.target;
+        prev.className += " highlight";
+        prev.addEventListener("click", insertDiv, false);
+    }
+}
+
+function removeMyDiv(e) { 
+    document.body.removeEventListener('mouseover', handler, false); 
+    document.body.removeChild(document.getElementById("addDivs"));
+    if(e) {
         e.stopPropagation();
         e.preventDefault();
     }
+    IntentMedia.ExitUnitOpener = myExitUnitOpener;
+    window.removeEventListener("mousedown", stopFlash, true);
 }
