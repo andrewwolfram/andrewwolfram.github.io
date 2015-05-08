@@ -8,8 +8,8 @@ function addDivs() {
     if(!IntentMedia.Config.on_page)
         return false;
 
-    for(var i = 0; i<IntentMedia.Config.on_page.length; i++) 
-        adArray.push(IntentMedia.Config.on_page[i].target);
+    for(var i = 0; i<IntentMedia.Config.on_page.placements.length; i++) 
+        adArray.push(IntentMedia.Config.on_page.placements[i].target.substring(1));
 
     if(adArray.length == 0)
         return false;
@@ -73,6 +73,7 @@ function addDivs() {
     function insertDiv(e) {
         var imDiv = document.createElement("div");
         imDiv.id = adArray[adArray.length-1];
+        imDiv.className = imDiv.id;
         e.target.appendChild(imDiv);
         adArray.pop();
         if(adArray.length == 0){
