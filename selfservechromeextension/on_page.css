@@ -1,0 +1,22 @@
+#addDivs {
+    background-color: #C2E0FF;
+    border-bottom: 3px;
+    border-color: #FFFF99;
+    border-style: solid;
+}
+
+#myText {
+
+}
+
+#targetName {
+    color: #33CC33;
+}
+
+#myButton{
+
+}
+
+.highlight {
+    border: 3px solid #ff4544;
+}

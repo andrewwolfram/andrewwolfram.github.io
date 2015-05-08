@@ -117,7 +117,7 @@ function injectScript() {
 
     chrome.tabs.executeScript(codeObject);
 
-//    window.close();
+    window.close();
 
 }
 

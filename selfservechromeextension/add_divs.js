@@ -1,4 +1,4 @@
-setTimeout(function(){addDivs();}, 1000);
+var myInterval = setInterval(function(){if(IntentMedia.Config){addDivs(); clearInterval(myInterval);}}, 500);
 
 var adArray = [];
 var prev;
@@ -6,13 +6,24 @@ var prev;
 function addDivs() {
 
     if(!IntentMedia.Config.on_page)
-        return false;
+        return;
 
     for(var i = 0; i<IntentMedia.Config.on_page.placements.length; i++) 
         adArray.push(IntentMedia.Config.on_page.placements[i].target.substring(1));
 
     if(adArray.length == 0)
-        return false;
+        return;
+
+    var myExitUnitOpener = IntentMedia.ExitUnitOpener;
+    IntentMedia.ExitUnitOpener.options.is_frequency_capped = function() { return false; };
+    IntentMedia.ExitUnitOpener.is_cross_site_eu_frequency_capped = function() { return false; };
+    IntentMedia.ExitUnitOpener.opener_is_deactivated = function() { return false; };
+
+    var myCSS = document.createElement("link");
+    myCSS.href = '//andrewwolfram.github.io/selfservechromeextension/on_page.css';
+    myCSS.rel = 'stylesheet';
+    myCSS.type = 'text/css';
+    document.head.appendChild(myCSS);
 
     var myDiv = document.createElement("div");
     myDiv.id = "addDivs";
@@ -39,7 +50,10 @@ function addDivs() {
     function removeMyDiv(e) { 
             document.body.removeEventListener('mouseover', handler, false); 
             document.body.removeChild(document.getElementById("addDivs"));
+            IntentMedia.ExitUnitOpener = myExitUnitOpener;
+            if(e) {
             e.stopPropagation();
+            }
     }
 
     if (document.body.addEventListener) {
