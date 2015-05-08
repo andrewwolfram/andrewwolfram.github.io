@@ -53,6 +53,7 @@ function addDivs() {
             IntentMedia.ExitUnitOpener = myExitUnitOpener;
             if(e) {
             e.stopPropagation();
+            e.preventDefault();
             }
     }
 
@@ -95,9 +96,11 @@ function addDivs() {
             e.target.className = prev.className.replace(/\bhighlight\b/, '');
             e.target.removeEventListener("click", insertDiv, false);
             e.stopPropagation();
+            e.preventDefault();
             return;
         }
         document.getElementById("targetName").innerText = adArray[length-1];
         e.stopPropagation();
+        e.preventDefault();
     }
 }
