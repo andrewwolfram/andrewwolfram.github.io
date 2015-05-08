@@ -17,9 +17,9 @@ function addDivs() {
     window.addEventListener("mousedown", stopFlash, true);
 
     var myExitUnitOpener = IntentMedia.ExitUnitOpener;
-    IntentMedia.ExitUnitOpener.options.is_frequency_capped = function() { return true; };
-    IntentMedia.ExitUnitOpener.is_cross_site_eu_frequency_capped = function() { return true; };
-    IntentMedia.ExitUnitOpener.opener_is_deactivated = function() { return true; };
+//    IntentMedia.ExitUnitOpener.options.is_frequency_capped = function() { return true; };
+//    IntentMedia.ExitUnitOpener.is_cross_site_eu_frequency_capped = function() { return true; };
+//    IntentMedia.ExitUnitOpener.opener_is_deactivated = function() { return true; };
 
     var myCSS = document.createElement("link");
     myCSS.href = '//andrewwolfram.github.io/selfservechromeextension/on_page.css';
