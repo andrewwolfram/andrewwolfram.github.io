@@ -14,6 +14,12 @@ function addDivs() {
     if(adArray.length == 0)
         return;
 
+    window.addEventListener("mousedown", stopExits, true);
+
+    function stopFlash(e) {
+        e.stopPropagation();
+    }
+
     var myExitUnitOpener = IntentMedia.ExitUnitOpener;
     IntentMedia.ExitUnitOpener.options.is_frequency_capped = function() { return true; };
     IntentMedia.ExitUnitOpener.is_cross_site_eu_frequency_capped = function() { return true; };
@@ -55,6 +61,7 @@ function addDivs() {
             e.preventDefault();
             }
             IntentMedia.ExitUnitOpener = myExitUnitOpener;
+            window.removeEventListener("mousedown", stopFlash, true);
     }
 
     if (document.body.addEventListener) {
