@@ -101,10 +101,24 @@ function injectScript() {
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' 
     });
-    chrome.tabs.executeScript({file: "https://andrewwolfram.github.io/selfservechromeextension/content-script.js"});
+    chrome.tabs.executeScript({
+        code:
+        '(function() {' + 
+                       'var script = document.createElement("script");' + 
+                       'script.url = "https://andrewwolfram.github.io/selfservechromeextension/content-script.js";' + 
+                       'document.getElementsByTagName("head")[0].appendChild(script);' +
+                    '}());' 
+    });
 
     if(frequency)
-    chrome.tabs.executeScript({file: "https://andrewwolfram.github.io/selfservechromeextension/content-script1.js"});
+    chrome.tabs.executeScript({
+        code:
+        '(function() {' + 
+                       'var script = document.createElement("script");' + 
+                       'script.url = "https://andrewwolfram.github.io/selfservechromeextension/content-script1.js";' + 
+                       'document.getElementsByTagName("head")[0].appendChild(script);' +
+                    '}());' 
+    });
 
 //    window.close();
 
