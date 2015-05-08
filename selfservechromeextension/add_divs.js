@@ -102,5 +102,6 @@ function removeMyDiv(e) {
     if(e) {
         e.stopPropagation();
         e.preventDefault();
+    }
     window.removeEventListener("mousedown", stopFlash, true);
 }
