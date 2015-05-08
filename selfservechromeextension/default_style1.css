@@ -10,3 +10,23 @@ body {
 .row-top-buffer {
     margin-top: 10px;
 }
+
+#addDivs {
+
+}
+
+#myText {
+
+}
+
+#targetName {
+
+}
+
+#myButton{
+
+}
+
+.highlight {
+    border: #ff4544 3px solid;
+}
