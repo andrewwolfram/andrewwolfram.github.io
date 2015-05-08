@@ -39,7 +39,7 @@ function addDivs() {
     function removeMyDiv(e) { 
             document.body.removeEventListener('mouseover', handler, false); 
             document.body.removeChild(document.getElementById("addDivs"));
-            e.stopPropogation();
+            e.stopPropagation();
     }
 
     if (document.body.addEventListener) {
@@ -80,10 +80,10 @@ function addDivs() {
             removeMyDiv();
             e.target.className = prev.className.replace(/\bhighlight\b/, '');
             e.target.removeEventListener("click", insertDiv, false);
-            e.stopPropogation();
+            e.stopPropagation();
             return;
         }
         document.getElementById("targetName").innerText = adArray[length-1];
-        e.stopPropogation();
+        e.stopPropagation();
     }
 }
