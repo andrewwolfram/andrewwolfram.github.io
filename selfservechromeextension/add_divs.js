@@ -16,7 +16,7 @@ function addDivs() {
 
     window.addEventListener("mousedown", stopFlash, true);
 
-    var myExitUnitOpener = IntentMedia.ExitUnitOpener;
+//   var myExitUnitOpener = IntentMedia.ExitUnitOpener;
 //    IntentMedia.ExitUnitOpener.options.is_frequency_capped = function() { return true; };
 //    IntentMedia.ExitUnitOpener.is_cross_site_eu_frequency_capped = function() { return true; };
 //    IntentMedia.ExitUnitOpener.opener_is_deactivated = function() { return true; };
@@ -108,6 +108,6 @@ function removeMyDiv(e) {
         e.stopPropagation();
         e.preventDefault();
     }
-    IntentMedia.ExitUnitOpener = myExitUnitOpener;
+//    IntentMedia.ExitUnitOpener = myExitUnitOpener;
     window.removeEventListener("mousedown", stopFlash, true);
 }
