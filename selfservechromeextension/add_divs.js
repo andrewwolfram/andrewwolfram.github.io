@@ -38,7 +38,7 @@ function addDivs() {
     
     function removeMyDiv(e) { 
             document.body.removeEventListener('mouseover', handler, false); 
-            document.body.removeChild(document.getElementById("myDiv"));
+            document.body.removeChild(document.getElementById("addDivs"));
             e.stopPropogation();
     }
 
@@ -59,7 +59,7 @@ function addDivs() {
         
         if (prev) {
             prev.className = prev.className.replace(/\bhighlight\b/, '');
-            target.removeEventListener("click", insertDiv, false);
+            prev.removeEventListener("click", insertDiv, false);
             prev = undefined;
         }
         
@@ -83,7 +83,7 @@ function addDivs() {
             e.stopPropogation();
             return;
         }
-        document.getElementById("mySpan").innerText = adArray[length-1];
+        document.getElementById("targetName").innerText = adArray[length-1];
         e.stopPropogation();
     }
 }
