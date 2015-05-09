@@ -83,15 +83,15 @@ function handler(event) {
     if (event.target === document.body || (prev && prev === event.target)) {
         return;
     }
-
-    if (event.target.id == "addDivs" || event.target.id == "targetName" || event.target.id == "myButton" || event.target.id == "myText") {
-        return;
-    }
    
     if (prev) {
         prev.className = prev.className.replace(/\bhighlight\b/, '');
         prev.removeEventListener("click", insertDiv, false);
         prev = undefined;
+    }
+
+    if (event.target.id == "addDivs" || event.target.id == "targetName" || event.target.id == "myButton" || event.target.id == "myText") {
+        return;
     }
      
     if (event.target) {
