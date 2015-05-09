@@ -3,6 +3,13 @@ window.onload = function(){myBehavior();};
 function myBehavior() {
     
     document.getElementById("inject_button").addEventListener("click", function(){injectScript();});
+    document.getElementById("site_name").focus();
+    document.querySelector('#txtSearch').addEventListener('keypress', function (e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { 
+            document.getElementById("inject_button").click();
+        }
+    });
 
 }
 

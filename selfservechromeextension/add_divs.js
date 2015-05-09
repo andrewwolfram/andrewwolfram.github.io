@@ -32,7 +32,7 @@ function addDivs() {
 
     var mySpan = document.createElement("span");
     mySpan.id = "targetName";
-    mySpan.innerText = adArray[length-1];
+    mySpan.innerText = adArray[adArray.length-1];
     myPar.appendChild(mySpan);
 
     myDiv.appendChild(myPar);
@@ -80,6 +80,10 @@ function insertDiv(e) {
 
 function handler(event) {
     if (event.target === document.body || (prev && prev === event.target)) {
+        return;
+    }
+
+    if (event.target.id == "addDivs" || event.target.id == "targetName" || event.target.id == "myButton" || event.target.id == "myText") {
         return;
     }
    
