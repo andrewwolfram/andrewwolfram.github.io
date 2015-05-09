@@ -2,11 +2,12 @@
     position: fixed;
     width: 100%;
     z-index: 9999;
-    background-image: url('//andrewwolfram.github.io/selfservechromeextension/background.jpg';
-    background-color: #C2E0FF;
+    background-image: url('andrewwolfram.github.io/selfservechromeextension/background.jpg';
+/*    background-color: #C2E0FF;
     border-bottom: 3px;
     border-color: #FFFF99;
     border-style: solid;
+*/
 }
 
 #myText {
