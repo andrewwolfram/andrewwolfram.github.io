@@ -6,6 +6,7 @@
     z-index: 9999;
     background-image: url('//andrewwolfram.github.io/selfservechromeextension/background.jpg');
     padding-bottom: 7px;
+    padding-left: 7px;
 }
 
 #myText {
