@@ -134,8 +134,8 @@ function getTravelDates() {
     var year = today.getFullYear();
 
     var month = today.getMonth() + 1;
-    if(month == 12) {month = 1; year + 1;}
-    month + 1;
+    if(month == 12) {month = 1; year += 1;}
+    month += 1;
     if(month < 10) month = "0" + month;
 
     var travel_date_start = "" + year + month + "15"
