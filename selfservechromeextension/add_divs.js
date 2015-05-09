@@ -1,4 +1,4 @@
-var myInterval = setInterval(function(){if(IntentMedia != undefined && IntentMedia.Config != undefined){addDivs(); clearInterval(myInterval);}}, 500);
+var myInterval = setInterval(function(){if(IntentMedia != undefined && IntentMedia.Config != undefined && IntentMedia.Config.on_page != undefined){addDivs(); clearInterval(myInterval);}}, 500);
 
 var adArray = [];
 var prev;
@@ -40,7 +40,7 @@ function addDivs() {
     var myButton = document.createElement("button");
     myButton.id = "myButton";
     myButton.innerText = "Close";
-    myDiv.appendChild(myButton);
+    myPar.appendChild(myButton);
     
     myButton.addEventListener("click", removeMyDiv);
     
