@@ -65,6 +65,7 @@ function insertDiv(e) {
     imDiv.className = imDiv.id;
     e.target.appendChild(imDiv);
     adArray.pop();
+    IntentMedia.trigger("onpage_ads_redraw");
     if(adArray.length == 0){
         e.target.className = prev.className.replace(/\bhighlight\b/, '');
         e.target.removeEventListener("click", insertDiv, false);
