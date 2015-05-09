@@ -1,5 +1,6 @@
 #addDivs {
     position: fixed;
+    z-index: 9999;
     background-color: #C2E0FF;
     border-bottom: 3px;
     border-color: #FFFF99;
