@@ -12,17 +12,19 @@ function myBehavior() {
     });
 
     chrome.storage.sync.get('myForm', function(myObject) {
-        document.getElementById("site_name").value = myObject.myForm.site_name;
-        document.getElementById("page_id").value = myObject.myForm.page_id;
-        document.getElementById("site_country").value = myObject.myForm.site_country;
-        document.getElementById("site_currency").value = myObject.myForm.site_currency;
-        document.getElementById("site_language").value = myObject.myForm.site_language;
-        document.getElementById("desktop").checked = myObject.myForm.desktop;
-        document.getElementById("flight").checked = myObject.myForm.flight;
-        document.getElementById("hotel").checked = myObject.myForm.hotel;
-        document.getElementById("car").checked = myObject.myForm.car;
-        document.getElementById("beacon").checked = myObject.myForm.beacon;
-        document.getElementById("frequency").checked = myObject.myForm.frequency;
+        if(myObject) {
+            document.getElementById("site_name").value = myObject.myForm.site_name;
+            document.getElementById("page_id").value = myObject.myForm.page_id;
+            document.getElementById("site_country").value = myObject.myForm.site_country;
+            document.getElementById("site_currency").value = myObject.myForm.site_currency;
+            document.getElementById("site_language").value = myObject.myForm.site_language;
+            document.getElementById("desktop").checked = myObject.myForm.desktop;
+            document.getElementById("flight").checked = myObject.myForm.flight;
+            document.getElementById("hotel").checked = myObject.myForm.hotel;
+            document.getElementById("car").checked = myObject.myForm.car;
+            document.getElementById("beacon").checked = myObject.myForm.beacon;
+            document.getElementById("frequency").checked = myObject.myForm.frequency;
+        }
     });
 
 }
