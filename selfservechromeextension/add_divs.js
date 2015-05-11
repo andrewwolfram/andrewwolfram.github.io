@@ -9,8 +9,9 @@ function addDivs() {
         return;
 
     for(var i = 0; i<IntentMedia.Config.on_page.placements.length; i++) {
-        if(IntentMedia.Config.on_page.placements[i].placement != undefined)
-           adArray.push(IntentMedia.Config.on_page.placements[i].target.substring(1));
+        if(IntentMedia.Config.on_page.placements[i].placement != undefined) {
+            adArray.push(IntentMedia.Config.on_page.placements[i].target.substring(1));
+        }
     }
 
     if(IntentMedia.Config.exit_unit) {
