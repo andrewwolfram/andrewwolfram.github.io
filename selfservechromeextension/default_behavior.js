@@ -12,7 +12,7 @@ function myBehavior() {
     });
 
     chrome.storage.sync.get('myForm', function(myObject) {
-        if(myObject) {
+        if(myObject.myForm != undefined) {
             document.getElementById("site_name").value = myObject.myForm.site_name;
             document.getElementById("page_id").value = myObject.myForm.page_id;
             document.getElementById("site_country").value = myObject.myForm.site_country;
