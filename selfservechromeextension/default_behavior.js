@@ -11,6 +11,20 @@ function myBehavior() {
         }
     });
 
+    chrome.storage.sync.get('myForm', function(myObject) {
+        document.getElementById("site_name").value = myObject.myForm.site_name;
+        document.getElementById("page_id").value = myObject.myForm.page_id;
+        document.getElementById("site_country").value = myObject.myForm.site_country;
+        document.getElementById("site_currency").value = myObject.myForm.site_currency;
+        document.getElementById("site_language").value = myObject.myForm.site_language;
+        document.getElementById("desktop").checked = myObject.myForm.desktop;
+        document.getElementById("flight").checked = myObject.myForm.flight;
+        document.getElementById("hotel").checked = myObject.myForm.hotel;
+        document.getElementById("car").checked = myObject.myForm.car;
+        document.getElementById("beacon").checked = myObject.myForm.beacon;
+        document.getElementById("frequency").checked = myObject.myForm.frequency;
+    });
+
 }
 
 function injectScript() {
@@ -124,7 +138,30 @@ function injectScript() {
 
     chrome.tabs.executeScript(codeObject);
 
+    saveInputs();
     window.close();
+
+}
+
+function saveInputs() {
+
+    var myForm = 
+    {
+        site_name: document.getElementById("site_name").value,
+        page_id: document.getElementById("page_id").value,
+        site_country: document.getElementById("site_country").value,
+        site_currency: document.getElementById("site_currency").value,
+        site_language: document.getElementById("site_language").value,
+        desktop: document.getElementById("desktop").checked,
+        mobile: document.getElementById("mobile").checked,
+        flight: document.getElementById("flight").checked,
+        hotel: document.getElementById("hotel").checked,
+        car: document.getElementById("car").checked,
+        beacon: document.getElementById("beacon").checked,
+        frequency: document.getElementById("frequency").checked
+    }
+
+    chrome.storage.sync.set({'myForm': myForm});
 
 }
 
