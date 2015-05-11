@@ -8,6 +8,6 @@
                 "default_icon": "default_icon.png",
                 "default_popup": "default_popup.html"
         },
-        "permissions": ["activeTab", "http://*/", "https://*/"],
+        "permissions": ["activeTab", "storage", "http://*/", "https://*/"],
         "content_security_policy": "script-src 'self' https://andrewwolfram.github.io; object-src 'self'"
 }
