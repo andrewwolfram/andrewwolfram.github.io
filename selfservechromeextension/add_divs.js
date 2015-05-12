@@ -85,6 +85,7 @@ function insertDiv(e) {
         e.stopPropagation();
         e.preventDefault();
         removeMyDiv();
+        IntentMedia.trigger("onpage_ads_redraw");
         return;
     }
     document.getElementById("targetName").innerText = adArray[adArray.length-1];
