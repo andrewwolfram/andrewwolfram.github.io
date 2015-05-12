@@ -10,7 +10,7 @@ function addDivs() {
 
     for(var i = 0; i<IntentMedia.Config.on_page.placements.length; i++) {
             adArray.push(IntentMedia.Config.on_page.placements[i].target.substring(1));
-            console.log("On-page ad placement detected: " + addArray[i]);
+            console.log("On-page ad placement detected: " + adArray[i]);
     }
 
     if(IntentMedia.Config.exit_unit) {
