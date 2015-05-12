@@ -22,6 +22,8 @@ function addDivs() {
                 IntentMedia.Config.exit_unit.opens_remote = false;
                 window.addEventListener("click", function(){IntentMedia.trigger("open_exit_unit");});
             }
+        } else {
+            IntentMedia.Config.exit_unit.opens_remote = false;
         }
     }
 
