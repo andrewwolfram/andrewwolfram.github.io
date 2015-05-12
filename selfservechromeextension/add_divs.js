@@ -11,6 +11,7 @@ function addDivs() {
     for(var i = 0; i<IntentMedia.Config.on_page.placements.length; i++) {
         if(IntentMedia.Config.on_page.placements[i].placement != undefined) {
             adArray.push(IntentMedia.Config.on_page.placements[i].target.substring(1));
+            console.log("On-page ad placement detected: " + addArray[i]);
         }
     }
 
