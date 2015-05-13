@@ -9,8 +9,8 @@ function addDivs() {
         return;
 
     for(var i = 0; i<IntentMedia.Config.on_page.placements.length; i++) {
-            adArray.push(IntentMedia.Config.on_page.placements[i].target.substring(1));
-            console.log("On-page ad placement detected: " + adArray[i]);
+            adArray.push(IntentMedia.Config.on_page.placements[i]);
+            console.log("On-page ad placement detected: " + adArray[i].target.substring(1));
     }
 
     if(IntentMedia.Config.exit_unit) {
@@ -44,11 +44,11 @@ function addDivs() {
 
     var myPar = document.createElement("p");
     myPar.id = "myText";
-    myPar.innerText = "Please click the highlighted DOM element you would like to insert the following div after: ";
+    myPar.innerText = "Please click the highlighted DOM element at which you would like to insert the following div: ";
 
     var mySpan = document.createElement("span");
     mySpan.id = "targetName";
-    mySpan.innerText = adArray[adArray.length-1];
+    mySpan.innerText = adArray[adArray.length-1].target.substring(1);
     myPar.appendChild(mySpan);
 
     myDiv.appendChild(myPar);
@@ -77,9 +77,13 @@ function stopFlash(e) {
 
 function insertDiv(e) {
     var imDiv = document.createElement("div");
-    imDiv.id = adArray[adArray.length-1];
+    imDiv.id = adArray[adArray.length-1].target.substring(1);
     imDiv.className = imDiv.id;
-    e.target.appendChild(imDiv);
+    if(adArray[adArray.length-1].type.indexOf("rail") != -1) {
+        e.target.appendChild(imDiv);
+    } else {
+        e.target.parent.insertBefore(imDiv, e.target);
+    }
     adArray.pop();
     if(adArray.length == 0){
         e.target.className = prev.className.replace(/\bhighlight\b/, '');
@@ -90,7 +94,7 @@ function insertDiv(e) {
         IntentMedia.trigger("onpage_ads_redraw");
         return;
     }
-    document.getElementById("targetName").innerText = adArray[adArray.length-1];
+    document.getElementById("targetName").innerText = adArray[adArray.length-1].target.substring(1);
     e.stopPropagation();
     e.preventDefault();
 }
