@@ -82,7 +82,7 @@ function insertDiv(e) {
     if(adArray[adArray.length-1].type.indexOf("rail") != -1) {
         e.target.appendChild(imDiv);
     } else {
-        e.target.parent.insertBefore(imDiv, e.target);
+        e.target.parentElement.insertBefore(imDiv, e.target);
     }
     adArray.pop();
     if(adArray.length == 0){
