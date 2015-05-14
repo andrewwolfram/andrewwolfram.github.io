@@ -37,11 +37,11 @@ function addDivs() {
     }, true);
     window.addEventListener('dragenter', function(e){
         e.preventDefault();
-        e.target.class += " highlightmylife";
+        e.target.className += " highlightmylife";
     }, true);
     window.addEventListener('dragleave', function(e){
         e.preventDefault();
-        e.target.class = e.target.class.replace(/\bhighlightmylife\b/, '');
+        e.target.className = e.target.className.replace(/\bhighlightmylife\b/, '');
     }, true);
     window.addEventListener('drop', function(e) {
         e.preventDefault(); 
