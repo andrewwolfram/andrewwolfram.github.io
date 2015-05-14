@@ -36,7 +36,7 @@ function addDivs() {
         e.preventDefault();
         e.target.class += " highlightmylife";
     }, true);
-    window.addEventListener('dragleave', function(e){
+    window.addEventListener('dragleave', function(e) {
         e.preventDefault();
         e.target.className = e.className.replace(/\bhighlightmylife\b/, '');
     }, true);
@@ -81,10 +81,6 @@ function addDivs() {
     } else if (document.body.attachEvent) {
         document.body.attachEvent('mouseover', function(e) {
             return handler(e || window.event);
-    window.addEventListener('drop', function(e) {
-        e.preventDefault(); 
-        var data = document.getElementById(e.dataTransfer.getData('text')); 
-        e.target.parentElement.insertBefore(data, e.target);
     });
 
     window.addEventListener("mousedown", stopFlash, true);
