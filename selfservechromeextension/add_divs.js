@@ -47,6 +47,7 @@ function addDivs() {
         e.preventDefault(); 
         var data = document.getElementById(e.dataTransfer.getData('text')); 
         e.target.parentElement.insertBefore(data, e.target);
+        e.target.className = e.target.className.replace(/\bhighlightmylife\b/, '');
     });
 
     window.addEventListener("mousedown", stopFlash, true);
