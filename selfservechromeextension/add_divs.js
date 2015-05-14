@@ -86,7 +86,7 @@ function insertDiv(e) {
     }
     adArray.pop();
     if(adArray.length == 0){
-        e.target.className = prev.className.replace(/\bhighlight\b/, '');
+        e.target.className = prev.className.replace(/\bhighlightmylife\b/, '');
         e.target.removeEventListener("click", insertDiv, false);
         e.stopPropagation();
         e.preventDefault();
@@ -105,7 +105,7 @@ function handler(event) {
     }
    
     if (prev) {
-        prev.className = prev.className.replace(/\bhighlight\b/, '');
+        prev.className = prev.className.replace(/\bhighlightmylife\b/, '');
         prev.removeEventListener("click", insertDiv, false);
         prev = undefined;
     }
@@ -116,7 +116,7 @@ function handler(event) {
      
     if (event.target) {
         prev = event.target;
-        prev.className += " highlight";
+        prev.className += " highlightmylife";
         prev.addEventListener("click", insertDiv, false);
     }
 }
