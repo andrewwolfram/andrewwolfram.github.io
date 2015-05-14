@@ -34,6 +34,9 @@ function addDivs() {
     window.addEventListener('dragstart', function(e){e.dataTransfer.setData('text', e.target.id)});
     window.addEventListener('dragover', function(e){
         e.preventDefault();
+    }, true);
+    window.addEventListener('dragenter', function(e){
+        e.preventDefault();
         e.target.class += " highlightmylife";
     }, true);
     window.addEventListener('dragleave', function(e){
