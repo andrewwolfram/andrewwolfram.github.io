@@ -36,51 +36,14 @@ function addDivs() {
         e.preventDefault();
         e.target.class += " highlightmylife";
     }, true);
-    window.addEventListener('dragleave', function(e) {
+    window.addEventListener('dragleave', function(e){
         e.preventDefault();
-        e.target.className = e.className.replace(/\bhighlightmylife\b/, '');
+        e.target.class = e.target.class.replace(/\bhighlightmylife\b/, '');
     }, true);
     window.addEventListener('drop', function(e) {
         e.preventDefault(); 
         var data = document.getElementById(e.dataTransfer.getData('text')); 
         e.target.parentElement.insertBefore(data, e.target);
-    });
-
-    window.addEventListener("mousedown", stopFlash, true);
-
-    var myCSS = document.createElement("link");
-    myCSS.href = '//andrewwolfram.github.io/selfservechromeextension/on_page.css';
-    myCSS.rel = 'stylesheet';
-    myCSS.type = 'text/css';
-    document.head.appendChild(myCSS);
-
-    var myDiv = document.createElement("div");
-    myDiv.id = "addDivs";
-    document.body.insertBefore(myDiv, document.body.children[0]);
-
-    var myPar = document.createElement("p");
-    myPar.id = "myText";
-    myPar.innerText = "Please click the highlighted DOM element at which you would like to insert the following div: ";
-
-    var mySpan = document.createElement("span");
-    mySpan.id = "targetName";
-    mySpan.innerText = adArray[adArray.length-1].target.substring(1);
-    myPar.appendChild(mySpan);
-
-    myDiv.appendChild(myPar);
-
-    var myButton = document.createElement("button");
-    myButton.id = "myButton";
-    myButton.innerText = "Close";
-    myPar.appendChild(myButton);
-    
-    myButton.addEventListener("click", removeMyDiv);
-    
-    if (document.body.addEventListener) {
-        document.body.addEventListener('mouseover', handler, false);
-    } else if (document.body.attachEvent) {
-        document.body.attachEvent('mouseover', function(e) {
-            return handler(e || window.event);
     });
 
     window.addEventListener("mousedown", stopFlash, true);
