@@ -3,6 +3,9 @@ var myInterval = setInterval(function(){if(IntentMedia != undefined && IntentMed
 var adArray = [];
 var prev;
 
+var awInt;
+var imDiv;
+
 function addDivs() {
 
     if(!IntentMedia.Config.on_page)
@@ -96,7 +99,7 @@ function stopFlash(e) {
 }
 
 function insertDiv(e) {
-    var imDiv = document.createElement("div");
+    imDiv = document.createElement("div");
     imDiv.id = adArray[adArray.length-1].target.substring(1);
     imDiv.className = imDiv.id;
     imDiv.draggable = "true";
@@ -106,6 +109,12 @@ function insertDiv(e) {
         e.target.parentElement.insertBefore(imDiv, e.target);
     }
     adArray.pop();
+    awInt = setInterval(function(){
+        if(imDiv.firstElementChild) {
+            clearInterval(awInt);
+            imDiv.firstElementChild.className = imDiv.firstElementChild.className.replace(/\bIM\_single\b/, 'IM_multi');
+        }
+    });
     if(adArray.length == 0){
         e.target.className = prev.className.replace(/\bhighlightmylife\b/, '');
         e.target.removeEventListener("click", insertDiv, false);
