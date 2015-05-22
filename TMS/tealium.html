@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PIE Web</title>
+        <script type="text/javascript">
+            var utag_data = {  
+                        
+                /* Page identification parameters */
+                site_name: 'test_site',         
+                page_id: 'flight.list',             
+                site_country: 'US',                  
+                site_language: 'en',                 
+                site_currency: 'USD',   
+                display_format_type: 'DESKTOP', 
+                 
+                /* User detail parameters */
+                user_member_id: '1234',                         
+                visitor_id: '5678',                                     
+                referrer_source: 'Google',             
+                referrer_channel: 'SEM',                
+                active_member_profile: 'Y',     
+
+                /* Misc. parameters */
+                tag_path: '//a.cdn.intentmedia.net/javascripts/v1/intent_media_core.js',                                  
+                show_onpage_ads: 'Y',                       
+                show_exit_units: 'Y',                     
+                is_hv: 'N',                                      
+                is_lv: 'Y',                                      
+
+                /*  Generic search parameters */
+                travel_date_start: '20150808',            
+                travel_date_end: '20150817',              
+                travelers: '4',                                 
+                adults: '2',                                    
+                children: '1',                               
+                seniors: '1',                                  
+                 
+                /* Flight search parameters */
+                trip_type: 'roundtrip',                                   
+                flight_class_of_service: 'FirstClass',
+                flight_origin: 'LGA',                   
+                flight_destination: 'MIA',              
+                 
+                /* Hotel search parameters */
+                hotel_city: 'Orlando',                          
+                hotel_country: 'US',                    
+                hotel_state: 'FL',                      
+                hotel_rooms: '1',                       
+                number_of_opaque_listings: '0',   
+                 
+                /* Car search parameters */
+                car_pickup_location_type: 'AIRPORT',   
+                car_pickup_airport: 'MCO',               
+                car_pickup_city: 'Orlando',                     
+                car_pickup_state: 'FL',                    
+                car_pickup_country: 'US',                
+                car_dropoff_location_type: 'AIRPORT',   
+                car_dropoff_airport: 'JFK',         
+                car_dropoff_city: 'New York',                   
+                car_dropoff_state: 'NY',            
+                car_dropoff_country: 'US',         
+                car_pickup_time: '1200',                   
+                car_dropoff_time: '1200',                
+                car_trip_type: 'oneway',                         
+                number_of_opaque_listings: '5', 
+                 
+                /* Package search parameters */
+                package_type: 'HOTEL+CAR',              
+
+                /* Conversion parameters - CONFIRMATION PAGE ONLY */
+                total_conversion_value: '225.72',
+                order_id: '5aE2k3',                                     
+                promo_code: 'Y',                                
+                flight_carrier_code: 'UA',      
+                hotel_property_id: '1234',              
+                hotel_market_id: '123',                 
+                hotel_brand_code: 'HH', 
+                hotel_value_in_package: '111.38',
+                conversion_type: 'RETAIL',                  
+                car_class: 'FULL-SIZE',           
+                car_rental_agency: 'Alamo',
+
+                /* Custom parameters */
+                site_reporting_value_01: '1a',       
+                site_reporting_value_02: '2b',       
+                site_reporting_value_03: '3c',       
+                site_reporting_value_04: '4d',       
+                site_reporting_value_05: '5e',       
+                site_reporting_value_06: '6f',       
+                site_reporting_value_07: '7g',       
+                custom_01: '001',                                  
+                custom_02: '002',                                   
+                custom_03: '003',                                   
+                custom_04: '004',                                   
+                custom_05: '005',                                 
+                custom_06: '006',                                  
+                custom_07: '007',                                  
+                custom_08: '008',                                  
+                custom_09: '009',                                   
+                custom_10: '010'                                   
+                }; 
+            </script>
+            <script type="text/javascript">
+                (function(a,b,c,d) {
+                a = '//tags.tiqcdn.com/utag/intentmedia/main/prod/utag.js';
+                b = document;
+                c = 'script';
+                d = b.createElement(c);
+                d.src = a;
+                d.type = 'text/java' + c;
+                d.async = 'true';
+                a = b.getElementsByTagName(c)[0];
+                a.parentNode.insertBefore(d,a);
+                }());
+            </script>
+
+            <!-- Bootstrap core CSS -->
+            <link href="css/bootstrap.min.css" rel="stylesheet">
+
+            <!-- Custom styles for this template -->
+            <link href="css/starter-template.css" rel="stylesheet">
+            
+        </head>
+        <body>
+
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            </nav>
+
+            <div class="container">
+                <div class="starter-template">
+                    <h1>Tealium Integration</h1>
+                    <p class="lead">The Tealium data object is utag_data</p>
+                </div>
+                <div id="IntentMediaIntercard"></div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+        </body>
+</html>
