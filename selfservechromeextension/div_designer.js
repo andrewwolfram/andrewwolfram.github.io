@@ -54,6 +54,7 @@ function openDesigner() {
 
     var myDiv = document.createElement("div");
     myDiv.id = "addDivs";
+    myDiv.class = "im_designer";
     document.body.insertBefore(myDiv, document.body.children[0]);
 
     var myPar = document.createElement("p");

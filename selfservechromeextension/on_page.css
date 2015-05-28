@@ -11,6 +11,21 @@
     font-weight: bold;
 }
 
+#nextButton {
+    position: absolute;
+    left: 635px;
+}
+
+#closeButton {
+    position: absolute;
+    left: 680px;
+}
+
+#myInput {
+    position: absolute;
+    left: 500px;
+}
+
 #myText {
 
 }
