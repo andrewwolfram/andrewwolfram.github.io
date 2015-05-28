@@ -82,8 +82,11 @@ function openDesigner() {
        intercardDesign[designArray[im_design_pos]] = document.getElementById('myInput').value;
        IntentMedia.trigger("onpage_ads_refresh");
        im_design_pos++;
-       if(im_design_pos == designArray.length) closeDesigner();
-       document.getElementById('targetName').value = intercardDesign[designArray[im_design_pos]]; 
+       if(im_design_pos == designArray.length) {
+           closeDesigner();
+           return;
+       }
+       document.getElementById('targetName').innerText = intercardDesign[designArray[im_design_pos]]; 
        document.getElementById('myInput').value = intercardDesign[designArray[im_design_pos]]; 
        if(im_design_pos == (designArray.length - 1)) e.target.innerText = "Finish";
     });
