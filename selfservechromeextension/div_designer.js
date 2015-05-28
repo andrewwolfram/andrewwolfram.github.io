@@ -86,7 +86,7 @@ function openDesigner() {
            closeDesigner();
            return;
        }
-       document.getElementById('targetName').innerText = intercardDesign[designArray[im_design_pos]]; 
+       document.getElementById('targetName').innerText = designArray[im_design_pos]; 
        document.getElementById('myInput').value = intercardDesign[designArray[im_design_pos]]; 
        if(im_design_pos == (designArray.length - 1)) e.target.innerText = "Finish";
     });
