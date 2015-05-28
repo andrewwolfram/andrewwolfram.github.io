@@ -47,6 +47,9 @@ var railDesign = IntentMediaDesign.search_compare_ads.rail;
 
 function openDesigner() {
 
+    if(document.body.children[0].id === 'addDivs')
+        return;
+
     var myDiv = document.createElement("div");
     myDiv.id = "addDivs";
     document.body.insertBefore(myDiv, document.body.children[0]);
