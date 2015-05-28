@@ -714,14 +714,14 @@ var jscolor = {
 			p.pad.style.height = jscolor.images.pad[1]+'px';
 
 			// pad border
-			p.padB.style.position = 'static';
+			p.padB.style.position = 'absolute';
 			p.padB.style.left = THIS.pickerFace+'px';
 			p.padB.style.top = THIS.pickerFace+'px';
 			p.padB.style.border = THIS.pickerInset+'px solid';
 			p.padB.style.borderColor = THIS.pickerInsetColor;
 
 			// pad mouse area
-			p.padM.style.position = 'static';
+			p.padM.style.position = 'absolute';
 			p.padM.style.left = '0';
 			p.padM.style.top = '0';
 			p.padM.style.width = THIS.pickerFace + 2*THIS.pickerInset + jscolor.images.pad[0] + jscolor.images.arrow[0] + 'px';
@@ -735,7 +735,7 @@ var jscolor = {
 
 			// slider border
 			p.sldB.style.display = THIS.slider ? 'block' : 'none';
-			p.sldB.style.position = 'static';
+			p.sldB.style.position = 'absolute';
 			p.sldB.style.right = THIS.pickerFace+'px';
 			p.sldB.style.top = THIS.pickerFace+'px';
 			p.sldB.style.border = THIS.pickerInset+'px solid';
@@ -743,7 +743,7 @@ var jscolor = {
 
 			// slider mouse area
 			p.sldM.style.display = THIS.slider ? 'block' : 'none';
-			p.sldM.style.position = 'static';
+			p.sldM.style.position = 'absolute';
 			p.sldM.style.right = '0';
 			p.sldM.style.top = '0';
 			p.sldM.style.width = jscolor.images.sld[0] + jscolor.images.arrow[0] + THIS.pickerFace + 2*THIS.pickerInset + 'px';
@@ -761,7 +761,7 @@ var jscolor = {
 				p.btn.style.borderColor = pickerOutsetColor;
 			}
 			p.btn.style.display = THIS.pickerClosable ? 'block' : 'none';
-			p.btn.style.position = 'static';
+			p.btn.style.position = 'absolute';
 			p.btn.style.left = THIS.pickerFace + 'px';
 			p.btn.style.bottom = THIS.pickerFace + 'px';
 			p.btn.style.padding = '0 15px';
