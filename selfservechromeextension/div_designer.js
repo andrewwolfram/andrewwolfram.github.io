@@ -71,6 +71,7 @@ function openDesigner() {
     
     var cssInput = document.createElement("input");
     cssInput.id = "cssInput";
+    cssInput.class = "color";
     cssInput.type = "text";
     cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", function() {
