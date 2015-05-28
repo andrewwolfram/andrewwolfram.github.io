@@ -738,7 +738,7 @@ var jscolor = {
 			// slider border
 			p.sldB.style.display = THIS.slider ? 'block' : 'none';
 			p.sldB.style.position = 'fixed';
-			p.sldB.style.left = x + THIS.pickerFace+'px';
+			p.sldB.style.left = x + p.padM.offsetWithd +'px';
 			p.sldB.style.top = y + THIS.pickerFace+'px';
 			p.sldB.style.border = THIS.pickerInset+'px solid';
 			p.sldB.style.borderColor = THIS.pickerInsetColor;
@@ -746,10 +746,10 @@ var jscolor = {
 			// slider mouse area
 			p.sldM.style.display = THIS.slider ? 'block' : 'none';
 			p.sldM.style.position = 'fixed';
-                        p.sldM.style.left = x + 2*THIS.pickerInset + THIS.pickerFace + 'px';
-                        p.sldM.style.top = y + THIS.pickerInset + 'px';
+                        p.sldM.style.left = x + p.padM.offsetWidth + 'px';
+                        p.sldM.style.top = y + THIS.pickerFace + 'px';
 			p.sldM.style.width = jscolor.images.sld[0] + jscolor.images.arrow[0] + THIS.pickerFace + 2*THIS.pickerInset + 'px';
-			p.sldM.style.height = p.box.style.height;
+			p.sldM.style.height = jscolor.images.sld[1]+'px';
 			try {
 				p.sldM.style.cursor = 'pointer';
 			} catch(eOldIE) {
