@@ -82,22 +82,27 @@ function injectScript() {
 
     var flight_params =
         '"trip_type": "roundtrip",' +
-        '"flight_origin": "MCO",' +
-        '"flight_destination": "LGA"'; 
+        '"flight_origin": "NYC",' +
+        '"flight_destination": "LON"'; 
 
     var hotel_params =
-        '"hotel_city": "Orlando",' +
+        '"hotel_city": "New York",' +
         '"hotel_country": "US",' +
-        '"hotel_state": "FL",' +
+        '"hotel_state": "NY",' +
         '"hotel_rooms": "1"';
 
     var car_params = 
-        '"car_pickup_location_type": "CITY",' +
-        '"car_pickup_city": "Orlando",' +
-        '"car_pickup_state": "FL",' +
+        '"car_pickup_location_type": "AIRPORT",' +
+        '"car_pickup_airport": "JFK",' +
+        '"car_pickup_city": "New York",' +
+        '"car_pickup_state": "NY",' +
         '"car_pickup_country": "US",' +
         '"car_dropoff_location_type": "AIRPORT",' +
-        '"car_dropoff_airport": "MIA"';
+        '"car_dropoff_airport": "MIA",' +
+        '"car_dropoff_city": "Miami",' +
+        '"car_dropoff_state": "FL",' +
+        '"car_dropoff_country": "US",' +
+        '"car_trip_type": "oneway"';
 
    var intent_media_parameters = "";
 

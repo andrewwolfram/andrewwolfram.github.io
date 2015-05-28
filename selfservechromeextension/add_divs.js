@@ -77,7 +77,7 @@ function addDivs() {
     myDiv.appendChild(myPar);
 
     var myButton = document.createElement("button");
-    myButton.id = "myButton";
+    myButton.class = "myButton";
     myButton.innerText = "Close";
     myPar.appendChild(myButton);
     
@@ -103,6 +103,7 @@ function insertDiv(e) {
     imDiv.id = adArray[adArray.length-1].target.substring(1);
     imDiv.className = imDiv.id;
     imDiv.draggable = "true";
+    imDiv.addEventListener("dblclick", openDesigner);
     if(adArray[adArray.length-1].type.indexOf("rail") != -1) {
         e.target.appendChild(imDiv);
     } else {
