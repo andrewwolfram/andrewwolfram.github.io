@@ -116,4 +116,5 @@ function openDesigner() {
 
 function closeDesigner() {
     document.body.removeChild(document.getElementById("addDivs"));
+    im_design_pos = 0;
 }
