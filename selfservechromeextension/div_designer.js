@@ -75,6 +75,7 @@ function openDesigner() {
     cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", function() {
        intercardDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
+       railDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
        IntentMedia.trigger("onpage_ads_redraw");
     });
     myPar.appendChild(cssInput);
