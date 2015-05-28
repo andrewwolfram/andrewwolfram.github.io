@@ -49,8 +49,10 @@ var railDesign = IntentMediaDesign.search_compare_ads.rail;
 
 function openDesigner() {
 
-    if(document.body.children[0].id === 'addDivs')
+    if(document.body.children[0].id === 'addDivs') {
+        closeDesigner();
         return;
+    }
 
     var myDiv = document.createElement("div");
     myDiv.id = "addDivs";
@@ -73,7 +75,7 @@ function openDesigner() {
     cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", function() {
        intercardDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
-       IntentMedia.trigger("onpage_ads_refresh");
+       IntentMedia.trigger("onpage_ads_redraw");
     });
     myPar.appendChild(cssInput);
 
@@ -83,7 +85,7 @@ function openDesigner() {
     nextButton.addEventListener("click", function(e) {
        intercardDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
        railDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
-       IntentMedia.trigger("onpage_ads_refresh");
+       IntentMedia.trigger("onpage_ads_redraw");
        im_design_pos++;
        if(im_design_pos == designArray.length) {
            closeDesigner();
@@ -111,7 +113,7 @@ function openDesigner() {
        }
        intercardDesign[key] = userCSS;
        railDesign[key] = userCSS;
-       IntentMedia.trigger("onpage_ads_refresh");
+       IntentMedia.trigger("onpage_ads_redraw");
        }
     } 
     */
