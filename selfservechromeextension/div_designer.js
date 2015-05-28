@@ -72,7 +72,7 @@ function openDesigner() {
     cssInput.type = "text";
     cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", function() {
-       intercardDesign[designArray[im_design_pos]] = document.getElementById('myInput').value;
+       intercardDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
        IntentMedia.trigger("onpage_ads_refresh");
     });
     myPar.appendChild(cssInput);
@@ -81,8 +81,8 @@ function openDesigner() {
     nextButton.id = "nextButton";
     nextButton.innerText = "Next";
     nextButton.addEventListener("click", function(e) {
-       intercardDesign[designArray[im_design_pos]] = document.getElementById('myInput').value;
-       railDesign[designArray[im_design_pos]] = document.getElementById('myInput').value;
+       intercardDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
+       railDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
        IntentMedia.trigger("onpage_ads_refresh");
        im_design_pos++;
        if(im_design_pos == designArray.length) {
@@ -90,7 +90,7 @@ function openDesigner() {
            return;
        }
        document.getElementById('targetName').innerText = designArray[im_design_pos]; 
-       document.getElementById('myInput').value = intercardDesign[designArray[im_design_pos]]; 
+       document.getElementById('cssInput').value = intercardDesign[designArray[im_design_pos]]; 
        if(im_design_pos == (designArray.length - 1)) e.target.innerText = "Finish";
     });
     myPar.appendChild(nextButton);
