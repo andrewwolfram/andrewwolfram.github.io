@@ -69,6 +69,7 @@ function openDesigner() {
     var cssInput = document.createElement("input");
     cssInput.id = "myInput";
     cssInput.type = "text";
+    cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", function() {
        intercardDesign[designArray[im_design_pos]] = document.getElementById('myInput').value;
        IntentMedia.trigger("onpage_ads_refresh");
@@ -80,6 +81,7 @@ function openDesigner() {
     nextButton.innerText = "Next";
     nextButton.addEventListener("click", function(e) {
        intercardDesign[designArray[im_design_pos]] = document.getElementById('myInput').value;
+       railDesign[designArray[im_design_pos]] = document.getElementById('myInput').value;
        IntentMedia.trigger("onpage_ads_refresh");
        im_design_pos++;
        if(im_design_pos == designArray.length) {
