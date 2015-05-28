@@ -1,4 +1,4 @@
-window.IntentMediaDesign = IntentMediaDesign || {{
+window.IntentMediaDesign = IntentMediaDesign || {
 search_compare_ads:{
 intercard:{
 background_color:'',
