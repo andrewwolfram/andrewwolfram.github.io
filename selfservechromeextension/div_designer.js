@@ -1,3 +1,4 @@
+try{
 window.IntentMediaDesign = IntentMediaDesign || {
 search_compare_ads:{
 intercard:{
@@ -39,6 +40,9 @@ secondary_button_border_color:''
 }
 }
 };
+} catch (err) {
+    console.log(err);
+}
 
 var designArray = Object.keys(IntentMediaDesign.search_compare_ads.intercard);
 var im_design_pos = 0;
