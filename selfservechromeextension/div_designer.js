@@ -56,7 +56,7 @@ function openDesigner() {
 
     var myDiv = document.createElement("div");
     myDiv.id = "addDivs";
-    myDiv.class = "im_designer";
+    myDiv.className = "im_designer";
     document.body.insertBefore(myDiv, document.body.children[0]);
 
     var myPar = document.createElement("p");
@@ -71,7 +71,7 @@ function openDesigner() {
     
     var cssInput = document.createElement("input");
     cssInput.id = "cssInput";
-    cssInput.class = "color";
+    cssInput.className = "color";
     cssInput.type = "text";
     cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", function() {
