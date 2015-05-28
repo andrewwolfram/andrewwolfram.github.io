@@ -86,6 +86,7 @@ function openDesigner() {
     nextButton.addEventListener("click", function(e) {
        intercardDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
        railDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
+       document.getElementById("cssInput").style.backgroundColor = '';
        IntentMedia.trigger("onpage_ads_redraw");
        im_design_pos++;
        if(im_design_pos == designArray.length) {
