@@ -1,5 +1,5 @@
-try{
-window.IntentMediaDesign = IntentMediaDesign || {
+if(typeof IntentMediaDesign  === 'undefined') {
+window.IntentMediaDesign = {
 search_compare_ads:{
 intercard:{
 background_color:'',
@@ -40,8 +40,6 @@ secondary_button_border_color:''
 }
 }
 };
-} catch (err) {
-    console.log(err);
 }
 
 var designArray = Object.keys(IntentMediaDesign.search_compare_ads.intercard);
