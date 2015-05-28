@@ -74,11 +74,8 @@ function openDesigner() {
     cssInput.className = "color";
     cssInput.type = "text";
     cssInput.value = intercardDesign[designArray[im_design_pos]]; 
-    cssInput.addEventListener("input", function() {
-       intercardDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
-       railDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
-       IntentMedia.trigger("onpage_ads_redraw");
-    });
+    cssInput.addEventListener("input", inputChange);
+    cssInput.addEventListener("change", inputChange);
     myPar.appendChild(cssInput);
 
     var nextButton = document.createElement("button");
@@ -124,4 +121,10 @@ function openDesigner() {
 function closeDesigner() {
     document.body.removeChild(document.getElementById("addDivs"));
     im_design_pos = 0;
+}
+
+function inputChange() {
+    intercardDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
+    railDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
+    IntentMedia.trigger("onpage_ads_redraw");
 }
