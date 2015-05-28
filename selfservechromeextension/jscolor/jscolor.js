@@ -730,7 +730,7 @@ var jscolor = {
 
 			// slider image
 			p.sld.style.overflow = 'hidden';
-			p.sld.style.left = x + THIS.pickerFace + 2*THIS.pickerInset + jscolor.images.pad[0] + jscolor.images.arrow[0] + 'px';
+			p.sld.style.left = x + THIS.pickerFace + 2*THIS.pickerInset + jscolor.images.pad[0] + 'px';
                         p.sld.style.top = y + THIS.pickerFace + 'px';
 			p.sld.style.width = jscolor.images.sld[0]+'px';
 			p.sld.style.height = jscolor.images.sld[1]+'px';
@@ -738,7 +738,7 @@ var jscolor = {
 			// slider border
 			p.sldB.style.display = THIS.slider ? 'block' : 'none';
 			p.sldB.style.position = 'fixed';
-			p.sldB.style.left = x + THIS.pickerFace + 2*THIS.pickerInset + jscolor.images.pad[0] + 'px';
+			p.sldB.style.left = x + THIS.pickerFace + 2*THIS.pickerInset + jscolor.images.pad[0] + jscolor.images.arrow[0] + 'px';
 			p.sldB.style.top = y + THIS.pickerFace+'px';
 			p.sldB.style.border = THIS.pickerInset+'px solid';
 			p.sldB.style.borderColor = THIS.pickerInsetColor;
