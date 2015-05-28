@@ -704,7 +704,7 @@ var jscolor = {
 			p.boxB.style.clear = 'both';
 			p.boxB.style.left = x+'px';
 			p.boxB.style.top = y+'px';
-			p.boxB.style.zIndex = THIS.pickerZIndex;
+			p.boxB.style.zIndex = 99999999999;
 			p.boxB.style.border = THIS.pickerBorder+'px solid';
 			p.boxB.style.borderColor = THIS.pickerBorderColor;
 			p.boxB.style.background = THIS.pickerFaceColor;
@@ -715,15 +715,15 @@ var jscolor = {
 
 			// pad border
 			p.padB.style.position = 'fixed';
-			p.padB.style.left = THIS.pickerFace+'px';
-			p.padB.style.top = THIS.pickerFace+'px';
+			p.padB.style.left = x + THIS.pickerFace+'px';
+			p.padB.style.top = y + THIS.pickerFace+'px';
 			p.padB.style.border = THIS.pickerInset+'px solid';
 			p.padB.style.borderColor = THIS.pickerInsetColor;
 
 			// pad mouse area
 			p.padM.style.position = 'fixed';
-			p.padM.style.left = '0';
-			p.padM.style.top = '0';
+			p.padM.style.left = y + '0';
+			p.padM.style.top = x + '0';
 			p.padM.style.width = THIS.pickerFace + 2*THIS.pickerInset + jscolor.images.pad[0] + jscolor.images.arrow[0] + 'px';
 			p.padM.style.height = p.box.style.height;
 			p.padM.style.cursor = 'crosshair';
@@ -736,16 +736,16 @@ var jscolor = {
 			// slider border
 			p.sldB.style.display = THIS.slider ? 'block' : 'none';
 			p.sldB.style.position = 'fixed';
-			p.sldB.style.right = THIS.pickerFace+'px';
-			p.sldB.style.top = THIS.pickerFace+'px';
+			p.sldB.style.right = x + THIS.pickerFace+'px';
+			p.sldB.style.top = y + THIS.pickerFace+'px';
 			p.sldB.style.border = THIS.pickerInset+'px solid';
 			p.sldB.style.borderColor = THIS.pickerInsetColor;
 
 			// slider mouse area
 			p.sldM.style.display = THIS.slider ? 'block' : 'none';
 			p.sldM.style.position = 'fixed';
-			p.sldM.style.right = '0';
-			p.sldM.style.top = '0';
+			p.sldM.style.right = x + '0';
+			p.sldM.style.top = y + '0';
 			p.sldM.style.width = jscolor.images.sld[0] + jscolor.images.arrow[0] + THIS.pickerFace + 2*THIS.pickerInset + 'px';
 			p.sldM.style.height = p.box.style.height;
 			try {
@@ -762,8 +762,8 @@ var jscolor = {
 			}
 			p.btn.style.display = THIS.pickerClosable ? 'block' : 'none';
 			p.btn.style.position = 'fixed';
-			p.btn.style.left = THIS.pickerFace + 'px';
-			p.btn.style.bottom = THIS.pickerFace + 'px';
+			p.btn.style.left = x + THIS.pickerFace + 'px';
+			p.btn.style.bottom = y + THIS.pickerFace + 'px';
 			p.btn.style.padding = '0 15px';
 			p.btn.style.height = '18px';
 			p.btn.style.border = THIS.pickerInset + 'px solid';

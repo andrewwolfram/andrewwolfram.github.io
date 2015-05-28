@@ -59,6 +59,8 @@ function openDesigner() {
     myDiv.className = "im_designer";
     document.body.insertBefore(myDiv, document.body.children[0]);
 
+    jscolor.bind();
+
     var myPar = document.createElement("p");
     myPar.id = "myText";
     myPar.innerText = "Please enter a value for ";
