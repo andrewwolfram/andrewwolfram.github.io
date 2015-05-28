@@ -68,7 +68,7 @@ function openDesigner() {
     myDiv.appendChild(myPar);
     
     var cssInput = document.createElement("input");
-    cssInput.id = "myInput";
+    cssInput.id = "cssInput";
     cssInput.type = "text";
     cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", function() {
@@ -78,7 +78,7 @@ function openDesigner() {
     myPar.appendChild(cssInput);
 
     var nextButton = document.createElement("button");
-    nextButton.class = "myButton";
+    nextButton.id = "nextButton";
     nextButton.innerText = "Next";
     nextButton.addEventListener("click", function(e) {
        intercardDesign[designArray[im_design_pos]] = document.getElementById('myInput').value;
@@ -96,7 +96,7 @@ function openDesigner() {
     myPar.appendChild(nextButton);
 
     var closeButton = document.createElement("button");
-    closeButton.class = "myButton";
+    closeButton.id = "closeButton";
     closeButton.innerText = "Close";
     closeButton.addEventListener("click", function() {closeDesigner();});
     myPar.appendChild(closeButton);
