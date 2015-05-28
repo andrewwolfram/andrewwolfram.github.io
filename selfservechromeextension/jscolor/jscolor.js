@@ -722,21 +722,23 @@ var jscolor = {
 
 			// pad mouse area
 			p.padM.style.position = 'fixed';
-			p.padM.style.left = x + '0';
-			p.padM.style.top = y + '0';
+			p.padM.style.left = x + THIS.pickerInset +  '0';
+			p.padM.style.top = y + THIS.pickerInset + '0';
 			p.padM.style.width = THIS.pickerFace + 2*THIS.pickerInset + jscolor.images.pad[0] + jscolor.images.arrow[0] + 'px';
 			p.padM.style.height = p.box.style.height;
 			p.padM.style.cursor = 'crosshair';
 
 			// slider image
 			p.sld.style.overflow = 'hidden';
+                        p.sld.style.left = x + 2*THIS.pickerInset + THIS.pickerFace + 'px';
+                        p.sld.style.top = y + THIS.pickerInset + 'px';
 			p.sld.style.width = jscolor.images.sld[0]+'px';
 			p.sld.style.height = jscolor.images.sld[1]+'px';
 
 			// slider border
 			p.sldB.style.display = THIS.slider ? 'block' : 'none';
 			p.sldB.style.position = 'fixed';
-			p.sldB.style.right = x + THIS.pickerFace+'px';
+			p.sldB.style.left = x + THIS.pickerFace+'px';
 			p.sldB.style.top = y + THIS.pickerFace+'px';
 			p.sldB.style.border = THIS.pickerInset+'px solid';
 			p.sldB.style.borderColor = THIS.pickerInsetColor;
@@ -744,8 +746,8 @@ var jscolor = {
 			// slider mouse area
 			p.sldM.style.display = THIS.slider ? 'block' : 'none';
 			p.sldM.style.position = 'fixed';
-			p.sldM.style.right = x + '0';
-			p.sldM.style.top = y + '0';
+                        p.sldM.style.left = x + 2*THIS.pickerInset + THIS.pickerFace + 'px';
+                        p.sldM.style.top = y + THIS.pickerInset + 'px';
 			p.sldM.style.width = jscolor.images.sld[0] + jscolor.images.arrow[0] + THIS.pickerFace + 2*THIS.pickerInset + 'px';
 			p.sldM.style.height = p.box.style.height;
 			try {
