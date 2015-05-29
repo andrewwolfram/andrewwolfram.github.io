@@ -91,7 +91,7 @@ function createDesigner() {
     }
     cssInput.type = "text";
     cssInput.value = intercardDesign[designArray[i]];
-    cssInput.name = intercardDesign[designArray[i]];
+    cssInput.name = designArray[i];
     cssInput.addEventListener("input", inputChange);
     cssInput.addEventListener("change", inputChange);
     mySpan.appendChild(cssInput);
