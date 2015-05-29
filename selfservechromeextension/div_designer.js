@@ -50,26 +50,31 @@ var railDesign = IntentMediaDesign.search_compare_ads.rail;
 function openDesigner() {
 
     if (document.body.children[0].id !== 'designDivs') {
-        var myDiv = document.createElement("div");
-        myDiv.id = "designDivs";
-        myDiv.className = "im_designer";
-        myDiv.style.left = '0px'
-        myDiv.addEventListener("dblclick", function(e) {
-            if(e.target.style.left === '') {
-                e.currentTarget.style.right = '';
-                e.currentTarget.style.left = '0px';
-            } else {
-                e.currentTarget.style.left = '';
-                e.currentTarget.style.right = '0px';
-            }
-        });
-        document.body.insertBefore(myDiv, document.body.children[0]);
+        createDesigner();
     } else if (document.getElementById('designDivs').style.display === 'none') {
         document.getElementById('designDivs').style.display = '';
     } else { 
         closeDesigner();
         return;
     }
+}
+
+function createDesigner() {
+
+    var myDiv = document.createElement("div");
+    myDiv.id = "designDivs";
+    myDiv.className = "im_designer";
+    myDiv.style.left = '0px'
+    myDiv.addEventListener("dblclick", function(e) {
+        if(e.target.style.left === '') {
+            e.currentTarget.style.right = '';
+            e.currentTarget.style.left = '0px';
+        } else {
+            e.currentTarget.style.left = '';
+            e.currentTarget.style.right = '0px';
+        }
+    });
+    document.body.insertBefore(myDiv, document.body.children[0]);
 
     for(var i = 0; i < designArray.length; i++) {
     var myPar = document.createElement("p");
