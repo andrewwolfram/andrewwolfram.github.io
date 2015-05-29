@@ -20,7 +20,6 @@
     padding: 7px;
     font-family: Verdana, Geneva, sans-serif;
     font-weight: bold;
-    clear: both;
 }
 
 #designDivs input {
@@ -51,6 +50,7 @@
     margin: 0px;
     padding: 0px;
     float: left;
+    clear: both;
 }
 
 #targetName {
