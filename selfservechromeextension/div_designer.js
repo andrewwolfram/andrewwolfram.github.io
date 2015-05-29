@@ -94,7 +94,7 @@ function createDesigner() {
     cssInput.addEventListener("input", inputChange);
     cssInput.addEventListener("change", inputChange);
     mySpan.appendChild(cssInput);
-    myPar.appendChild(mySpan);
+    myDiv.appendChild(mySpan);
     }
 
     jscolor.bind();
