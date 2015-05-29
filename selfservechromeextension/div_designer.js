@@ -70,6 +70,7 @@ function openDesigner() {
     var mySpan = document.createElement("span");
  
     var cssInput = document.createElement("input");
+    cssInput.size = "9";
     if(designArray[i] !== 'border_color') {
         cssInput.className = "color";
     }
