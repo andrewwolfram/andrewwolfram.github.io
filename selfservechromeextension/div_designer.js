@@ -49,18 +49,17 @@ var railDesign = IntentMediaDesign.search_compare_ads.rail;
 
 function openDesigner() {
 
-    if(document.body.children[0].id === 'designDivs') {
-    if(document.getElementById('designDivs').style.display !== 'none') {
+    if (document.body.children[0].id !== 'designDivs') {
+        var myDiv = document.createElement("div");
+        myDiv.id = "designDivs";
+        myDiv.className = "im_designer";
+        document.body.insertBefore(myDiv, document.body.children[0]);
+    } else if (document.getElementById('designDivs').style.display === 'none') {
+        document.getElementById('designDivs').style.display = '';
+    } else { 
         closeDesigner();
         return;
-    } 
-    document.getElementById('designDivs').style.display = '';
     }
-
-    var myDiv = document.createElement("div");
-    myDiv.id = "designDivs";
-    myDiv.className = "im_designer";
-    document.body.insertBefore(myDiv, document.body.children[0]);
 
     for(var i = 0; i < designArray.length; i++) {
     var myPar = document.createElement("p");

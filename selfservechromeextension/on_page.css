@@ -15,7 +15,6 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    height: 100%;
     z-index: 99999;
     background-color: white;
     border: 2px solid black;
@@ -27,6 +26,8 @@
 #designDivs input {
     margin: 1px;
     padding: 0px;
+    float: right;
+    clear: both;
 }
 
 #designDivs span {
