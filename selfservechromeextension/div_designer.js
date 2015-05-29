@@ -49,37 +49,34 @@ var railDesign = IntentMediaDesign.search_compare_ads.rail;
 
 function openDesigner() {
 
-    if(document.body.children[0].id === 'addDivs') {
+    if(document.body.children[0].id === 'designDivs') {
         closeDesigner();
         return;
     }
 
     var myDiv = document.createElement("div");
-    myDiv.id = "addDivs";
+    myDiv.id = "designDivs";
     myDiv.className = "im_designer";
     document.body.insertBefore(myDiv, document.body.children[0]);
 
+    for(var i = 0; i < designArray.length; i++) {
     var myPar = document.createElement("p");
-    myPar.id = "myText";
-    myPar.innerText = "Please enter a value for ";
-
-    var mySpan = document.createElement("span");
-    mySpan.id = "targetName";
-    mySpan.innerText = designArray[im_design_pos];
-    myPar.appendChild(mySpan);
+    myPar.className = "myText";
+    myPar.innerText = designArray[i];
     myDiv.appendChild(myPar);
     
     var cssInput = document.createElement("input");
-    cssInput.id = "cssInput";
     cssInput.className = "color";
     cssInput.type = "text";
     cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", inputChange);
     cssInput.addEventListener("change", inputChange);
     myPar.appendChild(cssInput);
+    }
 
     jscolor.bind();
 
+/*
     var nextButton = document.createElement("button");
     nextButton.id = "nextButton";
     nextButton.innerText = "Next";
@@ -105,7 +102,6 @@ function openDesigner() {
     closeButton.addEventListener("click", function() {closeDesigner();});
     myPar.appendChild(closeButton);
 
-    /*
     loop1:
     for (key in intercardDesign) {
        while(true){
@@ -122,12 +118,12 @@ function openDesigner() {
 }
 
 function closeDesigner() {
-    document.body.removeChild(document.getElementById("addDivs"));
+    document.body.removeChild(document.getElementById("designDivs"));
     im_design_pos = 0;
 }
 
-function inputChange() {
-    intercardDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
-    railDesign[designArray[im_design_pos]] = document.getElementById('cssInput').value;
+function inputChange(e) {
+    intercardDesign[designArray[im_design_pos]] = e.target.value;
+    railDesign[designArray[im_design_pos]] = e.target.value;
     IntentMedia.trigger("onpage_ads_redraw");
 }

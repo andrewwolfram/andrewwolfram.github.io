@@ -581,7 +581,7 @@ var jscolor = {
 
 		function drawPicker(x, y) {
 
-                        y += (document.getElementById("addDivs").offsetHeight - document.getElementById("cssInput").offsetHeight)/2;
+                       // y += (document.getElementById("addDivs").offsetHeight - document.getElementById("cssInput").offsetHeight)/2;
                      
 			if(!jscolor.picker) {
 				jscolor.picker = {
