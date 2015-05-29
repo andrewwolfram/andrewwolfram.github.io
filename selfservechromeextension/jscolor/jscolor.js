@@ -422,14 +422,14 @@ var jscolor = {
 				if(!this.adjust) {
 					if(!this.fromString(valueElement.value, leaveValue)) {
 						styleElement.style.backgroundImage = styleElement.jscStyle.backgroundImage;
-						styleElement.style.backgroundColor = styleElement.jscStyle.backgroundColor;
+						styleElement.style.background = styleElement.jscStyle.background;
 						styleElement.style.color = styleElement.jscStyle.color;
 						this.exportColor(leaveValue | leaveStyle);
 					}
 				} else if(!this.required && /^\s*$/.test(valueElement.value)) {
 					valueElement.value = '';
 					styleElement.style.backgroundImage = styleElement.jscStyle.backgroundImage;
-					styleElement.style.backgroundColor = styleElement.jscStyle.backgroundColor;
+					styleElement.style.background = styleElement.jscStyle.background;
 					styleElement.style.color = styleElement.jscStyle.color;
 					this.exportColor(leaveValue | leaveStyle);
 
@@ -451,7 +451,7 @@ var jscolor = {
 			}
 			if(!(flags & leaveStyle) && styleElement) {
 				styleElement.style.backgroundImage = "none";
-				styleElement.style.backgroundColor =
+				styleElement.style.background =
 					'#'+this.toString();
 				styleElement.style.color =
 					0.213 * this.rgb[0] +
@@ -839,7 +839,7 @@ var jscolor = {
 				case 0:
 					var rgb = HSV_RGB(THIS.hsv[0], THIS.hsv[1], 1);
 					for(var i=0; i<seg.length; i+=1) {
-						seg[i].style.backgroundColor = 'rgb('+
+						seg[i].style.background = 'rgb('+
 							(rgb[0]*(1-i/seg.length)*100)+'%,'+
 							(rgb[1]*(1-i/seg.length)*100)+'%,'+
 							(rgb[2]*(1-i/seg.length)*100)+'%)';
@@ -862,7 +862,7 @@ var jscolor = {
 						s = 1 - 1/(seg.length-1)*i;
 						c[1] = c[0] * (1 - s*f);
 						c[2] = c[0] * (1 - s);
-						seg[i].style.backgroundColor = 'rgb('+
+						seg[i].style.background = 'rgb('+
 							(c[rgb[0]]*100)+'%,'+
 							(c[rgb[1]]*100)+'%,'+
 							(c[rgb[2]]*100)+'%)';
@@ -993,7 +993,7 @@ var jscolor = {
 		if(styleElement) {
 			styleElement.jscStyle = {
 				backgroundImage : styleElement.style.backgroundImage,
-				backgroundColor : styleElement.style.backgroundColor,
+				background : styleElement.style.background,
 				color : styleElement.style.color
 			};
 		}

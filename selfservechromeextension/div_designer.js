@@ -149,5 +149,6 @@ function closeDesigner() {
 function inputChange(e) {
     intercardDesign[e.target.name] = e.target.value;
     railDesign[e.target.name] = e.target.value;
+    e.target.style.background = e.target.value;
     IntentMedia.trigger("onpage_ads_redraw");
 }
