@@ -56,11 +56,11 @@ function openDesigner() {
         myDiv.style.left = '0px'
         myDiv.addEventListener("dblclick", function(e) {
             if(e.target.style.left === '') {
-                e.target.style.right = '';
-                e.target.style.left = '0px';
+                e.currentTarget.style.right = '';
+                e.currentTarget.style.left = '0px';
             } else {
-                e.target.style.left = '';
-                e.target.style.right = '0px';
+                e.currentTarget.style.left = '';
+                e.currentTarget.style.right = '0px';
             }
         });
         document.body.insertBefore(myDiv, document.body.children[0]);
@@ -80,7 +80,7 @@ function openDesigner() {
     var mySpan = document.createElement("span");
  
     var cssInput = document.createElement("input");
-    cssInput.size = "9";
+    cssInput.size = "8";
     if(designArray[i] !== 'border_color') {
         cssInput.className = "color";
     }
