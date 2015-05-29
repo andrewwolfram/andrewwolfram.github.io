@@ -25,6 +25,11 @@
     font-weight: bold;
 }
 
+#designDivs input {
+    margin: 0px;
+    padding: 0px;
+}
+
 #nextButton {
     position: absolute;
     left: 635px;
@@ -41,7 +46,8 @@
 }
 
 .myText {
-
+    margin: 0px;
+    padding: 0px;
 }
 
 #targetName {

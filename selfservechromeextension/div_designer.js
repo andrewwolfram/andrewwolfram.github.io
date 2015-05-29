@@ -50,8 +50,11 @@ var railDesign = IntentMediaDesign.search_compare_ads.rail;
 function openDesigner() {
 
     if(document.body.children[0].id === 'designDivs') {
+    if(document.getElementById('designDivs').style.display !== 'none') {
         closeDesigner();
         return;
+    } 
+    document.getElementById('designDivs').style.display = '';
     }
 
     var myDiv = document.createElement("div");
@@ -66,7 +69,9 @@ function openDesigner() {
     myDiv.appendChild(myPar);
     
     var cssInput = document.createElement("input");
-    cssInput.className = "color";
+    if(designArray[i] !== 'border_color') {
+        cssInput.className = "color";
+    }
     cssInput.type = "text";
     cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", inputChange);
@@ -118,7 +123,7 @@ function openDesigner() {
 }
 
 function closeDesigner() {
-    document.body.removeChild(document.getElementById("designDivs"));
+    document.getElementById("designDivs").style.display = 'none';
     im_design_pos = 0;
 }
 
