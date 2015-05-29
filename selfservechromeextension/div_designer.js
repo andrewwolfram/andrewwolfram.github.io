@@ -91,6 +91,7 @@ function createDesigner() {
     }
     cssInput.type = "text";
     cssInput.value = intercardDesign[designArray[i]];
+    cssInput.name = intercardDesign[designArray[i]];
     cssInput.addEventListener("input", inputChange);
     cssInput.addEventListener("change", inputChange);
     mySpan.appendChild(cssInput);
@@ -146,7 +147,7 @@ function closeDesigner() {
 }
 
 function inputChange(e) {
-    intercardDesign[e.target.parentElement.parentElement.innerText] = e.target.value;
-    railDesign[e.target.parentElement.parentElement.innerText] = e.target.value;
+    intercardDesign[e.target.name] = e.target.value;
+    railDesign[e.target.name] = e.target.value;
     IntentMedia.trigger("onpage_ads_redraw");
 }

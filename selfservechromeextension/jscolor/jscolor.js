@@ -891,7 +891,7 @@ var jscolor = {
 
 		function blurTarget() {
 			if(valueElement === target) {
-				THIS.importColor();
+			//	THIS.importColor();
 			}
 			if(THIS.pickerOnfocus) {
 				THIS.hidePicker();
