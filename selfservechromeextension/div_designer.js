@@ -90,6 +90,7 @@ function createDesigner() {
         cssInput.className = "color";
     }
     cssInput.type = "text";
+    cssInput.value = intercardDesign[designArray[i]];
     cssInput.addEventListener("input", inputChange);
     cssInput.addEventListener("change", inputChange);
     mySpan.appendChild(cssInput);
@@ -97,12 +98,6 @@ function createDesigner() {
     }
 
     jscolor.bind();
-
-    var inputArray = document.querySelectorAll("#designDIvs input");
-    for(var i = 0; i < inputArray.length; i ++) {
-        inputArray[i].value = intercardDesign[designArray[i]]; 
-    }
-
 
 /*
     var nextButton = document.createElement("button");
