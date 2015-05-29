@@ -67,7 +67,9 @@ function openDesigner() {
     myPar.className = "myText";
     myPar.innerText = designArray[i];
     myDiv.appendChild(myPar);
-    
+   
+    var mySpan = document.createElement("span");
+ 
     var cssInput = document.createElement("input");
     if(designArray[i] !== 'border_color') {
         cssInput.className = "color";
@@ -76,7 +78,8 @@ function openDesigner() {
     cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", inputChange);
     cssInput.addEventListener("change", inputChange);
-    myPar.appendChild(cssInput);
+    mySpan.appendChild(cssInput);
+    myPar.appendChild(mySpan);
     }
 
     jscolor.bind();
