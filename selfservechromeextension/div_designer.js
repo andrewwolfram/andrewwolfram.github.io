@@ -81,11 +81,10 @@ function openDesigner() {
  
     var cssInput = document.createElement("input");
     cssInput.size = "8";
-    if(designArray[i] !== 'border_color') {
+    if(designArray[i] !== 'border_radius') {
         cssInput.className = "color";
     }
     cssInput.type = "text";
-    cssInput.value = intercardDesign[designArray[im_design_pos]]; 
     cssInput.addEventListener("input", inputChange);
     cssInput.addEventListener("change", inputChange);
     mySpan.appendChild(cssInput);
@@ -93,6 +92,12 @@ function openDesigner() {
     }
 
     jscolor.bind();
+
+    var inputArray = document.querySelectorAll("#designDIvs input");
+    for(var i = 0; i < inputArray.length; i ++) {
+        inputArray[i].value = intercardDesign[designArray[i]]; 
+    }
+
 
 /*
     var nextButton = document.createElement("button");
@@ -141,7 +146,7 @@ function closeDesigner() {
 }
 
 function inputChange(e) {
-    intercardDesign[designArray[im_design_pos]] = e.target.value;
-    railDesign[designArray[im_design_pos]] = e.target.value;
+    intercardDesign[e.target.parentElement.parentElement.innerText] = e.target.value;
+    railDesign[e.target.parentElement.parentElement.innerText] = e.target.value;
     IntentMedia.trigger("onpage_ads_redraw");
 }
