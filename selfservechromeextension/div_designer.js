@@ -53,6 +53,16 @@ function openDesigner() {
         var myDiv = document.createElement("div");
         myDiv.id = "designDivs";
         myDiv.className = "im_designer";
+        myDiv.style.left = '0px'
+        myDiv.addEventListener("dblclick", function(e) {
+            if(e.target.style.left === '') {
+                e.target.style.right = '';
+                e.target.style.left = '0px';
+            } else {
+                e.target.style.left = '';
+                e.target.style.right = '0px';
+            }
+        });
         document.body.insertBefore(myDiv, document.body.children[0]);
     } else if (document.getElementById('designDivs').style.display === 'none') {
         document.getElementById('designDivs').style.display = '';
