@@ -84,7 +84,7 @@ function addDivs() {
     myButton.addEventListener("click", removeMyDiv);
     
     if (document.body.addEventListener) {
-        document.body.addEventListener('mouseover', handler, false);
+        document.body.addEventListener('mouseover', handler, true);
     } else if (document.body.attachEvent) {
         document.body.attachEvent('mouseover', function(e) {
             return handler(e || window.event);
@@ -153,7 +153,7 @@ function handler(event) {
 }
 
 function removeMyDiv(e) { 
-    document.body.removeEventListener('mouseover', handler, false); 
+    document.body.removeEventListener('mouseover', handler, true); 
     document.body.removeChild(document.getElementById("addDivs"));
     if(e) {
         e.stopPropagation();
