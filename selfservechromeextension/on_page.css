@@ -32,13 +32,9 @@
 }
 
 #nextButton {
-    position: absolute;
-    left: 635px;
 }
 
 #closeButton {
-    position: absolute;
-    left: 685px;
 }
 
 #cssInput {

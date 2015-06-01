@@ -77,7 +77,7 @@ function addDivs() {
     myDiv.appendChild(myPar);
 
     var myButton = document.createElement("button");
-    myButton.class = "myButton";
+    myButton.id = "closeButton";
     myButton.innerText = "Close";
     myPar.appendChild(myButton);
     
@@ -141,7 +141,7 @@ function handler(event) {
         prev = undefined;
     }
 
-    if (event.target.id == "addDivs" || event.target.id == "targetName" || event.target.id == "myButton" || event.target.id == "myText") {
+    if (event.target.id == "addDivs" || event.target.id == "targetName" || event.target.id == "closeButton" || event.target.id == "myText") {
         return;
     }
      
