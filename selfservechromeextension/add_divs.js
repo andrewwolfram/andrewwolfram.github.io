@@ -83,14 +83,14 @@ function addDivs() {
     
     myButton.addEventListener("click", removeMyDiv);
     
-    if (document.body.addEventListener) {
-        document.body.addEventListener('mouseover', handler, true);
-    } else if (document.body.attachEvent) {
-        document.body.attachEvent('mouseover', function(e) {
+    if (window.addEventListener) {
+        window.addEventListener('mouseover', handler, true);
+    } else if (window.attachEvent) {
+        window.attachEvent('mouseover', function(e) {
             return handler(e || window.event);
         });
     } else {
-        document.body.onmouseover = handler;
+        window.onmouseover = handler;
     }
 }
 
@@ -153,7 +153,7 @@ function handler(event) {
 }
 
 function removeMyDiv(e) { 
-    document.body.removeEventListener('mouseover', handler, true); 
+    window.removeEventListener('mouseover', handler, true); 
     document.body.removeChild(document.getElementById("addDivs"));
     if(e) {
         e.stopPropagation();
