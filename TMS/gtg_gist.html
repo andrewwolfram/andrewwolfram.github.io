@@ -13,7 +13,7 @@ intercardTarget.parentNode.insertBefore(im_intercard, intercardTarget);
 var footerTarget = document.getElementById({{footer_target}});
 var im_footer = document.createElement('div');
 im_footer.id = 'IntentMediaFooter';
-footerTarget.parentNode.insertBefore(im_footer, footerTarget); 
+footerTarget.appendChild(im_footer); 
 
 if(window.addEventListener) {
     document.getElementById({{search_button_id}}).addEventListener('click', function() {
