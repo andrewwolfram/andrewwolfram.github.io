@@ -16,15 +16,15 @@ im_footer.id = 'IntentMediaFooter';
 footer_target.appendChild(im_footer); 
 
 if(window.addEventListener) {
-    document.getElementById({{search_button_id}}).addEventListener('click', function() {
+    document.getElementById({{im_event_target}}).addEventListener('click', function() {
         if(window.IntentMedia && IntentMedia.trigger) {
-            IntentMedia.trigger({{im_exit_unit_event}});
+            IntentMedia.trigger({{im_event}});
         }
     });
 } else if(window.attachEvent) {
-    document.getElementById({{search_button_id}}).attachEvent('onclick', function() {
+    document.getElementById({{im_event_target}}).attachEvent('onclick', function() {
         if(window.IntentMedia && IntentMedia.trigger) {
-            IntentMedia.trigger({{im_exit_unit_event}});
+            IntentMedia.trigger({{im_event}});
         }
     });
 }
