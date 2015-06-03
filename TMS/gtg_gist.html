@@ -1,0 +1,136 @@
+<script type="text/javascript">
+/* v1.0 */
+
+var railTarget = document.getElementById({{rail_target}});
+var im_rail = document.createElement('div');
+im_rail.id = 'IntentMediaRail';
+railTarget.parentNode.insertBefore(im_rail, railTarget); 
+
+var intercardTarget = document.getElementById({{intercard_target}});
+var im_intercard = document.createElement('div');
+im_intercard.id = 'IntentMediaIntercard';
+intercardTarget.parentNode.insertBefore(im_intercard, intercardTarget); 
+
+var footerTarget = document.getElementById({{footer_target}});
+var im_footer = document.createElement('div');
+im_footer.id = 'IntentMediaFooter';
+footerTarget.parentNode.insertBefore(im_footer, footerTarget); 
+
+if(window.addEventListener) {
+    document.getElementById({{search_button_id}}).addEventListener('click', function() {
+        if(window.IntentMedia && IntentMedia.trigger) {
+            IntentMedia.trigger({{im_exit_unit_event}});
+        }
+    );
+} else if(window.attachEvent) {
+    document.getElementById({{search_button_id}}).attachEvent('onclick', function() {
+        if(window.IntentMedia && IntentMedia.trigger) {
+            IntentMedia.trigger({{im_exit_unit_event}});
+        }
+    );
+}
+
+window.IntentMediaProperties = {  
+        
+/* Page identification parameters */
+site_name: {{site_name}},                                   /* Mandatory unique ID for the site where the tag is firing - all CAPS, no spaces, no special characters E.G.  'MYSITE_US' */
+page_id: {{page_id}},                                       /* Mandatory unique ID for each page where the tag is firing. Combination of Product e.g  flight, hotel, car, pacakge,  and Page e.g. home, list, details, confirmation */
+site_country: {{site_country}},                             /* 2 letter ISO country code of the website version that was loaded */
+site_language: {{site_language}},                           /* 2 letter ISO code for the language the website page is rendered in */
+site_currency: {{site_currency}},                           /* 3 letter ISO currency code for the transaction */
+display_format_type: {{display_format_type}},               /* Device-specific version of the website that was loaded - DESKTOP or MOBILE */
+ 
+/* User detail parameters */
+user_member_id: {{user_member_id}},                         /* Unique registered user id to identify logged-in users */
+visitor_id: {{visitor_id}},                                 /* Unique user id persistent at least across the entire booking transaction session */
+referrer_source: {{referrer_source}},                       /* Specific site where the user came from - Google/Bing, etc. */
+referrer_channel: {{referrer_channel}},                     /* Which marketing channel acquired the user - (SEM/SEO/Meta, etc. */
+active_member_profile: {{active_member_profile}},           /* Member profile contains data beyond initial account creation default (i.e. loyalty points, preferred airline, written reviews, etc.) */
+
+/* Misc. parameters */
+tag_path: {{tag_path}},                                     /* Mandatory value for the tag path - default value is '//a.cdn.intentmedia.net/javascripts/v1/intent_media_core.js' */
+show_onpage_ads: {{show_onpage_ads}},                       /* Controls whether the existing on-page ads (intercard and rail) are shown or not - Y/N */ 
+show_exit_units: {{show_exit_units}},                       /* Controls whether the existing exit units are shown or not - Y/N */ 
+is_hv: {{is_hv}},                                           /* Intent Media system value */
+is_lv: {{is_lv}},                                           /* Intent Media system value */
+
+/*  Generic search parameters */
+travel_date_start: {{travel_date_start}},                   /* Travel start date - required format YYYYMMDD */
+travel_date_end: {{travel_date_end}},                       /* Travel end date - required format YYYYMMDD (for oneway flights set to same as travel start date) */
+travelers: {{travelers}},                                   /* Total number of travelers (adults+children+seniors) */
+adults: {{adults}},                                         /* Number of adult travelers */
+children: {{children}},                                     /* Number of children travelers */
+seniors: {{seniors}},                                       /* Number of senior travelers */
+ 
+/* Flight search parameters */
+trip_type: {{trip_type}},                                   /* Flights only - roundtrip/oneway (do not traffic tag on multicity searches) */
+flight_class_of_service: {{flight_class_of_service}},       /* Class of airline ticket - FirstClass/BusinessClass/EconomyClass/PremiumClass */
+flight_origin: {{flight_origin}},                           /* 3 letter airport code - Origin */
+flight_destination: {{flight_destination}},                 /* 3 letter airport code - Destination */
+ 
+/* Hotel search parameters */
+hotel_city: {{hotel_city}},                                 /* City of searched, selected or booked hotel property (in English language) */
+hotel_country: {{hotel_country}},                           /* 2 letter ISO country code of searched, selected or booked hotel property */
+hotel_state: {{hotel_state}},                               /* 2 letter ISO state code of searched, selected or booked hotel property - US & Canada only */
+hotel_rooms: {{hotel_rooms}},                               /* Number of hotel rooms booked */
+number_of_opaque_listings: {{number_of_opaque_listings}},   /* Number of opaque listings in search results - list page only, set to 0 if all are retail */
+ 
+/* Car search parameters */
+car_pickup_location_type: {{car_pickup_location_type}},     /* Valid values: AIRPORT, CITY */
+car_pickup_airport: {{car_pickup_airport}},                 /* 3 letter airport code if pickup location is airport */
+car_pickup_city: {{car_pickup_city}},                       /* City name if pickup location is city */
+car_pickup_state: {{car_pickup_state}},                     /* 2 letter ISO state code for state if pickup location is city - US & Canada only */
+car_pickup_country: {{car_pickup_country}},                 /* 2 letter ISO country code if pickup location is city */
+car_dropoff_location_type: {{car_dropoff_location_type}},   /* Valid values: AIRPORT, CITY */
+car_dropoff_airport: {{car_dropoff_airport}},               /* 3 letter airport code if dropoff location is airport */
+car_dropoff_city: {{car_dropoff_city}},                     /* City name if dropoff location is city */
+car_dropoff_state: {{car_dropoff_state}},                   /* 2 letter ISO state code for state if dropoff location is city - US & Canada only */
+car_dropoff_country: {{car_dropoff_country}}                /* 2 letter ISO country code if dropoff location is city */
+car_pickup_time: {{car_pickup_time}},                       /* Pickup time per pickup timezone - 0000-2359 */
+car_dropoff_time: {{car_dropoff_time}},                     /* Dropoff time per dropoff timezone - 0000-2359 */
+car_trip_type: {{car_trip_type}},                           /* roundrip/oneway */
+ 
+/* Package search parameters */
+package_type: {{package_type}},                             /* Indicate the combination of products included in the package - e.g. FLIGHT+HOTEL/HOTEL+CAR/FLIGHT+CRUISE/etc. */
+
+/* Conversion parameters - CONFIRMATION PAGE ONLY */
+total_conversion_value: {{total_conversion_value}},         /* Confirmation page only. Total conversion value of the hotel, car, flight or package booking - no currency symbol, 2 decimal places */
+order_id: {{order_id}},                                     /* Confirmation page only. Order ID of the booking */
+promo_code: {{promo_code}},                                 /* Was there a promotion code applied? */
+flight_carrier_code: {{flight_carrier_code}},               /* Confirmation page only. Airline code of booked flight */
+hotel_property_id: {{hotel_property_id}},                   /* ID of selected or booked hotel property */
+hotel_market_id: {{hotel_market_id}},                       /* Market ID of searched, selected or booked hotel property */
+hotel_brand_code: {{hotel_brand_code}},                     /* Chain code for hotel brand in user's search, or of selected/booked property */
+hotel_value_in_package: {{hotel_value_in_package}},         /* Package Purchase amount of the hotel only - no currency symbol, 2 decimal places */
+conversion_type: {{conversion_type}},                       /* Type of hotel or car product that was purchased (if applicable) - OPAQUE/RETAIL */
+car_class: {{car_class}},                                   /* Car class - ECONOMY/COMPACT/INTERMEDIATE/STANDARD/FULL-SIZE/PREMIUM/LUXURY/SUV/MINI-VAN/CONVERTIBLE/PICKUP-TRUCK */
+car_rental_agency: {{car_rental_agency}},                   /* The name of the car rental agency the user purchased with on the confirmation page - Enterprise/Avis/National/Budget/Hertz/Advantage/Dollar/Alamo/Fox/Ace/Thrifty/Alamo/Payless/E-Z */
+
+/* Custom parameters */
+site_reporting_value_01: {{site_reporting_value_01}},       /* Intent Media system value */
+site_reporting_value_02: {{site_reporting_value_02}},       /* Intent Media system value */
+site_reporting_value_03: {{site_reporting_value_03}},       /* Intent Media system value */
+site_reporting_value_04: {{site_reporting_value_04}},       /* Intent Media system value */
+site_reporting_value_05: {{site_reporting_value_05}},       /* Intent Media system value */
+site_reporting_value_06: {{site_reporting_value_06}},       /* Intent Media system value */
+site_reporting_value_07: {{site_reporting_value_07}},       /* Intent Media system value */
+custom_01: {{custom_01}},                                   /* Intent Media system value */
+custom_02: {{custom_02}},                                   /* Intent Media system value */
+custom_03: {{custom_03}},                                   /* Intent Media system value */
+custom_04: {{custom_04}},                                   /* Intent Media system value */
+custom_05: {{custom_05}},                                   /* Intent Media system value */
+custom_06: {{custom_06}},                                   /* Intent Media system value */
+custom_07: {{custom_07}},                                   /* Intent Media system value */
+custom_08: {{custom_08}},                                   /* Intent Media system value */
+custom_09: {{custom_09}},                                   /* Intent Media system value */
+custom_10: {{custom_10}}                                    /* Intent Media system value */
+}; 
+(function() {
+var script = document.createElement("script");
+var url = window.IntentMediaProperties.tag_path;
+script.src = url;
+script.async = true;
+document.getElementsByTagName("head")[0].appendChild(script);
+}());
+ 
+</script>
