@@ -1,19 +1,19 @@
 <script type="text/javascript">
 
-var railTarget = document.getElementById({{rail_target}});
+var rail_target = document.getElementById({{rail_target}});
 var im_rail = document.createElement('div');
 im_rail.id = 'IntentMediaRail';
-railTarget.appendChild(im_rail); 
+rail_target.appendChild(im_rail); 
 
-var intercardTarget = document.getElementById({{intercard_target}});
+var intercard_target = document.getElementById({{intercard_target}});
 var im_intercard = document.createElement('div');
 im_intercard.id = 'IntentMediaIntercard';
-intercardTarget.parentNode.insertBefore(im_intercard, intercardTarget); 
+intercard_target.parentNode.insertBefore(im_intercard, intercard_target); 
 
-var footerTarget = document.getElementById({{footer_target}});
+var footer_target = document.getElementById({{footer_target}});
 var im_footer = document.createElement('div');
 im_footer.id = 'IntentMediaFooter';
-footerTarget.appendChild(im_footer); 
+footer_target.appendChild(im_footer); 
 
 if(window.addEventListener) {
     document.getElementById({{search_button_id}}).addEventListener('click', function() {
