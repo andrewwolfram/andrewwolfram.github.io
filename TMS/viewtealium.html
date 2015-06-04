@@ -99,6 +99,7 @@
                 custom_09: '009',                                   
                 custom_10: '010'                                   
                 }; 
+                document.getElementById("utag_data").innerText = JSON.stringify(utag_data, null, '\t');
             </script>
             <script type="text/javascript">
                 (function(a,b,c,d) {
@@ -157,6 +158,7 @@
                     -->
                 </div>
                 <div id="IntentMediaIntercard"></div>
+                <div><p id="utag_data"></p></div>
             </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
