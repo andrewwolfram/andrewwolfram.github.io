@@ -150,13 +150,21 @@
                 <div class="starter-template">
                     <h1>Tealium Integration</h1>
                     <p class="lead">The Tealium data object is utag_data</p>
+                    <button id="add_tag" type="button" class="btn btn-primary">Add Intent Media Tag</button>
+                    <!--
                     <button id="open_exit_unit" type="button" class="btn btn-primary">Open Exit Unit</button>
                     <button id="onpage_ads_redraw" type="button" class="btn btn-primary">On-Page Ads Redraw</button>
                     <button id="page_id_updated" type="button" class="btn btn-primary">Page id Updated</button>
+                    -->
                 </div>
                 <div id="IntentMediaIntercard"></div>
             </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
+            <script type='text/javascript'>
+                document.getElementById('add_tag').addEventListener('click', function() {
+                    window.history.pushState({name: 'test'}, 'test_state', 'andrewwolfram.github.io/TMS/tealium.html/view');
+                });
+            </script>
         </body>
 </html>
