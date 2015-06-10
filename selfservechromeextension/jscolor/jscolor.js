@@ -597,6 +597,7 @@ var jscolor = {
 					btnS : document.createElement('span'),
 					btnT : document.createTextNode(THIS.pickerCloseText)
 				};
+                                jscolor.picker.box.id = "jscolor_picker";
 				for(var i=0,segSize=4; i<jscolor.images.sld[1]; i+=segSize) {
 					var seg = document.createElement('div');
 					seg.style.height = segSize+'px';
