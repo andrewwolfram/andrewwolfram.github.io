@@ -65,6 +65,7 @@ function createDesigner() {
     myDiv.id = "designDivs";
     myDiv.className = "im_designer";
     myDiv.style.left = '0px'
+    myDiv.addEventListener("click", function(e) { e.stopPropagation();});
     myDiv.addEventListener("dblclick", function(e) {
         if(e.target.style.left === '') {
             e.currentTarget.style.right = '';
