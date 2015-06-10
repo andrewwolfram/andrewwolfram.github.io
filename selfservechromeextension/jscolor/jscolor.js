@@ -598,7 +598,7 @@ var jscolor = {
 					btnT : document.createTextNode(THIS.pickerCloseText)
 				};
                                 jscolor.picker.box.id = "jscolor_picker";
-                                jscolor.picker.box.addEventListerner('click', function(e){ e.stopPropagation();});
+                                jscolor.picker.box.addEventListener('click', function(e){ e.stopPropagation();});
 				for(var i=0,segSize=4; i<jscolor.images.sld[1]; i+=segSize) {
 					var seg = document.createElement('div');
 					seg.style.height = segSize+'px';
