@@ -42,12 +42,14 @@ secondary_button_border_color:''
 };
 }
 
-var designArray = Object.keys(IntentMediaDesign.search_compare_ads.intercard);
+var designArray = []; 
 var im_design_pos = 0;
 var intercardDesign = IntentMediaDesign.search_compare_ads.intercard;
 var railDesign = IntentMediaDesign.search_compare_ads.rail;
 
 function openDesigner() {
+
+    designArray = Object.keys(IntentMediaDesign.search_compare_ads.intercard);
 
     if (document.body.children[0].id !== 'designDivs') {
         createDesigner();
