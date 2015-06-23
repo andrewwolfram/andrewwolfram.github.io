@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>PIE Web</title>
+            <script src='//d3c3cq33003psk.cloudfront.net/opentag-126215-1763423.js' async defer></script>
             <!-- Bootstrap core CSS -->
             <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -10,7 +11,6 @@
             
         </head>
         <body>
-
             <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -36,21 +36,19 @@
 
             <div class="container">
                 <div class="starter-template">
-                    <h1>TMS Integrations</h1>
-                    <br>
-                    <div class='text-left lead'>
-                    <ul class='list-unstyled'>
-                        <li>Tealium</li>
-                        <ul>
-                        <li><a href="tealium.html" target="_blank">AJAX</a></li>
-                        <li><a href="viewtealium.html" target="_blank">Non-AJAX</a></li>
-                        </ul>
-                    <li><a href="ensighten.html" target="_blank">Ensighten</a></li>
-                    <li><a href="google.html" target="_blank">Google</a></li>
-                    <li><a href="qubit.html" target="_blank">Qubit</a></li>
-                    </ul>
+                    <h1>Google Tag Manager Integration</h1>
+                    <p class="lead"></p>
+                    <div style='display: none;'>
+                    <button id="open_exit_unit" type="button" class="btn btn-primary">Open Exit Unit</button>
+                    <button id="onpage_ads_redraw" type="button" class="btn btn-primary">On-Page Ads Redraw</button>
+                    <button id="page_id_updated" type="button" class="btn btn-primary">Page id Updated</button>
+                    </div>
                 </div>
+                <div id="im_intercard"></div>
+                <div style='width: 250px'>
+                    <div id='im_rail'></div>
                 </div>
+                <div id="target_3"></div>
             </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
