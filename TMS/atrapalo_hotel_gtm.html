@@ -1,0 +1,73 @@
+<script type="text/javascript">
+
+var im_rail_div = document.createElement('div');
+im_rail_div.id = 'IntentMediaRail';
+document.querySelector('section[class="large-3 columns"]').appendChild(im_rail_div);
+
+if(window.addEventListener) {
+    document.getElementById({{im_event_target}}).addEventListener('click', function() {
+        if(window.IntentMedia && IntentMedia.trigger) {
+            IntentMedia.trigger({{im_event}});
+        }
+    });
+} else if(window.attachEvent) {
+    document.getElementById({{im_event_target}}).attachEvent('onclick', function() {
+        if(window.IntentMedia && IntentMedia.trigger) {
+            IntentMedia.trigger({{im_event}});
+        }
+    });
+}
+
+window.IntentMediaProperties = {  
+        
+/* Page identification parameters */
+site_name: {{site_name}},                                   /* Mandatory unique ID for the site where the tag is firing - all CAPS, no spaces, no special characters E.G.  'MYSITE_US' */
+page_id: {{page_id}},                                       /* Mandatory unique ID for each page where the tag is firing. Combination of Product e.g  flight, hotel, car, pacakge,  and Page e.g. home, list, details, confirmation */
+site_country: {{site_country}},                             /* 2 letter ISO country code of the website version that was loaded */
+site_language: {{site_language}},                           /* 2 letter ISO code for the language the website page is rendered in */
+site_currency: {{site_currency}},                           /* 3 letter ISO currency code for the transaction */
+display_format_type: {{display_format_type}},               /* Device-specific version of the website that was loaded - DESKTOP or MOBILE */
+ 
+/* User detail parameters */
+user_member_id: {{user_member_id}},                         /* Unique registered user id to identify logged-in users */
+visitor_id: {{visitor_id}},                                 /* Unique user id persistent at least across the entire booking transaction session */
+referrer_source: {{referrer_source}},                       /* Specific site where the user came from - Google/Bing, etc. */
+referrer_channel: {{referrer_channel}},                     /* Which marketing channel acquired the user - (SEM/SEO/Meta, etc. */
+active_member_profile: {{active_member_profile}},           /* Member profile contains data beyond initial account creation default (i.e. loyalty points, preferred airline, written reviews, etc.) */
+
+/* Misc. parameters */
+tag_path: {{tag_path}},                                     /* Mandatory value for the tag path - default value is '//a.cdn.intentmedia.net/javascripts/v1/intent_media_core.js' */
+
+/*  Generic search parameters */
+travel_date_start: {{travel_date_start}},                   /* Travel start date - required format YYYYMMDD */
+travel_date_end: {{travel_date_end}},                       /* Travel end date - required format YYYYMMDD (for oneway flights set to same as travel start date) */
+travelers: {{travelers}},                                   /* Total number of travelers (adults+children+seniors) */
+adults: {{adults}},                                         /* Number of adult travelers */
+children: {{children}},                                     /* Number of children travelers */
+seniors: {{seniors}},                                       /* Number of senior travelers */
+ 
+/* Hotel search parameters */
+hotel_city: {{hotel_city}},                                 /* City of searched, selected or booked hotel property (in English language) */
+hotel_country: {{hotel_country}},                           /* 2 letter ISO country code of searched, selected or booked hotel property */
+hotel_state: {{hotel_state}},                               /* 2 letter ISO state code of searched, selected or booked hotel property - US & Canada only */
+hotel_rooms: {{hotel_rooms}},                               /* Number of hotel rooms booked */
+number_of_opaque_listings: {{number_of_opaque_listings}},   /* Number of opaque listings in search results - list page only, set to 0 if all are retail */
+ 
+/* Conversion parameters - CONFIRMATION PAGE ONLY */
+total_conversion_value: {{total_conversion_value}},         /* Confirmation page only. Total conversion value of the hotel, car, flight or package booking - no currency symbol, 2 decimal places */
+order_id: {{order_id}},                                     /* Confirmation page only. Order ID of the booking */
+promo_code: {{promo_code}},                                 /* Was there a promotion code applied? */
+hotel_property_id: {{hotel_property_id}},                   /* ID of selected or booked hotel property */
+hotel_market_id: {{hotel_market_id}},                       /* Market ID of searched, selected or booked hotel property */
+hotel_brand_code: {{hotel_brand_code}},                     /* Chain code for hotel brand in user's search, or of selected/booked property */
+conversion_type: {{conversion_type}}                       /* Type of hotel or car product that was purchased (if applicable) - OPAQUE/RETAIL */
+}; 
+(function() {
+var script = document.createElement("script");
+var url = window.IntentMediaProperties.tag_path;
+script.src = url;
+script.async = true;
+document.getElementsByTagName("head")[0].appendChild(script);
+}());
+ 
+</script>
