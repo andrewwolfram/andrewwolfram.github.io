@@ -1,0 +1,2 @@
+
+Bootstrapper._serverTime = '2015-09-30 13:06:03'; Bootstrapper._clientIP = '66.37.34.214'; var psj0 = 'http://nexus.ensighten.com/hotelscom/prod/code/6ee5acfc8421f196cca7fe02563a5503.js?conditionId0=366403';Bootstrapper.insertScript(psj0);var psj1 = 'http://nexus.ensighten.com/hotelscom/prod/code/a94176b7a216ba488b131890731cbb7d.js?conditionId0=343861';Bootstrapper.loadScriptCallback(psj1, Bootstrapper.callOnPageSpecificCompletion);Bootstrapper.setPageSpecificDataDefinitionIds([7688])

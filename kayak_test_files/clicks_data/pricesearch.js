@@ -1,0 +1,1 @@
+webpackJsonp([11],{377:function(e,t,n){var i=i=n(2),r=n(8).logUseraction,o=window.$||n(1),s=i.BaseView.extend({events:{"click .js_item_snippet":function(e){var t=o(e.target).data("slideout"),n=0;t&&(n=t.split("-")[1]),r("100:2372:"+n+":128:1")}}});e.exports=s}});
