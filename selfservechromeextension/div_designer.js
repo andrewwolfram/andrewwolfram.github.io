@@ -101,11 +101,12 @@ function createDesigner() {
     myDiv.appendChild(mySpan);
     }
     var toggle_container = document.createElement("p");
+    toggle_container.className = "myText";
     toggle_container.innerText = "Reverse click type?";
     var toggle_span = document.createElement("span"); 
     var multi_single_toggle = document.createElement("input");
     multi_single_toggle.type = "checkbox";
-    document.addEventListener("click", 
+    multi_single_toggle.addEventListener("click", 
 	function(){
 	    for(i in adArray){
 		    var multi_single_targets = document.querySelectorAll(adArray[i]);
