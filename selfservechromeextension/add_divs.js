@@ -113,7 +113,7 @@ function insertDiv(e) {
     awInt = setInterval(function(){
         if(imDiv.firstElementChild) {
             clearInterval(awInt);
-            imDiv.firstElementChild.className = imDiv.firstElementChild.className.replace(/\bIM\_single\b/, 'IM_multi');
+            //imDiv.firstElementChild.className = imDiv.firstElementChild.className.replace(/\bIM\_single\b/, 'IM_multi');
         }
     });
     if(adArray.length == 0){

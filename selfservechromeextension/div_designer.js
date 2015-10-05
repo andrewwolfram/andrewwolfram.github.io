@@ -100,7 +100,30 @@ function createDesigner() {
     mySpan.appendChild(cssInput);
     myDiv.appendChild(mySpan);
     }
-
+    var toggle_container = document.createElement("p");
+    toggle_container.innerText = "Reverse click type?";
+    var toggle_span = document.createElement("span"); 
+    var multi_single_toggle = document.createElement("input");
+    multi_single_toggle.type = "checkbox";
+    document.addEventListener("click", 
+	function(){
+	    for(i in adArray){
+		    var multi_single_targets = document.querySelectorAll(adArray[i]);
+		    for(var j = 0; j < multi_single_targets.length; j++) {
+			    var im_child = multi_single_targets[j].firstElementChild; 
+			    if(im_child.className.match(/IM_single/)[0] == "IM_single") {
+				    im_child.className.replace("IM_single", "IM_multi");
+			    } else if(im_child.className.match(/IM_multi/)[0] == "IM_multi") {
+				    im_child.className.replace("IM_multi", "IM_single");
+			    }
+		    }
+	    }
+	}
+    );
+    toggle_span.appendChild(multi_single_toggle);
+    toggle_container.appendChild(toggle_span);
+    myDiv.appendChild(toggle_container);
+			
     jscolor.bind();
 
 /*
