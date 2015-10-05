@@ -1,6 +1,7 @@
 var myInterval = setInterval(function(){if(typeof IntentMedia !== 'undefined' && typeof IntentMedia.Config !==  'undefined'){addDivs(); clearInterval(myInterval);}}, 500);
 
 var adArray = [];
+var im_op_targets;
 var prev;
 
 var awInt;
@@ -15,6 +16,7 @@ function addDivs() {
             adArray.push(IntentMedia.Config.on_page.placements[i]);
             console.log("On-page ad placement detected: " + adArray[i].target.substring(1));
     }
+    im_op_targets = adArray.slice(0);
 
     if(IntentMedia.Config.exit_unit) {
         if(IntentMedia.Config.exit_unit.source.indexOf('home') != -1) {

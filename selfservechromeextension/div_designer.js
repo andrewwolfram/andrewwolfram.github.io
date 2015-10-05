@@ -102,14 +102,14 @@ function createDesigner() {
     }
     var toggle_container = document.createElement("p");
     toggle_container.className = "myText";
-    toggle_container.innerText = "Reverse click type?";
+    toggle_container.innerText = "Reverse click type? ";
     var toggle_span = document.createElement("span"); 
     var multi_single_toggle = document.createElement("input");
     multi_single_toggle.type = "checkbox";
     multi_single_toggle.addEventListener("click", 
 	function(){
-	    for(i in adArray){
-		    var multi_single_targets = document.querySelectorAll(adArray[i]);
+	    for(i in im_op_targets){
+		    var multi_single_targets = document.querySelectorAll(im_op_targets[i]);
 		    for(var j = 0; j < multi_single_targets.length; j++) {
 			    var im_child = multi_single_targets[j].firstElementChild; 
 			    if(im_child.className.match(/IM_single/)[0] == "IM_single") {
