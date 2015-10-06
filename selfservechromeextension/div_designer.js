@@ -112,9 +112,9 @@ function createDesigner() {
 		    var multi_single_targets = document.querySelectorAll(im_op_targets[i].target);
 		    for(var j = 0; j < multi_single_targets.length; j++) {
 			    var im_child = multi_single_targets[j].firstElementChild; 
-			    if(im_child.className.match(/IM_single/)[0] == "IM_single") {
+			    if(im_child.className.match(/IM_single/) != null) {
 				    im_child.className = im_child.className.replace("IM_single", "IM_multi");
-			    } else if(im_child.className.match(/IM_multi/)[0] == "IM_multi") {
+			    } else if(im_child.className.match(/IM_multi/) != null) {
 				    im_child.className = im_child.className.replace("IM_multi", "IM_single");
 			    }
 		    }
