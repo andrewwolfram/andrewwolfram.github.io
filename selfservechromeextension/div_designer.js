@@ -109,7 +109,7 @@ function createDesigner() {
     multi_single_toggle.addEventListener("click", 
 	function(){
 	    for(i in im_op_targets){
-		    var multi_single_targets = document.querySelectorAll(im_op_targets[i]);
+		    var multi_single_targets = document.querySelectorAll(im_op_targets[i].target);
 		    for(var j = 0; j < multi_single_targets.length; j++) {
 			    var im_child = multi_single_targets[j].firstElementChild; 
 			    if(im_child.className.match(/IM_single/)[0] == "IM_single") {
