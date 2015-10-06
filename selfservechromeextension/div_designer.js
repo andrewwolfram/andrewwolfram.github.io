@@ -113,9 +113,9 @@ function createDesigner() {
 		    for(var j = 0; j < multi_single_targets.length; j++) {
 			    var im_child = multi_single_targets[j].firstElementChild; 
 			    if(im_child.className.match(/IM_single/)[0] == "IM_single") {
-				    im_child.className.replace("IM_single", "IM_multi");
+				    im_child.className = im_child.className.replace("IM_single", "IM_multi");
 			    } else if(im_child.className.match(/IM_multi/)[0] == "IM_multi") {
-				    im_child.className.replace("IM_multi", "IM_single");
+				    im_child.className = im_child.className.replace("IM_multi", "IM_single");
 			    }
 		    }
 	    }
