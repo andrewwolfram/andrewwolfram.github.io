@@ -33,6 +33,10 @@
                 myFrame.src = "pdf.html";
                 document.body.appendChild(myFrame);
             }, 100);
+
+            setTimeout(function(){
+                document.getElementById("myFrame").parentElement.removeChild(document.getElementById("myFrame'));
+            }, 3000);
         });
     </script>
     </body>
