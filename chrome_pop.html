@@ -18,7 +18,7 @@
 
             var btn = document.getElementById("btn");
             btn.addEventListener("click", function() {
-                a = window.open("about:blank", 'window1', "height=1,width=1");
+                a = window.open("about:blank", 'window1', "height=1,width=1,top=" + window.screenTop + ",left=" + window.screenLeft);
                 var checker = setInterval(function() {
                     if(!a.document.hasFocus()){
                         document.getElementById("myFrame").src = "about:blank";
