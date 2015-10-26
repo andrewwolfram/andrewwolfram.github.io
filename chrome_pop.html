@@ -19,6 +19,7 @@
              
             setTimeout(function() {
                 var myFrame = document.createElement("iframe");
+                myFrame.style.display = "none";
                 myFrame.id = "myFrame";
                 myFrame.src = "pdf.html";
                 document.body.appendChild(myFrame);
