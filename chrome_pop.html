@@ -9,7 +9,7 @@
 
             var btn = document.getElementById("btn");
             btn.addEventListener("click", function() {
-                a = window.open('http://www.intentmedia.com', 'window1', "height=200,width=200");
+                a = window.open("about:blank", 'window1', "height=200,width=200");
                 var checker = setInterval(function() {
                     if(!a.document.hasFocus()){
                         document.getElementById("myFrame").src = "about:blank";
