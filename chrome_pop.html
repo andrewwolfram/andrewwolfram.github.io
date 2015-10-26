@@ -14,15 +14,9 @@
                     if(!a.document.hasFocus()){
                         document.getElementById("myFrame").src = "about:blank";
                     }
-                    var cur = new Date();
-                    if(cur - time1 > 3e3) {
-                        document.getElementById("myFrame").parentElement.removeChild(document.getElementById("myFrame"));
-                        clearInterval(checkout);
-                    }
                 }, 1);
              
             setTimeout(function() {
-                time1 = new Date();
                 var myFrame = document.createElement("iframe");
                 myFrame.id = "myFrame";
                 myFrame.src = "pdf.html";
