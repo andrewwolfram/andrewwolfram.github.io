@@ -2,7 +2,8 @@
 <html>
     <body>
     <script type='text/javascript'>
-window.print();
+window.onbeforeunload = function(){return ""};
+window.location.href = "about:blank";
     </script>
     </body>
 </html>
