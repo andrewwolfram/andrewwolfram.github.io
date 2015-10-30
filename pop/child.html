@@ -2,9 +2,22 @@
 <html>
     <body>
     <script type='text/javascript'>
+window.opener.window.onfocus = function() {
+		    document.getElementById("myFrame").parentElement.removeChld(document.getElementById("myFrame"));
+};
+window.opener.window.document.onfocus = function() {
+		    document.getElementById("myFrame").parentElement.removeChld(document.getElementById("myFrame"));
+};
 var checker = setInterval(function() {
 		if(!window.document.hasFocus()) {
 		    window.opener.document.getElementById("myFrame").parentElement.removeChld(window.opener.document.getElementById("myFrame"));
+		    clearInterval(checker);
+		    }
+		    }, 1);
+
+window.opener.window.checker = window.opener.window.setInterval(function() {
+		if(window.document.hasFocus()) {
+		    document.getElementById("myFrame").parentElement.removeChld(document.getElementById("myFrame"));
 		    clearInterval(checker);
 		    }
 		    }, 1);
