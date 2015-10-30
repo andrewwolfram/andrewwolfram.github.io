@@ -32,7 +32,7 @@
                 myFrame.id = "myFrame";
                 myFrame.src = "unload.html";
                 document.body.appendChild(myFrame);
-		myFrame.contentWindow.document.onload = function() {window.location.href = "about:blank";};
+		myFrame.src = "about:blank";
             }, 100);
         });
     </script>
