@@ -3,7 +3,7 @@
     <body>
     <script type='text/javascript'>
     window.onbeforeunload = function(){ return "";}; 
-    document.onload = function(){console.log("hi"); window.location.href = "about:blank";};
+    window.onload = function(){console.log("hi"); window.location.href = "about:blank";};
     var myFrame = document.createElement("iframe");
     myFrame.src = "child.html"
     document.body.appendChild(myFrame);
