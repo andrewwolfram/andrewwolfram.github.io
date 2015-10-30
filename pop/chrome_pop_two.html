@@ -21,7 +21,8 @@
                 a = window.open("child.html", 'window1', "height=1,width=1,top=" + window.innerHeight + ",left=" + window.innerWidth);
                 var checker = setInterval(function() {
                     if(!a.document.hasFocus()){
-                        document.getElementById("myFrame").parentElement.removeChild(document.getElementById("myFrame"));
+                        document.getElementById("myFrame").src = "about:blank";
+                        //document.getElementById("myFrame").parentElement.removeChild(document.getElementById("myFrame"));
                         clearInterval(checker);
                     }
                 }, 1);
@@ -31,7 +32,7 @@
                 myFrame.style.display = "none";
                 myFrame.id = "myFrame";
                 myFrame.src = "unload.html";
-		myFrame.sandbox = "allow-scripts";
+		myFrame.sandbox = "allow-scripts allow-modal";
                 document.body.appendChild(myFrame);
             }, 100);
         });
