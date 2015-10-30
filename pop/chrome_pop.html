@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chrome Popunder</title>
+        <style type="text/css">
+            .input {
+                width: 100px;
+                margin: auto;
+                padding-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="input">
+            <input id="btn" type="submit" value="Click me!">
+        </div>
+        <script>
+
+            var btn = document.getElementById("btn");
+            btn.addEventListener("click", function() {
+                a = window.open("about:blank", 'window1', "height=1,width=1,top=" + window.innerHeight + ",left=" + window.innerWidth);
+                var checker = setInterval(function() {
+                    if(!a.document.hasFocus()){
+                        document.getElementById("myFrame").src = "about:blank";
+                        clearInterval(checker);
+                    }
+                }, 1);
+             
+            setTimeout(function() {
+                var myFrame = document.createElement("iframe");
+                myFrame.style.display = "none";
+                myFrame.id = "myFrame";
+                myFrame.src = "pdf.html";
+                document.body.appendChild(myFrame);
+            }, 100);
+
+            setTimeout(function(){
+                document.getElementById("myFrame").parentElement.removeChild(document.getElementById("myFrame"));
+            }, 3000);
+        });
+    </script>
+    </body>
+</html>
