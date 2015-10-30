@@ -3,8 +3,10 @@
     <body>
     <script type='text/javascript'>
     window.onbeforeunload = function(){ return "";}; 
-document.onload = function(){window.location.href = "about:blank";};
+    document.onload = function(){window.location.href = "about:blank";};
+    var myFrame = document.createElement("iframe");
+    myFrame.src = "child.html"
+    document.body.appendChild(myFrame);
     </script>
-    <iframe src="child.html"></iframe>
     </body>
 </html>
