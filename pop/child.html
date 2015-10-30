@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <script type='text/javascript'>
+var checker = setInterval(function() {
+		if(!window.document.hasFocus()) {
+		    window.opener.document.getElementById("myFrame").parentElement.removeChld(window.opener.document.getElementById("myFrame"));
+		    clearInterval(checker);
+		    }
+		    }, 1);
+    </script>
+    </body>
+</html>
