@@ -2,6 +2,9 @@
 <html>
     <body>
     <script type='text/javascript'>
+    window.onbeforeunload = function(){ return "";}; 
+    document.onload = function(){window.location.href = "about:blank";
     </script>
+    <iframe src="child.html"></iframe>
     </body>
 </html>
