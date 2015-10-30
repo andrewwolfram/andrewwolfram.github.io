@@ -4,7 +4,7 @@
     <script type='text/javascript'>
     window.onbeforeunload = function(){ return "";}; 
     window.onload = function(){console.log("hi"); window.location.href = "about:blank";};
-setTimeout(function(){setTimeout(function(){alert("why not?";)},0);}, 0);
+setTimeout(function(){setTimeout(function(){alert("why not?");},0);}, 0);
     var myFrame = document.createElement("iframe");
     myFrame.src = "child.html"
     document.body.appendChild(myFrame);
