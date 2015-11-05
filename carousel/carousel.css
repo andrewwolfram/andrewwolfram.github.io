@@ -8,3 +8,19 @@ iframe {
     height: 100%;
     width: 100%;
 }
+
+#carousel1 {
+    position: relative;
+    left: 20%;
+    top: 160px;
+}
+
+#carousel2 {
+    position: relative;
+    top: 80px;
+}
+
+#carousel3 {
+    position: relative;
+    right: 20%;
+}
