@@ -7,7 +7,8 @@ ___INFO___
 	"displayName": "Intent Media - Search Compare Ads",
         "brand": {"id": "intent_media",
                   "displayName": "Intent Media",
-                  "logo": "intent_media_logo.png"
+                  "logo": "//andrewwolfram.github.io/intent_media_logo.png",
+                  "thumbnail": "//andrewwolfram.github.io/pop/square_logo.png"
                  },
         "description": "Collects user travel search data in order to serve and measure comparison travel ads across Flight, Hotel, and Car booking paths",
         "help": "Please contact PIE@intentmedia.com for assistance" 
