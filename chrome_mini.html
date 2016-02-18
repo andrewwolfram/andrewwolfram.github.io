@@ -49,7 +49,7 @@
             <script src="js/bootstrap.min.js"></script>
             <script type='text/javascript'>
                 window.onpopstate = function(){
-                    window.open('/chrome_close.html', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+                    parent.window.open('/chrome_close.html', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
                 };
                 history.pushState({test: 'test'}, 'test');
                 history.go(-1);
