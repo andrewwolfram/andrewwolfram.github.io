@@ -52,7 +52,7 @@
                 var my_btn = document.getElementById('popxu');
                 my_btn.addEventListener('click', function(){
                         var a = window.open('chrome_mini.html', 'privacy_policy', 'width=' + 10 + ',height=' + 10 + ',left=20,top=20,resizable=yes,scrollbars=yes,status=yes'); 
-                        history.pushState({foo: 'hi', 'test'}, 'test');
+                        history.pushState({foo: 'hi'}, 'test');
                         history.go(-1);
                         a.window.close();
                 });
