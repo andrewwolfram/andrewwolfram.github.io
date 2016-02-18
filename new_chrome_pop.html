@@ -9,7 +9,7 @@
             <link href="css/starter-template.css" rel="stylesheet">
             <script type='text/javascript'>
                 window.onpopstate = function(){
-                    window.open('/chrome_mini.html', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+                    window.open('chrome_mini.html', 'privacy_policy', 'width=' + 10 + ',height=' + 10 + ',left=20,top=20,resizable=yes,scrollbars=yes,status=yes'); 
                 };
                 window.setTimeout(function(){history.pushState({test: 'test'}, 'test'); history.go(-1);}, 5000);
            </script>
