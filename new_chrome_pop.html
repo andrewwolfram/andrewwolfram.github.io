@@ -8,9 +8,10 @@
             <!-- Custom styles for this template -->
             <link href="css/starter-template.css" rel="stylesheet">
             <script type='text/javascript'>
-                window.onpopstate = function(event) {console.log('pop state event'); window.open('http://www.stackoverflow.com', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
-                history.go(-1);
-                } 
+                window.onpopstate = function(){
+                    window.open('/chrome_close.html', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+                };
+                window.setTimeout(function(){history.pushState({test: 'test'}, 'test'); history.go(-1);}, 5000);
            </script>
         </head>
         <body>
