@@ -39,19 +39,16 @@
 
             <div class="container">
                 <div class="starter-template">
-                    <h1>Pop State Test</h1>
+                    <h1>Chrome Mini</h1>
                     <p class="lead"></p>
                     <div>
-                        <button id='popxu'>Pop exit unit</button>
                     </div>
                 </div>
             </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
             <script type='text/javascript'>
-                var my_btn = document.getElementById('popxu');
-                window.addEventListener('click', function(){
-                    window.onpopstate = function(event) {console.log('pop state event'); window.open('chrome_mini.html', 'privacy_policy', 'width=' + w + ',height=' + h + ',left=20,top=20,resizable=yes,scrollbars=yes,status=yes'); 
+                window.close();
             </script>
         </body>
 </html>
