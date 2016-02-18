@@ -8,7 +8,7 @@
             <!-- Custom styles for this template -->
             <link href="css/starter-template.css" rel="stylesheet">
             <script type='text/javascript'>
-                window.onpopstate = function(event) {console.log('pop state event'); window.open('http://www.stackoverflow.com','toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+                window.onpopstate = function(event) {console.log('pop state event'); window.open('http://www.stackoverflow.com', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
                 history.go(-1);
                 } 
            </script>
@@ -47,5 +47,7 @@
             </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
+            <script type='text/javascript'>
+                var myframe = document.createElement('iframe')
         </body>
 </html>
