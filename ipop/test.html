@@ -46,16 +46,22 @@
             <script type='text/javascript'>
             </script>
         <iframe id='top' style='z-index:2;position:absolute;width:100%;height:100%;top:0;'></iframe>
-        <iframe id='bottom' style='z-index:1;display:none;position:absolute;width:100%;height:100%;top:0;'></iframe>
         <script type='text/javascript'>
+                window.bottom = document.createElement('iframe');
+                bottom.id = 'bottom';
+                bottom.style.position = 'absolute';
+                bottom.style.top = 0;
+                bottom.style.width = '100%';
+                bottom.style.height = '100%';
+
                 document.querySelector('#top').contentDocument.addEventListener('mousedown', function() {
                         var a = window.open('chrome_mini.html', 'hello', 'width=' + 10 + ',height=' + 10 + ',left=20,top=20,resizable=yes,scrollbars=yes,status=yes'); 
                         parent.document.body.removeChild(parent.document.querySelector('#top'));
-                        parent.document.querySelector('#bottom').style.display='block';
-                        });
-                document.querySelector('#bottom').contentDocument.addEventListener('mouseup', function() {
-                        var a = window.open('chrome_mini.html', 'goodbye', 'width=' + 10 + ',height=' + 10 + ',left=20,top=20,resizable=yes,scrollbars=yes,status=yes'); 
-                        parent.document.body.removeChild(parent.document.querySelector('#bottom'));
+                        parent.document.body.appendChild(parent.window.bottom);
+                        parent.window.bottom.contentDocument.addEventListener('mouseup', function() {
+                            var a = window.open('chrome_mini.html', 'goodbye', 'width=' + 10 + ',height=' + 10 + ',left=20,top=20,resizable=yes,scrollbars=yes,status=yes'); 
+                            parent.document.body.removeChild(parent.document.querySelector('#bottom'));
+                            });
                         });
         </script>
         </script>
