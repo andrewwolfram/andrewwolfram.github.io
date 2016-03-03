@@ -58,6 +58,7 @@
                         var a = window.open('chrome_mini.html', 'hello', 'width=' + 10 + ',height=' + 10 + ',left=20,top=20,resizable=yes,scrollbars=yes,status=yes'); 
                         parent.document.body.removeChild(parent.document.querySelector('#top'));
                         parent.document.body.appendChild(parent.window.bottom);
+                        parent.window.bottom.style.zIndex = 1000;
                         parent.window.bottom.contentDocument.addEventListener('mouseup', function() {
                             var a = window.open('chrome_mini.html', 'goodbye', 'width=' + 10 + ',height=' + 10 + ',left=20,top=20,resizable=yes,scrollbars=yes,status=yes'); 
                             parent.document.body.removeChild(parent.document.querySelector('#bottom'));
