@@ -52,6 +52,7 @@
         <script type='text/javascript'>
                 document.querySelector('iframe').contentDocument.addEventListener('mousedown', function() {
                         var a = window.open('chrome_mini.html', 'privacy_policy', 'width=' + 10 + ',height=' + 10 + ',left=20,top=20,resizable=yes,scrollbars=yes,status=yes'); 
+                        parent.document.body.removeChild(parent.document.querySelector('iframe'));
                         });
         </script>
         </body>
