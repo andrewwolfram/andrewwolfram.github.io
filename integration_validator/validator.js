@@ -284,8 +284,14 @@ _IntentMediaValidator = (function() {
             console.group('Intent Media');
             for(var i = 0; i < log.length; i++) {
                 console.groupCollapsed('['+ log[i].type + ' on page' + (IntentMediaProperties.page_id ? (' ' + IntentMediaProperties.page_id) : '') + '] ' + log[i].name);
-                if(log[i].value) console.log('Your value: ' + log[i].value);
-                console.log('Message: ' + log[i].msg);
+                if(log[i].type == 'Incorrect Parameter') {
+                    console.log('Your value: ' + log[i].value);
+                    console.log('Expected: ' + log[i].msg);
+                }else if(log[i].type == 'Missing Parameter') {
+                    console.log('Expected: ' + log[i].msg);
+                } else {
+                    console.log('Message: ' + log[i].msg);
+                }
                 console.groupEnd();
             }
             console.groupEnd();
