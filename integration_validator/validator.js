@@ -283,7 +283,7 @@ _IntentMediaValidator = (function() {
         if(log.length != 0) {
             console.group('Intent Media');
             for(var i = 0; i < log.length; i++) {
-                console.groupCollapsed('['+ log[i].type + ' on page' + IntentMediaProperties.page_id ? (' ' + IntentMediaProperties.page_id) : '' + '] ' + log[i].name);
+                console.groupCollapsed('['+ log[i].type + ' on page' + (IntentMediaProperties.page_id ? (' ' + IntentMediaProperties.page_id) : '') + '] ' + log[i].name);
                 if(log[i].value) console.log('Your value: ' + log[i].value);
                 console.log('Message: ' + log[i].msg);
                 console.groupEnd();
