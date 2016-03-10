@@ -14,6 +14,8 @@ var callback = function(details) {
 
     var requests = ['config', 'user_classification', 'impressions', 'conversions'];
     var reqType = details.url.match(/.*adServer\/(.*?)\?/);
+
+    //Change below line
     if(reqType == 'config') log = [];
 
     if(reqType && reqType.length > 1) {

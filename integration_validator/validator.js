@@ -377,6 +377,15 @@ _IntentMediaValidator = (function() {
         }
     }
 
+    function verifyHomePage() {
+        verifyIMProps();
+        verifyOnPageAds();
+        verifyExitUnits();
+        window.setTimeout(printLog, 1000);
+
+        return "";
+    }
+
     function validate() {
         verifySiteAndPage();
         verifyIMProps();
@@ -385,6 +394,13 @@ _IntentMediaValidator = (function() {
         window.setTimeout(printLog, 1000);
     }
 
-    return {"validate": validate};
+    function validateHomePage() {
+        console.info("[Intent Media] Please run a search and check console for output");
+        verifySiteAndPage();
+        window.onbeforeunload = verifyHomePage;
+    }
+
+    return {"validate": validate,
+            "validateHomePage": validateHomePage};
 
 })();
