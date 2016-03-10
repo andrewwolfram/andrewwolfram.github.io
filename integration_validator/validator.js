@@ -209,7 +209,11 @@ _IntentMediaValidator = (function() {
     var log = [];
 
     function hasOnPageAds() {
-        return IntentMedia.Config.on_page ? true : false;
+        if(window.IntentMedia && IntentMedia.Config) {
+            return IntentMedia.Config.on_page ? true : false;
+        } else {
+            return false; 
+        }
     }
 
     function getTargets() {
@@ -311,7 +315,7 @@ _IntentMediaValidator = (function() {
     function checkHotels(im_params) {
         Object.keys(imPropsCheck.hotels).forEach(function(a) {
             if(a in im_params) {
-                if(!im_params[a].match(imPropsCheck.hotels[a].format)) {
+                if(!im_params[a].toString().match(imPropsCheck.hotels[a].format)) {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.hotels[a].impName, "value": im_params[a], "msg": imPropsCheck.hotels[a].errorMsg}); 
                    }
             } else {
@@ -323,7 +327,7 @@ _IntentMediaValidator = (function() {
     function checkFlights(im_params) {
         Object.keys(imPropsCheck.flights).forEach(function(a) {
             if(a in im_params) {
-                if(!im_params[a].match(imPropsCheck.flights[a].format)) {
+                if(!im_params[a].toString().match(imPropsCheck.flights[a].format)) {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.flights[a].impName, "value": im_params[a], "msg": imPropsCheck.flights[a].errorMsg}); 
                    }
             } else {
@@ -335,7 +339,7 @@ _IntentMediaValidator = (function() {
     function checkCars(im_params) {
         Object.keys(imPropsCheck.cars).forEach(function(a) {
             if(a in im_params) {
-                if(!im_params[a].match(imPropsCheck.cars[a].format)) {
+                if(!im_params[a].toString().match(imPropsCheck.cars[a].format)) {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.cars[a].impName, "value": im_params[a], "msg": imPropsCheck.cars[a].errorMsg}); 
                    }
             } else {
