@@ -20,7 +20,7 @@ _IntentMediaValidator = (function() {
                           "impName": "hotel_country"
             },
             "hotel_airport_code": {"format": /^[A-Z]{3}$/g,
-                          "errorMsg": "3 letter airport code - Hotel location (if applicable)",
+                          "errorMsg": "3 letter airport code - Hotel location (Not required if providing hotel city, state, and country)",
                           "required": "Y",
                           "impName": "hotel_airport_code"
             },
@@ -283,7 +283,7 @@ _IntentMediaValidator = (function() {
         if(log.length != 0) {
             console.group('Intent Media');
             for(var i = 0; i < log.length; i++) {
-                console.groupCollapsed('['+ log[i].type + ' on page' + (IntentMediaProperties.page_id ? (' ' + IntentMediaProperties.page_id) : '') + '] ' + log[i].name);
+                console.groupCollapsed('['+ log[i].type + ' on Page' + (IntentMediaProperties.page_id ? (' ' + IntentMediaProperties.page_id) : '') + '] ' + log[i].name);
                 if(log[i].type == 'Incorrect Parameter') {
                     console.log('Your value: ' + log[i].value);
                     console.log('Expected: ' + log[i].msg);
@@ -326,7 +326,9 @@ _IntentMediaValidator = (function() {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.hotels[a].impName, "value": im_params[a], "msg": imPropsCheck.hotels[a].errorMsg}); 
                    }
             } else {
-              log.push({"type":  "Missing Parameter", "name": imPropsCheck.hotels[a].impName, "value": "", "msg": imPropsCheck.hotels[a].errorMsg}); 
+                if(a == 'hotel_airport_code' && ('hotel_city' in im_params || 'hotel_state' in im_params || 'hotel_country' in im_params)) return;
+                if((a == 'hotel_city' || a == 'hotel_state' || a == 'hotel_country') && 'hotel_airport_code' in im_params) return;
+                log.push({"type":  "Missing Parameter", "name": imPropsCheck.hotels[a].impName, "value": "", "msg": imPropsCheck.hotels[a].errorMsg}); 
             }
          });
     }
@@ -339,7 +341,7 @@ _IntentMediaValidator = (function() {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.flights[a].impName, "value": im_params[a], "msg": imPropsCheck.flights[a].errorMsg}); 
                    }
             } else {
-              log.push({"type":  "Missing Parameter", "name": imPropsCheck.flights[a].impName, "value": "", "msg": imPropsCheck.flights[a].errorMsg}); 
+                log.push({"type":  "Missing Parameter", "name": imPropsCheck.flights[a].impName, "value": "", "msg": imPropsCheck.flights[a].errorMsg}); 
             }
         });
     }
@@ -352,7 +354,11 @@ _IntentMediaValidator = (function() {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.cars[a].impName, "value": im_params[a], "msg": imPropsCheck.cars[a].errorMsg}); 
                    }
             } else {
-              log.push({"type":  "Missing Parameter", "name": imPropsCheck.cars[a].impName, "value": "", "msg": imPropsCheck.cars[a].errorMsg}); 
+                if((a == 'car_dropoff_city' || a == 'car_dropoff_state' || a == 'car_dropoff_country') && 'car_dropoff_location_type' in im_params && im_params.car_dropoff_location_type.match(/^airport$/i)) return;
+                if((a == 'car_pickup_city' || a == 'car_pickup_state' || a == 'car_pickup_country') && 'car_pickup_location_type' in im_params && im_params.car_pickup_location_type.match(/^airport$/i)) return;
+                if(a == 'car_pickup_airport' && 'car_pickup_location_type' in im_params && im_params.car_pickup_location_type.match(/^city$/i)) return;
+                if(a == 'car_dropoff_airport' && 'car_dropoff_location_type' in im_params && im_params.car_dropoff_location_type.match(/^city$/i)) return;
+                log.push({"type":  "Missing Parameter", "name": imPropsCheck.cars[a].impName, "value": "", "msg": imPropsCheck.cars[a].errorMsg}); 
             }
         });
     }
