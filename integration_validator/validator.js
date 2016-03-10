@@ -283,7 +283,7 @@ _IntentMediaValidator = (function() {
         if(log.length != 0) {
             console.group('Intent Media');
             for(var i = 0; i < log.length; i++) {
-                console.groupCollapsed('['+ log[i].type + '] ' + log[i].name);
+                console.groupCollapsed('['+ log[i].type + ' on page' + IntentMediaProperties.page_id ? (' ' + IntentMediaProperties.page_id) : '' + '] ' + log[i].name);
                 if(log[i].value) console.log('Your value: ' + log[i].value);
                 console.log('Message: ' + log[i].msg);
                 console.groupEnd();
@@ -315,6 +315,7 @@ _IntentMediaValidator = (function() {
     function checkHotels(im_params) {
         Object.keys(imPropsCheck.hotels).forEach(function(a) {
             if(a in im_params) {
+                if(im_params[a] == null) im_params[a] = "";
                 if(!im_params[a].toString().match(imPropsCheck.hotels[a].format)) {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.hotels[a].impName, "value": im_params[a], "msg": imPropsCheck.hotels[a].errorMsg}); 
                    }
@@ -327,6 +328,7 @@ _IntentMediaValidator = (function() {
     function checkFlights(im_params) {
         Object.keys(imPropsCheck.flights).forEach(function(a) {
             if(a in im_params) {
+                if(im_params[a] == null) im_params[a] = "";
                 if(!im_params[a].toString().match(imPropsCheck.flights[a].format)) {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.flights[a].impName, "value": im_params[a], "msg": imPropsCheck.flights[a].errorMsg}); 
                    }
@@ -339,6 +341,7 @@ _IntentMediaValidator = (function() {
     function checkCars(im_params) {
         Object.keys(imPropsCheck.cars).forEach(function(a) {
             if(a in im_params) {
+                if(im_params[a] == null) im_params[a] = "";
                 if(!im_params[a].toString().match(imPropsCheck.cars[a].format)) {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.cars[a].impName, "value": im_params[a], "msg": imPropsCheck.cars[a].errorMsg}); 
                    }
