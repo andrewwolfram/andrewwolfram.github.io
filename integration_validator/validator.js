@@ -410,7 +410,7 @@ _IntentMediaValidator = (function() {
             }
             triggerMsg = "";
         }
-
+    }
 
     function verifyExitUnits() {
         checkBlankPage();
