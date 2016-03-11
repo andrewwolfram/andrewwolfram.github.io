@@ -384,7 +384,7 @@ _IntentMediaValidator = (function() {
 
     function getExitUnitEvent() {
         if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.exit_unit) {
-            return IntentMedia.Config.exit_unit.remote_polling ? "IntentMedia.trigger('open_exit_unit')" : "IntentMedia.trigger('fill_exit_unit')"; 
+            return IntentMedia.Config.exit_unit.remote_polling ? "IntentMedia.trigger('fill_exit_unit')" : "IntentMedia.trigger('open_exit_unit')"; 
         } else {
             return "";
         }
@@ -394,7 +394,7 @@ _IntentMediaValidator = (function() {
         if(window.IntentMedia && IntentMedia.trigger) {
             var tmp = IntentMedia.trigger;
             IntentMedia.trigger = function(msg) {
-                triggerMsg = 'IntentMedia.trigger(' + msg + ')';
+                triggerMsg = "IntentMedia.trigger('" + msg + "')";
                 tmp(msg);
             };
         }
@@ -406,8 +406,6 @@ _IntentMediaValidator = (function() {
             log.push({"type": "Event Not Fired", "name": evt, "value": "", "msg": "Please ensure the above event is bound to the search button"});
         } else {
             if(evt != triggerMsg) {
-                console.log(evt);
-                console.log(triggerMsg);
                 log.push({"type": "Incorrect Event Fired", "name": "IntentMedia.trigger", "value": triggerMsg, "msg": "Please use " + evt});
             }
             triggerMsg = "";
