@@ -207,6 +207,7 @@ _IntentMediaValidator = (function() {
     };
 
     var log = [];
+    var triggerMsg = "";
 
     function hasOnPageAds() {
         if(window.IntentMedia && IntentMedia.Config) {
@@ -381,6 +382,36 @@ _IntentMediaValidator = (function() {
         }
     }
 
+    function getExitUnitEvent() {
+        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.exit_unit) {
+            return IntentMedia.Config.exit_unit.remote_polling ? "IntentMedia.trigger('open_exit_unit')" : "IntentMedia.trigger('fill_exit_unit')"; 
+        } else {
+            return "";
+        }
+    }
+
+    function primeTrigger() {
+        if(window.IntentMedia && IntentMedia.trigger) {
+            var tmp = IntentMedia.trigger;
+            IntentMedia.trigger = function(msg) {
+                triggerMsg = 'IntentMedia.trigger(' + msg + ')';
+                tmp(msg);
+            };
+        }
+    }
+
+    function verifyTrigger() {
+        var evt = getExitUnitEvent();
+        if(!triggerMsg) {
+            log.push({"type": "Event Not Fired", "name": evt, "value": "", "msg": "Please ensure the above event is bound to the search button"});
+        } else {
+            if(evt != triggerMsg) {
+                log.push({"type": "Incorrect Event Fired", "name": "IntentMedia.trigger", "value": triggerMsg, "msg": "Please use " + evt});
+            }
+            triggerMsg = "";
+        }
+
+
     function verifyExitUnits() {
         checkBlankPage();
     }
@@ -400,6 +431,7 @@ _IntentMediaValidator = (function() {
         verifyIMProps();
         verifyOnPageAds();
         verifyExitUnits();
+        verifyTrigger();
         window.setTimeout(printLog, 1000);
 
         return "[Intent Media] Please click the option to stay on page and check the console for output";
@@ -416,6 +448,7 @@ _IntentMediaValidator = (function() {
     function validateHomePage() {
         console.info("[Intent Media] Please run a search and check console for output");
         verifySiteAndPage();
+        primeTrigger();
         window.onbeforeunload = verifyHomePage;
     }
 
