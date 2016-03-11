@@ -427,14 +427,17 @@ _IntentMediaValidator = (function() {
         }
     }
 
-    function verifyHomePage() {
+    function verifyHomePage(e) {
         verifyIMProps();
         verifyOnPageAds();
         verifyExitUnits();
         verifyTrigger();
         window.setTimeout(printLog, 1000);
+        var msg = "[Intent Media] Please click the option to stay on page and check the console for output"; 
 
-        return "[Intent Media] Please click the option to stay on page and check the console for output";
+        e.returnValue = msg; 
+
+        return msg;
     }
 
     function validate() {
