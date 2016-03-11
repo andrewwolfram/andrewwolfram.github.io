@@ -449,7 +449,7 @@ _IntentMediaValidator = (function() {
         console.info("[Intent Media] Please run a search and check console for output");
         verifySiteAndPage();
         primeTrigger();
-        window.onbeforeunload = verifyHomePage;
+        window.addEventListener('beforeunload', verifyHomePage);
     }
 
     return {"validate": validate,
