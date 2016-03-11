@@ -406,6 +406,8 @@ _IntentMediaValidator = (function() {
             log.push({"type": "Event Not Fired", "name": evt, "value": "", "msg": "Please ensure the above event is bound to the search button"});
         } else {
             if(evt != triggerMsg) {
+                console.log(evt);
+                console.log(triggerMsg);
                 log.push({"type": "Incorrect Event Fired", "name": "IntentMedia.trigger", "value": triggerMsg, "msg": "Please use " + evt});
             }
             triggerMsg = "";
