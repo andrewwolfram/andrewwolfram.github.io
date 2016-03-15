@@ -6,201 +6,246 @@ _IntentMediaValidator = (function() {
         "hotels": {
             "hotel_city": {"format": /^([a-zA-Z]+\s?)*[a-zA-Z]+$/g,
                           "errorMsg": "City of searched, selected or booked hotel property (in English language)",
-                          "required": "Y",
+                          "required": true,
                           "impName": "hotel_city"
             },
             "hotel_state": {"format": /^[A-Z]{2}$/g,
                           "errorMsg": "2 letter ISO state code of searched, selected or booked hotel property - US & Canada only",
-                          "required": "Y",
+                          "required": true,
                           "impName": "hotel_state"
             },
             "hotel_country": {"format": /^([a-zA-Z]+\s?)*[a-zA-Z]+$/g,
                           "errorMsg": "2 letter ISO country code of searched, selected or booked hotel property",
-                          "required": "Y",
+                          "required": true,
                           "impName": "hotel_country"
             },
             "hotel_airport_code": {"format": /^[A-Z]{3}$/g,
                           "errorMsg": "3 letter airport code - Hotel location (Not required if providing hotel city, state, and country)",
-                          "required": "Y",
+                          "required": true,
                           "impName": "hotel_airport_code"
             },
             "hotel_rooms": {"format": /^[1-9]{1}$/g,
                           "errorMsg": "Number of hotel rooms booked. Integer value greater than 0",
-                          "required": "Y",
+                          "required": true,
                           "impName": "hotel_rooms"
             },
             "site_country": {"format": /^[A-Z]{2}$/g,
                           "errorMsg": "2 letter ISO country code of the website version that was loaded",
-                          "required": "Y",
+                          "required": true,
                           "impName": "site_country"
             },
             "site_language": {"format": /^[a-zA-Z]{2}$/g,
                           "errorMsg": "2 letter ISO code for the language the website page is rendered in",
-                          "required": "Y",
+                          "required": true,
                           "impName": "site_language"
             },
             "site_currency": {"format": /^[A-Z]{3}$/g,
                           "errorMsg": "3 letter ISO currency code for the transaction",
-                          "required": "Y",
+                          "required": true,
                           "impName": "site_currency"
             },
             "travel_date_start": {"format": /(^20\d\d[0-1][0-9][0-3][0-9]$)|(^20\d\d\/[0-1][0-9]\/[0-3][0-9]$)|(^20\d\d-[0-1][0-9]-[0-3][0-9]$)/g,
                           "errorMsg": "Travel start date - required format YYYYMMDD",
-                          "required": "Y",
+                          "required": true,
                           "impName": "travel_date_start"
             },
             "travel_date_end": {"format": /(^20\d\d[0-1][0-9][0-3][0-9]$)|(^20\d\d\/[0-1][0-9]\/[0-3][0-9]$)|(^20\d\d-[0-1][0-9]-[0-3][0-9]$)/g, 
                           "errorMsg": "Travel end date - required format YYYYMMDD",
-                          "required": "Y",
+                          "required": true,
                           "impName": "travel_date_end"
             },
+            "adults": {"format": /^[1-9]{1}$/g,
+                          "errorMsg": "Number of adults. Integer value greater than 0",
+                          "required": false,
+                          "impName": "adults"
+            },   
+            "children": {"format": /^[1-9]{1}$/g,
+                          "errorMsg": "Number of children. Integer value greater than 0",
+                          "required": false,
+                          "impName": "children"
+            },   
+            "seniors": {"format": /^[1-9]{1}$/g,
+                          "errorMsg": "Number of seniors. Integer value greater than 0",
+                          "required": false,
+                          "impName": "seniors"
+            },   
             "travelers": {"format": /^[1-9]{1}$/g,
                           "errorMsg": "Total number of travelers (adults+children+seniors). Integer value greater than 0",
-                          "required": "Y",
+                          "required": true,
                           "impName": "travelers"
             }   
         },
         "flights": {
             "flight_origin": {"format": /^[A-Z]{3}$/g,
                           "errorMsg": "3 letter airport code",
-                          "required": "Y",
+                          "required": true,
                           "impName": "flight_origin"
             },
             "flight_destination": {"format": /^[A-Z]{3}$/g,
                           "errorMsg": "3 letter airport code",
-                          "required": "Y",
+                          "required": true,
                           "impName": "flight_destination"
             },
             "trip_type": {"format": /^roundtrip$|^oneway$/gi,
                           "errorMsg": "oneway or roundtrip",
-                          "required": "Y",
+                          "required": true,
                           "impName": "trip_type"
             },
+            "adults": {"format": /^[1-9]{1}$/g,
+                          "errorMsg": "Number of adults. Integer value greater than 0",
+                          "required": false,
+                          "impName": "adults"
+            },   
+            "children": {"format": /^[1-9]{1}$/g,
+                          "errorMsg": "Number of children. Integer value greater than 0",
+                          "required": false,
+                          "impName": "children"
+            },   
+            "seniors": {"format": /^[1-9]{1}$/g,
+                          "errorMsg": "Number of seniors. Integer value greater than 0",
+                          "required": false,
+                          "impName": "seniors"
+            },   
             "travelers": {"format": /^[1-9]{1}$/g,
                           "errorMsg": "Total number of travelers (adults+children+seniors). Integer value greater than 0",
-                          "required": "Y",
+                          "required": true,
                           "impName": "travelers"
             },
             "site_country": {"format": /^[A-Z]{2}$/g,
                           "errorMsg": "2 letter ISO country code of the website version that was loaded",
-                          "required": "Y",
+                          "required": true,
                           "impName": "site_country"
             },
             "site_language": {"format": /^[a-zA-Z]{2}$/g,
                           "errorMsg": "2 letter ISO code for the language the website page is rendered in",
-                          "required": "Y",
+                          "required": true,
                           "impName": "site_language"
             },
             "site_currency": {"format": /^[A-Z]{3}$/g,
                           "errorMsg": "3 letter ISO currency code for the transaction",
-                          "required": "Y",
+                          "required": true,
                           "impName": "site_currency"
             },
             "travel_date_start": {"format": /(^20\d\d[0-1][0-9][0-3][0-9]$)|(^20\d\d\/[0-1][0-9]\/[0-3][0-9]$)|(^20\d\d-[0-1][0-9]-[0-3][0-9]$)/g,
                           "errorMsg": "Travel start date - required format YYYYMMDD",
-                          "required": "Y",
+                          "required": true,
                           "impName": "travel_date_start"
             },
             "travel_date_end": {"format": /(^20\d\d[0-1][0-9][0-3][0-9]$)|(^20\d\d\/[0-1][0-9]\/[0-3][0-9]$)|(^20\d\d-[0-1][0-9]-[0-3][0-9]$)/g, 
                           "errorMsg": "Travel end date - required format YYYYMMDD",
-                          "required": "Y",
+                          "required": true,
                           "impName": "travel_date_end"
             } 
         },
         "cars": {
             "car_trip_type": {"format": /^roundtrip$|^oneway$/gi,
                           "errorMsg": "oneway or roundtrip",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_trip_type"
             },
             "car_pickup_location_type": {"format": /^airport$|^city$/gi,
                           "errorMsg": "airport or city",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_pickup_location_type"
             },
             "car_pickup_airport_code": {"format": /^[A-Z]{3}$/g,
                           "errorMsg": "3 letter airport code",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_pickup_airport_code"
             },    
             "car_pickup_city": {"format": /^([a-zA-Z]+\s?)*[a-zA-Z]+$/g,
                           "errorMsg": "City name of pickup location",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_pickup_city"
             },  
             "car_pickup_state": {"format": /^[A-Z]{2}$/g,
                           "errorMsg": "2 letter ISO state code for state of pickup location - US & Canada only",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_pickup_state"
             },
             "car_pickup_country": {"format": /^[A-Z]{2}$/g,
                           "errorMsg": "2 letter ISO country code of pickup location",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_pickup_country"
             },
             "car_pickup_time": {"format": /^[0-2]\d[0-5]\d$/g,
                           "errorMsg": "Pickup time per pickup timezone - 0000-2359",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_pickup_time"
             },
             "car_dropoff_location_type": {"format": /^airport$|^city$/gi,
                           "errorMsg": "airport or city",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_dropoff_location_type"
             },
             "car_dropoff_airport_code": {"format": /^[A-Z]{3}$/g,
                           "errorMsg": "3 letter airport code",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_dropoff_airport_code"
             },
             "car_dropoff_city": {"format": /^([a-zA-Z]+\s?)*[a-zA-Z]+$/g,
                           "errorMsg": "City name of dropoff location",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_dropoff_city"
             },
             "car_dropoff_state": {"format": /^[A-Z]{2}$/g,
                           "errorMsg": "2 letter ISO state code for state of dropoff location - US & Canada only",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_dropoff_state"
             },
             "car_dropoff_country": {"format": /^[A-Z]{2}$/g,
                           "errorMsg": "2 letter ISO country code of dropoff location",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_dropoff_country"
             },
             "car_dropoff_time": {"format": /^[0-2]\d[0-5]\d$/g,
                           "errorMsg": "Dropoff time per dropoff timezone - 0000-2359",
-                          "required": "Y",
+                          "required": true,
                           "impName": "car_dropoff_time"
             },
             "site_country": {"format": /^[A-Z]{2}$/g,
                           "errorMsg": "2 letter ISO country code of the website version that was loaded",
-                          "required": "Y",
+                          "required": true,
                           "impName": "site_country"
             },
             "site_language": {"format": /^[a-zA-Z]{2}$/g,
                           "errorMsg": "2 letter ISO code for the language the website page is rendered in",
-                          "required": "Y",
+                          "required": true,
                           "impName": "site_language"
             },
             "site_currency": {"format": /^[A-Z]{3}$/g,
                           "errorMsg": "3 letter ISO currency code for the transaction",
-                          "required": "Y",
+                          "required": true,
                           "impName": "site_currency"
             },
             "travel_date_start": {"format": /(^20\d\d[0-1][0-9][0-3][0-9]$)|(^20\d\d\/[0-1][0-9]\/[0-3][0-9]$)|(^20\d\d-[0-1][0-9]-[0-3][0-9]$)/g,
                           "errorMsg": "Travel start date - required format YYYYMMDD",
-                          "required": "Y",
+                          "required": true,
                           "impName": "travel_date_start"
             },
             "travel_date_end": {"format": /(^20\d\d[0-1][0-9][0-3][0-9]$)|(^20\d\d\/[0-1][0-9]\/[0-3][0-9]$)|(^20\d\d-[0-1][0-9]-[0-3][0-9]$)/g, 
                           "errorMsg": "Travel end date - required format YYYYMMDD",
-                          "required": "Y",
+                          "required": true,
                           "impName": "travel_date_end"
             },
+            "adults": {"format": /^[1-9]{1}$/g,
+                          "errorMsg": "Number of adults. Integer value greater than 0",
+                          "required": false,
+                          "impName": "adults"
+            },   
+            "children": {"format": /^[1-9]{1}$/g,
+                          "errorMsg": "Number of children. Integer value greater than 0",
+                          "required": false,
+                          "impName": "children"
+            },   
+            "seniors": {"format": /^[1-9]{1}$/g,
+                          "errorMsg": "Number of seniors. Integer value greater than 0",
+                          "required": false,
+                          "impName": "seniors"
+            },   
             "travelers": {"format": /^[1-9]{1}$/g,
                           "errorMsg": "Total number of travelers (adults+children+seniors). Integer value greater than 0",
-                          "required": "Y",
+                          "required": true,
                           "impName": "travelers"
             }    
         }
@@ -326,7 +371,7 @@ _IntentMediaValidator = (function() {
                 if(!im_params[a].toString().match(imPropsCheck.hotels[a].format)) {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.hotels[a].impName, "value": im_params[a], "msg": imPropsCheck.hotels[a].errorMsg}); 
                    }
-            } else {
+            } else if (imPropsCheck.hotels[a].required) {
                 if(a == 'hotel_airport_code' && ('hotel_city' in im_params || 'hotel_state' in im_params || 'hotel_country' in im_params)) return;
                 if((a == 'hotel_city' || a == 'hotel_state' || a == 'hotel_country') && 'hotel_airport_code' in im_params) return;
                 log.push({"type":  "Missing Parameter", "name": imPropsCheck.hotels[a].impName, "value": "", "msg": imPropsCheck.hotels[a].errorMsg}); 
@@ -341,7 +386,7 @@ _IntentMediaValidator = (function() {
                 if(!im_params[a].toString().match(imPropsCheck.flights[a].format)) {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.flights[a].impName, "value": im_params[a], "msg": imPropsCheck.flights[a].errorMsg}); 
                    }
-            } else {
+            } else if (imPropsCheck.flights[a].required) {
                 log.push({"type":  "Missing Parameter", "name": imPropsCheck.flights[a].impName, "value": "", "msg": imPropsCheck.flights[a].errorMsg}); 
             }
         });
@@ -354,7 +399,7 @@ _IntentMediaValidator = (function() {
                 if(!im_params[a].toString().match(imPropsCheck.cars[a].format)) {
                     log.push({"type": "Incorrect Parameter", "name": imPropsCheck.cars[a].impName, "value": im_params[a], "msg": imPropsCheck.cars[a].errorMsg}); 
                    }
-            } else {
+            } else if (imPropsCheck.cars[a].required) {
                 if((a == 'car_dropoff_city' || a == 'car_dropoff_state' || a == 'car_dropoff_country') && 'car_dropoff_location_type' in im_params && im_params.car_dropoff_location_type.match(/^airport$/i)) return;
                 if((a == 'car_pickup_city' || a == 'car_pickup_state' || a == 'car_pickup_country') && 'car_pickup_location_type' in im_params && im_params.car_pickup_location_type.match(/^airport$/i)) return;
                 if(a == 'car_pickup_airport' && 'car_pickup_location_type' in im_params && im_params.car_pickup_location_type.match(/^city$/i)) return;
