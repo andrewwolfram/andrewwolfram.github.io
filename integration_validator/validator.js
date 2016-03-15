@@ -422,6 +422,11 @@ _IntentMediaValidator = (function() {
                 console.groupEnd();
             }
             console.groupEnd();
+        } else {
+            console.group('Intent Media');
+            console.groupCollapsed('No errors!');
+            console.groupEnd();
+            console.groupEnd();
         }
     }
 
