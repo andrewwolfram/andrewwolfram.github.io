@@ -496,10 +496,10 @@ _IntentMediaValidator = (function() {
                 if(a in im_params) {
                     if(im_params[a] == null) im_params[a] = "";
                     if(!im_params[a].toString().match(imPropsCheck[cType][a].format)) {
-                        log.push({"type": "Incorrect Parameter", "name": imPropsCheck.[cType][a].impName, "value": im_params[a], "msg": imPropsCheck.[cType][a].errorMsg}); 
+                        log.push({"type": "Incorrect Parameter", "name": imPropsCheck[cType][a].impName, "value": im_params[a], "msg": imPropsCheck[cType][a].errorMsg}); 
                     }
-                } else if (imPropsCheck.[cType][a].required) {
-                    log.push({"type":  "Missing Parameter", "name": imPropsCheck.[cType][a].impName, "value": "", "msg": imPropsCheck.[cType][a].errorMsg}); 
+                } else if (imPropsCheck[cType][a].required) {
+                    log.push({"type":  "Missing Parameter", "name": imPropsCheck[cType][a].impName, "value": "", "msg": imPropsCheck[cType][a].errorMsg}); 
                 } 
             });
         }
