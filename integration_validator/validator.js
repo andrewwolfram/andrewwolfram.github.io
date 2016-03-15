@@ -54,18 +54,18 @@ _IntentMediaValidator = (function() {
                           "required": true,
                           "impName": "travel_date_end"
             },
-            "adults": {"format": /^[1-9]{1}$/g,
-                          "errorMsg": "Number of adults. Integer value greater than 0",
+            "adults": {"format": /^[0-9]{1}$/g,
+                          "errorMsg": "Number of adults. Integer value",
                           "required": false,
                           "impName": "adults"
             },   
-            "children": {"format": /^[1-9]{1}$/g,
-                          "errorMsg": "Number of children. Integer value greater than 0",
+            "children": {"format": /^[0-9]{1}$/g,
+                          "errorMsg": "Number of children. Integer value",
                           "required": false,
                           "impName": "children"
             },   
-            "seniors": {"format": /^[1-9]{1}$/g,
-                          "errorMsg": "Number of seniors. Integer value greater than 0",
+            "seniors": {"format": /^[0-9]{1}$/g,
+                          "errorMsg": "Number of seniors. Integer value",
                           "required": false,
                           "impName": "seniors"
             },   
@@ -91,18 +91,18 @@ _IntentMediaValidator = (function() {
                           "required": true,
                           "impName": "trip_type"
             },
-            "adults": {"format": /^[1-9]{1}$/g,
-                          "errorMsg": "Number of adults. Integer value greater than 0",
+            "adults": {"format": /^[0-9]{1}$/g,
+                          "errorMsg": "Number of adults. Integer value",
                           "required": false,
                           "impName": "adults"
             },   
-            "children": {"format": /^[1-9]{1}$/g,
-                          "errorMsg": "Number of children. Integer value greater than 0",
+            "children": {"format": /^[0-9]{1}$/g,
+                          "errorMsg": "Number of children. Integer value",
                           "required": false,
                           "impName": "children"
             },   
-            "seniors": {"format": /^[1-9]{1}$/g,
-                          "errorMsg": "Number of seniors. Integer value greater than 0",
+            "seniors": {"format": /^[0-9]{1}$/g,
+                          "errorMsg": "Number of seniors. Integer value",
                           "required": false,
                           "impName": "seniors"
             },   
@@ -228,18 +228,18 @@ _IntentMediaValidator = (function() {
                           "required": true,
                           "impName": "travel_date_end"
             },
-            "adults": {"format": /^[1-9]{1}$/g,
-                          "errorMsg": "Number of adults. Integer value greater than 0",
+            "adults": {"format": /^[0-9]{1}$/g,
+                          "errorMsg": "Number of adults. Integer value",
                           "required": false,
                           "impName": "adults"
             },   
-            "children": {"format": /^[1-9]{1}$/g,
-                          "errorMsg": "Number of children. Integer value greater than 0",
+            "children": {"format": /^[0-9]{1}$/g,
+                          "errorMsg": "Number of children. Integer value",
                           "required": false,
                           "impName": "children"
             },   
-            "seniors": {"format": /^[1-9]{1}$/g,
-                          "errorMsg": "Number of seniors. Integer value greater than 0",
+            "seniors": {"format": /^[0-9]{1}$/g,
+                          "errorMsg": "Number of seniors. Integer value",
                           "required": false,
                           "impName": "seniors"
             },   
