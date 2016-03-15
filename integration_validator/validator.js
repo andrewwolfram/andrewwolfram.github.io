@@ -248,6 +248,87 @@ _IntentMediaValidator = (function() {
                           "required": true,
                           "impName": "travelers"
             }    
+        },
+        "hotel_conversion": {
+            "total_conversion_value": {"format": /^\d+(\.\d{1,2})?$/g,
+                          "errorMsg": "Total conversion value of the hotel, car, flight or package booking - no currency symbol, 2 decimal places",
+                          "required": true,
+                          "impName": "total_conversion_value"
+            },   
+            "order_id": {"format": /^.*$/g,
+                          "errorMsg": "Order id of the booking",
+                          "required": true,
+                          "impName": "order_id"
+            },   
+            "promo_code": {"format": /^Y|N$/gi,
+                          "errorMsg": "Was there a promotion code applied? Y/N",
+                          "required": true,
+                          "impName": "promo_code"
+            },   
+            "conversion_type": {"format": /^opaque|retail$/gi,
+                          "errorMsg": "Type of hotel product that was purchased (if applicable) - OPAQUE/RETAIL",
+                          "required": true,
+                          "impName": "conversion_type"
+            },   
+            "hotel_brand_code": {"format": /^[A-Z]{2}$/g,
+                          "errorMsg": "Chain code for hotel brand in user's search, or of selected/booked property. E.G. HY",
+                          "required": true,
+                          "impName": "hotel_brand_code"
+            }   
+        },
+        "flight_conversion": {
+            "total_conversion_value": {"format": /^\d+(\.\d{1,2})?$/g,
+                          "errorMsg": "Total conversion value of the hotel, car, flight or package booking - no currency symbol, 2 decimal places",
+                          "required": true,
+                          "impName": "total_conversion_value"
+            },   
+            "order_id": {"format": /^.*$/g,
+                          "errorMsg": "Order id of the booking",
+                          "required": true,
+                          "impName": "order_id"
+            },   
+            "promo_code": {"format": /^Y|N$/gi,
+                          "errorMsg": "Was there a promotion code applied? Y/N",
+                          "required": true,
+                          "impName": "promo_code"
+            },   
+            "flight_carrier_code": {"format": /^[A-Z]{2}$/g,
+                          "errorMsg": "Airline code of booked flight. E.G. DL",
+                          "required": true,
+                          "impName": "flight_carrier_code"
+            }   
+        },
+        "car_conversion": {
+            "total_conversion_value": {"format": /^\d+(\.\d{1,2})?$/g,
+                          "errorMsg": "Total conversion value of the hotel, car, flight or package booking - no currency symbol, 2 decimal places",
+                          "required": true,
+                          "impName": "total_conversion_value"
+            },   
+            "order_id": {"format": /^.*$/g,
+                          "errorMsg": "Order id of the booking",
+                          "required": true,
+                          "impName": "order_id"
+            },   
+            "promo_code": {"format": /^Y|N$/gi,
+                          "errorMsg": "Was there a promotion code applied? Y/N",
+                          "required": true,
+                          "impName": "promo_code"
+            },   
+            "conversion_type": {"format": /^opaque|retail$/gi,
+                          "errorMsg": "Type of car product that was purchased (if applicable) - OPAQUE/RETAIL",
+                          "required": true,
+                          "impName": "conversion_type"
+            },   
+            "car_class": {"format": /^.*$/gi,
+                          "errorMsg": "Car class - ECONOMY/COMPACT/INTERMEDIATE/STANDARD/FULL-SIZE/PREMIUM/LUXURY/SUV/MINI-VAN/CONVERTIBLE/PICKUP-TRUCK ",
+                          "required": true,
+                          "impName": "car_class"
+            },   
+            "car_rental_agency": {"format": /^.*$/g,
+                          "errorMsg": "The name of the car rental agency the user purchased with on the confirmation page - E.G. Enterprise/Avis/National",
+                          "required": true,
+                          "impName": "car_rental_agency"
+            }   
         }
     };
 
@@ -409,6 +490,22 @@ _IntentMediaValidator = (function() {
         });
     }
 
+    function checkConversion(im_params, cType) {
+        if(isConfirmationPage()) {
+            Object.keys(imPropsCheck[cType]).forEach(function(a) {
+                if(a in im_params) {
+                    if(im_params[a] == null) im_params[a] = "";
+                    if(!im_params[a].toString().match(imPropsCheck[cType][a].format)) {
+                        log.push({"type": "Incorrect Parameter", "name": imPropsCheck.[cType][a].impName, "value": im_params[a], "msg": imPropsCheck.[cType][a].errorMsg}); 
+                    }
+                } else if (imPropsCheck.[cType][a].required) {
+                    log.push({"type":  "Missing Parameter", "name": imPropsCheck.[cType][a].impName, "value": "", "msg": imPropsCheck.[cType][a].errorMsg}); 
+                } 
+            });
+        }
+    }
+
+
     function verifySiteAndPage() {
         checkSite();
         checkPage();
@@ -419,10 +516,13 @@ _IntentMediaValidator = (function() {
             var product = IntentMedia.Config.page.inferred_product_category;
             if(product == 'flights') {
                 checkFlights(IntentMediaProperties);
+                checkConversion(IntentMediaProperties, 'flight_conversion');
             } else if(product == 'hotels') {
                 checkHotels(IntentMediaProperties);
+                checkConversion(IntentMediaProperties, 'hotel_conversion');
             } else if(product == 'cars') {
                 checkCars(IntentMediaProperties);
+                checkConversion(IntentMediaProperties, 'car_conversion');
             }
         }
     }
@@ -470,6 +570,13 @@ _IntentMediaValidator = (function() {
                 });
             }
         }
+    }
+
+    function isConfirmationPage() {
+        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.page) {
+            if(IntentMedia.Config.page.view == 'CONFIRMATION') return true;
+        }
+        return false;
     }
 
     function verifyHomePage(e) {
