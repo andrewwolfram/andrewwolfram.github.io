@@ -547,7 +547,7 @@ _IntentMediaValidator = (function() {
         if(window.IntentMedia && IntentMedia.trigger) {
             var tmp = IntentMedia.trigger;
             IntentMedia.trigger = function(msg) {
-                triggerMsg = "msg";
+                triggerMsg = msg;
                 tmp(msg);
             };
         }
