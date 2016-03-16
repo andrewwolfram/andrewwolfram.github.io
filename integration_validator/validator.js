@@ -523,8 +523,8 @@ _IntentMediaValidator = (function() {
     }
 
     function verifyIMProps() {
-        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.page && IntentMedia.Config.page.inferred_product_category && IntentMediaProperties) {
-            var product = IntentMedia.Config.page.inferred_product_category;
+        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.page && (IntentMedia.Config.page.inferred_product_category || IntentMedia.Config.page.product_path) && IntentMediaProperties) {
+            var product = IntentMedia.Config.page.inferred_product_category || IntentMedia.Config.page.product_path;
             if(product == 'flights') {
                 checkFlights(IntentMediaProperties);
                 checkConversion(IntentMediaProperties, 'flight_conversion');
