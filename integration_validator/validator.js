@@ -2,6 +2,8 @@ window._IntentMediaValidator = window._IntentMediaValidator || {}
 
 _IntentMediaValidator = (function() {
 
+    delete window.console;
+
     var imPropsCheck = {
         "hotels": {
             "hotel_city": {"format": /^([a-zA-Z]+\s?)*[a-zA-Z]+$/g,
@@ -410,7 +412,6 @@ _IntentMediaValidator = (function() {
     }
 
     function printLog() {
-        delete window.console;
         if(log.length != 0) {
             console.group('Intent Media');
             for(var i = 0; i < log.length; i++) {
@@ -604,6 +605,7 @@ _IntentMediaValidator = (function() {
     }
 
     function validate() {
+        delete window.console;
         verifySiteAndPage();
         verifyIMProps();
         verifyOnPageAds();
@@ -612,6 +614,7 @@ _IntentMediaValidator = (function() {
     }
 
     function validateHomePage() {
+        delete window.console;
         console.info("[Intent Media] Please run a search and check console for output");
         verifySiteAndPage();
         primeTrigger();
