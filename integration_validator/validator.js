@@ -410,6 +410,7 @@ _IntentMediaValidator = (function() {
     }
 
     function printLog() {
+        delete window.console;
         if(log.length != 0) {
             console.group('Intent Media');
             for(var i = 0; i < log.length; i++) {
