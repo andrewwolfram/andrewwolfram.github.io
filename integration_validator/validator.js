@@ -375,7 +375,10 @@ _IntentMediaValidator = (function() {
     }
 
     function opensRemote() {
-        return IntentMedia.Config.exit_unit.opens_remote;
+        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.exit_unit) {
+            return IntentMedia.Config.exit_unit.opens_remote;
+        } 
+        return false;
     }
 
     function getFinalExitUnitUrl() {
@@ -459,6 +462,7 @@ _IntentMediaValidator = (function() {
             } else if (imPropsCheck.hotels[a].required) {
                 if(a == 'hotel_airport_code' && ('hotel_city' in im_params || 'hotel_state' in im_params || 'hotel_country' in im_params)) return;
                 if((a == 'hotel_city' || a == 'hotel_state' || a == 'hotel_country') && 'hotel_airport_code' in im_params) return;
+                if(a == 'hotel_state' && 'hotel_country' in im_params && (im_params.hotel_country.toLowerCase() != 'US' || im_params.hotel_country.toLowerCase() != 'United States')) return;
                 log.push({"type":  "Missing Parameter", "name": imPropsCheck.hotels[a].impName, "value": "", "msg": imPropsCheck.hotels[a].errorMsg}); 
             }
          });
@@ -533,7 +537,7 @@ _IntentMediaValidator = (function() {
 
     function getExitUnitEvent() {
         if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.exit_unit) {
-            return IntentMedia.Config.exit_unit.remote_polling ? "IntentMedia.trigger('fill_exit_unit')" : "IntentMedia.trigger('open_exit_unit')"; 
+            return IntentMedia.Config.exit_unit.remote_polling ? "fill_exit_unit" : "open_exit_unit"; 
         } else {
             return "";
         }
@@ -543,7 +547,7 @@ _IntentMediaValidator = (function() {
         if(window.IntentMedia && IntentMedia.trigger) {
             var tmp = IntentMedia.trigger;
             IntentMedia.trigger = function(msg) {
-                triggerMsg = "IntentMedia.trigger('" + msg + "')";
+                triggerMsg = "msg";
                 tmp(msg);
             };
         }
@@ -555,14 +559,16 @@ _IntentMediaValidator = (function() {
             log.push({"type": "Event Not Fired", "name": evt, "value": "", "msg": "Please ensure the above event is bound to the search button"});
         } else {
             if(evt != triggerMsg) {
-                log.push({"type": "Incorrect Event Fired", "name": "IntentMedia.trigger", "value": triggerMsg, "msg": "Please use " + evt});
+                log.push({"type": "Incorrect Event Fired", "name": "IntentMedia.trigger", "value": "IntentMedia.trigger('" + triggerMsg + "')", "msg": "Please use " + "IntentMedia.trigger('" +  evt + "')"});
             }
             triggerMsg = "";
         }
     }
 
     function verifyExitUnits() {
-        checkBlankPage();
+        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.exit_unit) {
+            checkBlankPage();
+        }
     }
 
     function verifyOnPageAds() {
