@@ -432,6 +432,7 @@ _IntentMediaValidator = (function() {
             console.log('No errors!');
             console.groupEnd();
         }
+        log = [];
     }
 
     function checkSite() {
