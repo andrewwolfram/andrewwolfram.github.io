@@ -412,7 +412,7 @@ _IntentMediaValidator = (function() {
     function printLog() {
         window.console = {};
         delete window.console;
-        if(log.length != 0) {
+        if(log.length > 1) {
             console.group('Intent Media');
             for(var i = 0; i < log.length; i++) {
                 console.groupCollapsed('['+ log[i].type + ' on Page' + (IntentMediaProperties.page_id ? (' ' + IntentMediaProperties.page_id) : '') + '] ' + log[i].name);
@@ -429,6 +429,9 @@ _IntentMediaValidator = (function() {
             console.groupEnd();
         } else {
             console.group('Intent Media');
+            console.groupCollapsed('['+ log[0].type + ' on Page' + (IntentMediaProperties.page_id ? (' ' + IntentMediaProperties.page_id) : '') + '] ' + log[0].name);
+            console.log('Message: ' + log[0].msg);
+            console.groupEnd();
             console.log('No errors!');
             console.groupEnd();
         }
@@ -609,6 +612,7 @@ _IntentMediaValidator = (function() {
     }
 
     function validate() {
+        log.push({"type": "[Items Checked]", "name": "IntentMediaProperties, Exit Unit blank page (if applicable), On-Page ads (if applicable)", "value": "", "msg": "The above items were checked. Any errors found are listed below."});
         verifySiteAndPage();
         verifyIMProps();
         verifyPlacement('on_page');
@@ -618,6 +622,7 @@ _IntentMediaValidator = (function() {
     }
 
     function validateHomePage() {
+        log.push({"type": "[Items Checked]", "name": "IntentMediaProperties, Exit Unit blank page (if applicable), Search Form Compare (if applicable), IntentMedia.trigger", "value": "", "msg": "The above items were checked. Any errors found are listed below."});
         console.info("[Intent Media] Please run a search and check console for output");
         verifySiteAndPage();
         primeTrigger();
