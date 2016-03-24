@@ -612,7 +612,7 @@ _IntentMediaValidator = (function() {
     }
 
     function validate() {
-        log.push({"type": "[Items Checked]", "name": "IntentMediaProperties, Exit Unit blank page (if applicable), On-Page ads (if applicable)", "value": "", "msg": "The above items were checked. Any errors found are listed below."});
+        log.push({"type": "Items Checked", "name": "IntentMediaProperties, Exit Unit blank page (if applicable), On-Page ads (if applicable)", "value": "", "msg": "The above items were checked. Any errors found are listed below."});
         verifySiteAndPage();
         verifyIMProps();
         verifyPlacement('on_page');
