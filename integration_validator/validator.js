@@ -335,20 +335,20 @@ _IntentMediaValidator = (function() {
     var log = [];
     var triggerMsg = "";
 
-    function hasOnPageAds() {
+    function hasPlacement(plc) {
         if(window.IntentMedia && IntentMedia.Config) {
-            return IntentMedia.Config.on_page ? true : false;
+            return IntentMedia.Config[plc] ? true : false;
         } else {
             return false; 
         }
     }
 
-    function getTargets() {
+    function getTargets(plc) {
         var targets = [];
-        if(IntentMedia.Config.on_page.placements) {
-            IntentMedia.Config.on_page.placements.forEach(function(plc) {
-                if(plc.target) {
-                    var tgts = plc.target.split(',');
+        if(IntentMedia.Config[plc].placements) {
+            IntentMedia.Config[plc].placements.forEach(function(p) {
+                if(p.target) {
+                    var tgts = p.target.split(',');
                     tgts.forEach(function(tgt) {
                         targets.push(tgt.trim());
                     });
@@ -359,9 +359,9 @@ _IntentMediaValidator = (function() {
         return targets;
     }
 
-    function getMissingTargets() {
+    function getMissingTargets(plc) {
         var missing = [];
-        var targets = getTargets();
+        var targets = getTargets(plc);
         targets.forEach(function(a) {
             if(!targetExists(a)) {
                 missing.push(a);
@@ -538,9 +538,11 @@ _IntentMediaValidator = (function() {
         }
     }
 
-    function getExitUnitEvent() {
+    function getTriggerEvent() {
         if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.exit_unit) {
             return IntentMedia.Config.exit_unit.remote_polling ? "fill_exit_unit" : "open_exit_unit"; 
+        } else if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.search_form_checkboxes) {
+            return "open_SFC"; 
         } else {
             return "";
         }
@@ -557,7 +559,7 @@ _IntentMediaValidator = (function() {
     }
 
     function verifyTrigger() {
-        var evt = getExitUnitEvent();
+        var evt = getTriggerEvent();
         if(!triggerMsg) {
             log.push({"type": "Event Not Fired", "name": evt, "value": "", "msg": "Please ensure the above event is bound to the search button"});
         } else {
@@ -574,9 +576,9 @@ _IntentMediaValidator = (function() {
         }
     }
 
-    function verifyOnPageAds() {
-        if(hasOnPageAds()) {
-            var missing = getMissingTargets();
+    function verifyPlacement(plc) {
+        if(hasPlacement(plc)) {
+            var missing = getMissingTargets(plc);
             if(missing.length != 0) {
                 missing.forEach(function(a) {
                     log.push({"type": "Missing Ad Target", "name": a, "value": "", "msg": "No DOM element(s) found using the above CSS selector. Element(s) must exist for ads to display."});
@@ -594,7 +596,8 @@ _IntentMediaValidator = (function() {
 
     function verifyHomePage(e) {
         verifyIMProps();
-        verifyOnPageAds();
+        verifyPlacement('on_page');
+        verifyPlacement('search_form_checkboxes');
         verifyExitUnits();
         verifyTrigger();
         window.setTimeout(printLog, 1000);
@@ -608,7 +611,8 @@ _IntentMediaValidator = (function() {
     function validate() {
         verifySiteAndPage();
         verifyIMProps();
-        verifyOnPageAds();
+        verifyPlacement('on_page');
+        verifyPlacement('search_form_checkboxes');
         verifyExitUnits();
         window.setTimeout(printLog, 1000);
     }
