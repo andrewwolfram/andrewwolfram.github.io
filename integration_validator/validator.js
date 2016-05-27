@@ -336,8 +336,8 @@ _IntentMediaValidator = (function() {
     var triggerMsg = "";
 
     function hasPlacement(plc) {
-        if(window.IntentMedia && IntentMedia.Config) {
-            return IntentMedia.Config[plc] ? true : false;
+        if(window.IntentMedia && IntentMedia.Config.get()) {
+            return IntentMedia.Config.get()[plc] ? true : false;
         } else {
             return false; 
         }
@@ -345,8 +345,8 @@ _IntentMediaValidator = (function() {
 
     function getTargets(plc) {
         var targets = [];
-        if(IntentMedia.Config[plc].placements) {
-            IntentMedia.Config[plc].placements.forEach(function(p) {
+        if(IntentMedia.Config.get()[plc].placements) {
+            IntentMedia.Config.get()[plc].placements.forEach(function(p) {
                 if(p.target) {
                     var tgts = p.target.split(',');
                     tgts.forEach(function(tgt) {
@@ -375,8 +375,8 @@ _IntentMediaValidator = (function() {
     }
 
     function opensRemote() {
-        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.exit_unit) {
-            return IntentMedia.Config.exit_unit.opens_remote;
+        if(window.IntentMedia && IntentMedia.Config.get() && IntentMedia.Config.get().exit_unit) {
+            return IntentMedia.Config.get().exit_unit.opens_remote;
         } 
         return false;
     }
@@ -442,7 +442,7 @@ _IntentMediaValidator = (function() {
         if(window.IntentMedia && window.IntentMediaProperties) {
             if(!IntentMediaProperties.site_name) {
                 log.push({"type": "Missing Parameter", "name": 'site_name', "value": "", "msg": "Unique ID provided by your Intent Media representative for the site where the tag is firing - all CAPS, no spaces, no special characters E.G. MYSITE_US"});
-            } else if(!IntentMedia.Config && IntentMediaProperties.site_name) {
+            } else if(!IntentMedia.Config.get() && IntentMediaProperties.site_name) {
                 log.push({"type": "Incorrect Parameter", "name": 'site_name', "value": IntentMediaProperties.site_name, "msg": "Unique ID provided by your Intent Media representative for the site where the tag is firing - all CAPS, no spaces, no special characters E.G. MYSITE_US"});
             }
         }
@@ -452,7 +452,7 @@ _IntentMediaValidator = (function() {
         if(window.IntentMedia && window.IntentMediaProperties) {
             if(!IntentMediaProperties.page_id) {
                 log.push({"type": "Missing Parameter", "name": 'page_id', "value": "", "msg": "Unique ID provided by your Intent Media representative for the site where the tag is firing - all CAPS, no spaces, no special characters E.G. MYSITE_US"});
-            } else if(IntentMedia.Config && !IntentMedia.Config.page && IntentMediaProperties.page_id) {
+            } else if(IntentMedia.Config.get() && !IntentMedia.Config.get().page && IntentMediaProperties.page_id) {
                 log.push({"type": "Incorrect Parameter", "name": 'page_id', "value": IntentMediaProperties.page_id, "msg": "Unique ID provided by your Intent Media representative for each page where the tag is firing E.G. hotel.list."});
             }
         }
@@ -526,8 +526,8 @@ _IntentMediaValidator = (function() {
     }
 
     function verifyIMProps() {
-        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.page && (IntentMedia.Config.page.inferred_product_category || IntentMedia.Config.page.product_path) && IntentMediaProperties) {
-            var product = IntentMedia.Config.page.inferred_product_category || IntentMedia.Config.page.product_path;
+        if(window.IntentMedia && IntentMedia.Config.get() && IntentMedia.Config.get().page && (IntentMedia.Config.get().page.inferred_product_category || IntentMedia.Config.get().page.product_path) && IntentMediaProperties) {
+            var product = IntentMedia.Config.get().page.inferred_product_category || IntentMedia.Config.get().page.product_path;
             if(product == 'flights') {
                 checkFlights(IntentMediaProperties);
                 checkConversion(IntentMediaProperties, 'flight_conversion');
@@ -542,9 +542,9 @@ _IntentMediaValidator = (function() {
     }
 
     function getTriggerEvent() {
-        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.exit_unit) {
-            return IntentMedia.Config.exit_unit.remote_polling ? "fill_exit_unit" : "open_exit_unit"; 
-        } else if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.search_form_checkboxes) {
+        if(window.IntentMedia && IntentMedia.Config.get() && IntentMedia.Config.get().exit_unit) {
+            return IntentMedia.Config.get().exit_unit.remote_polling ? "fill_exit_unit" : "open_exit_unit"; 
+        } else if(window.IntentMedia && IntentMedia.Config.get() && IntentMedia.Config.get().search_form_checkboxes) {
             return "open_SFC"; 
         } else {
             return "";
@@ -574,7 +574,7 @@ _IntentMediaValidator = (function() {
     }
 
     function verifyExitUnits() {
-        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.exit_unit) {
+        if(window.IntentMedia && IntentMedia.Config.get() && IntentMedia.Config.get().exit_unit) {
             checkBlankPage();
         }
     }
@@ -591,8 +591,8 @@ _IntentMediaValidator = (function() {
     }
 
     function isConfirmationPage() {
-        if(window.IntentMedia && IntentMedia.Config && IntentMedia.Config.page) {
-            if(IntentMedia.Config.page.view == 'CONFIRMATION') return true;
+        if(window.IntentMedia && IntentMedia.Config.get() && IntentMedia.Config.get().page) {
+            if(IntentMedia.Config.get().page.view == 'CONFIRMATION') return true;
         }
         return false;
     }
