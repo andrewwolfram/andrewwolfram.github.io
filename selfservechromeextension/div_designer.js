@@ -35,6 +35,24 @@ window.IntentMediaDesign = window.IntentMediaDesign || {
                                     secondary_button_hover_color:'',
                                     secondary_button_text_color:'',
                                     secondary_button_border_color:''
+                                },
+                           ribbon:{
+                                    background_color:'',
+                                    border_color:'',
+                                    border_radius:'',
+                                    text_color:'',
+                                    text_accent_color:'',
+                                    cell_border_color:'',
+                                    cell_border_hover_color:'',
+                                    cell_border_selected_color:'',
+                                    primary_button_color:'',
+                                    primary_button_hover_color:'',
+                                    primary_button_text_color:'',
+                                    primary_button_border_color:'',
+                                    secondary_button_color:'',
+                                    secondary_button_hover_color:'',
+                                    secondary_button_text_color:'',
+                                    secondary_button_border_color:''
                                 }
                        }
 };
@@ -43,6 +61,7 @@ var designArray = [];
 var im_design_pos = 0;
 var intercardDesign = window.IntentMediaDesign.search_compare_ads.intercard;
 var railDesign = window.IntentMediaDesign.search_compare_ads.rail;
+var ribbonDesign = window.IntentMediaDesign.search_compare_ads.ribbon;
 
 function openDesigner() {
 

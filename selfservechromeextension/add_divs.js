@@ -1,7 +1,7 @@
 var myInterval = setInterval(function(){if(typeof IntentMedia !== 'undefined' && typeof IntentMedia.Config.get() !==  'undefined'){addDivs(); clearInterval(myInterval);}}, 500);
 
 var adArray = [];
-var im_op_targets;
+var im_op_targets = [];
 var prev;
 
 var awInt;
@@ -9,12 +9,20 @@ var imDiv;
 
 function addDivs() {
 
-    if(!IntentMedia.Config.get().on_page)
-        return;
-
-    for(var i = 0; i<IntentMedia.Config.get().on_page.placements.length; i++) {
+    if(IntentMedia.Config.get().on_page) {
+        for(var i = 0; i<IntentMedia.Config.get().on_page.placements.length; i++) {
             adArray.push(IntentMedia.Config.get().on_page.placements[i]);
             console.log("On-page ad placement detected: " + adArray[i].target.substring(1));
+        }
+    }
+
+    if(IntentMedia.Config.get().ribbon) {
+        var ribbon = IntentMedia.Config.get().ribbon;
+        for(var j = 0; j<ribbon.placements.length; j++) {
+            ribbon.placements[j].target = '#IntentMediaRibbon';
+            adArray.push(ribbon.placements[j]);
+            console.log("Ribbon ad placement detected: " + adArray[j].target.substring(1));
+        }
     }
     im_op_targets = adArray.slice(0);
 
