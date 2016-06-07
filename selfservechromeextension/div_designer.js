@@ -26,7 +26,6 @@ window.IntentMediaDesign = window.IntentMediaDesign || {
                                     text_accent_color:'',
                                     cell_border_color:'',
                                     cell_border_hover_color:'',
-                                    cell_border_selected_color:'',
                                     primary_button_color:'',
                                     primary_button_hover_color:'',
                                     primary_button_text_color:'',
@@ -44,7 +43,6 @@ window.IntentMediaDesign = window.IntentMediaDesign || {
                                     text_accent_color:'',
                                     cell_border_color:'',
                                     cell_border_hover_color:'',
-                                    cell_border_selected_color:'',
                                     primary_button_color:'',
                                     primary_button_hover_color:'',
                                     primary_button_text_color:'',
@@ -190,8 +188,9 @@ function closeDesigner() {
 }
 
 function inputChange(e) {
-    intercardDesign[e.target.name] = e.target.value;
-    railDesign[e.target.name] = e.target.value;
+    if (intercardDesign[e.target.name]) { intercardDesign[e.target.name] = e.target.value; }
+    if (railDesign[e.target.name]) { railDesign[e.target.name] = e.target.value; }
+    if (ribbonDesign[e.target.name]) { ribbonDesign[e.target.name] = e.target.value; }
     e.target.style.background = e.target.value;
     IntentMedia.trigger("onpage_ads_redraw");
 }

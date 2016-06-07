@@ -21,7 +21,7 @@ function addDivs() {
         for(var j = 0; j<ribbon.placements.length; j++) {
             ribbon.placements[j].target = '#IntentMediaRibbon';
             adArray.push(ribbon.placements[j]);
-            console.log("Ribbon ad placement detected: " + adArray[j].target.substring(1));
+            console.log("Ribbon ad placement detected: " + ribbon.placements[j].target.substring(1));
         }
     }
     im_op_targets = adArray.slice(0);
@@ -114,6 +114,7 @@ function insertDiv(e) {
     imDiv.className = imDiv.id;
     imDiv.draggable = "true";
     imDiv.addEventListener("dblclick", openDesigner);
+    if(imDiv.id === 'IntentMediaRibbon') {return;}
     if(adArray[adArray.length-1].type.indexOf("rail") != -1) {
         e.target.appendChild(imDiv);
     } else {
