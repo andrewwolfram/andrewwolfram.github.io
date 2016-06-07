@@ -51,6 +51,18 @@ window.IntentMediaDesign = window.IntentMediaDesign || {
                                     secondary_button_hover_color:'',
                                     secondary_button_text_color:'',
                                     secondary_button_border_color:''
+                                },
+                           slimcard:{
+                                    background_color:'',
+                                    border_color:'',
+                                    border_radius:'',
+                                    text_color:'',
+                                    primary_button_color:'',
+                                    primary_button_hover_color:'',
+                                    primary_button_text_color:'',
+                                    primary_button_border_color:'',
+                                    secondary_button_color:'',
+                                    secondary_button_text_color:'',
                                 }
                        }
 };
@@ -60,6 +72,7 @@ var im_design_pos = 0;
 var intercardDesign = window.IntentMediaDesign.search_compare_ads.intercard;
 var railDesign = window.IntentMediaDesign.search_compare_ads.rail;
 var ribbonDesign = window.IntentMediaDesign.search_compare_ads.ribbon;
+var slimcardDesign = window.IntentMediaDesign.search_compare_ads.slimcard;
 
 function openDesigner() {
 
@@ -191,6 +204,7 @@ function inputChange(e) {
     if (typeof intercardDesign[e.target.name] !== 'undefined') { intercardDesign[e.target.name] = e.target.value; }
     if (typeof railDesign[e.target.name] !== 'undefined') { railDesign[e.target.name] = e.target.value; }
     if (typeof ribbonDesign[e.target.name] !== 'undefined') { ribbonDesign[e.target.name] = e.target.value; }
+    if (typeof slimcardDesign[e.target.name] !== 'undefined') { slimcardDesign[e.target.name] = e.target.value; }
     e.target.style.background = e.target.value;
     IntentMedia.trigger("onpage_ads_redraw");
 }
