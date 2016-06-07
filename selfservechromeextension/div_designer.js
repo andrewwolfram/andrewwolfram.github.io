@@ -62,7 +62,7 @@ window.IntentMediaDesign = window.IntentMediaDesign || {
                                     primary_button_text_color:'',
                                     primary_button_border_color:'',
                                     secondary_button_color:'',
-                                    secondary_button_text_color:'',
+                                    secondary_button_text_color:''
                                 }
                        }
 };
