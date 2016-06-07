@@ -7,7 +7,7 @@ var callback = function(details) {
         code = {'code': '' +
         '(function() {' + 
                        'var script = document.createElement("script");' + 
-                       'script.src="//andrewwolfram.github.io/integration_validator/content-script.js";' + 
+                       'script.src="//adapters.cdn.intentmedia.net/extensions/validator/content-script.js";' + 
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' 
         };

@@ -11,5 +11,5 @@
                 "default_icon": "default_icon.png"
         },
         "permissions": ["webRequest", "activeTab", "storage", "http://*/", "https://*/"],
-        "content_security_policy": "script-src 'self' https://andrewwolfram.github.io; object-src 'self'"
+        "content_security_policy": "script-src 'self' adapters.cdn.intentmedia.net; object-src 'self'"
 }
