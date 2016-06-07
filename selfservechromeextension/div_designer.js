@@ -1,53 +1,52 @@
 window.IntentMediaDesign = window.IntentMediaDesign || {
-search_compare_ads:{
-intercard:{
-background_color:'',
-border_color:'',
-border_radius:'',
-text_color:'',
-text_accent_color:'',
-cell_border_color:'',
-cell_border_hover_color:'',
-cell_border_selected_color:'',
-primary_button_color:'',
-primary_button_hover_color:'',
-primary_button_text_color:'',
-primary_button_border_color:'',
-secondary_button_color:'',
-secondary_button_hover_color:'',
-secondary_button_text_color:'',
-secondary_button_border_color:''
-},
-
-rail:{
-background_color:'',
-border_color:'',
-border_radius:'',
-text_color:'',
-text_accent_color:'',
-cell_border_color:'',
-cell_border_hover_color:'',
-cell_border_selected_color:'',
-primary_button_color:'',
-primary_button_hover_color:'',
-primary_button_text_color:'',
-primary_button_border_color:'',
-secondary_button_color:'',
-secondary_button_hover_color:'',
-secondary_button_text_color:'',
-secondary_button_border_color:''
-}
-}
+    search_compare_ads:{
+                           intercard:{
+                                         background_color:'',
+                                         border_color:'',
+                                         border_radius:'',
+                                         text_color:'',
+                                         text_accent_color:'',
+                                         cell_border_color:'',
+                                         cell_border_hover_color:'',
+                                         cell_border_selected_color:'',
+                                         primary_button_color:'',
+                                         primary_button_hover_color:'',
+                                         primary_button_text_color:'',
+                                         primary_button_border_color:'',
+                                         secondary_button_color:'',
+                                         secondary_button_hover_color:'',
+                                         secondary_button_text_color:'',
+                                         secondary_button_border_color:''
+                                     },
+                           rail:{
+                                    background_color:'',
+                                    border_color:'',
+                                    border_radius:'',
+                                    text_color:'',
+                                    text_accent_color:'',
+                                    cell_border_color:'',
+                                    cell_border_hover_color:'',
+                                    cell_border_selected_color:'',
+                                    primary_button_color:'',
+                                    primary_button_hover_color:'',
+                                    primary_button_text_color:'',
+                                    primary_button_border_color:'',
+                                    secondary_button_color:'',
+                                    secondary_button_hover_color:'',
+                                    secondary_button_text_color:'',
+                                    secondary_button_border_color:''
+                                }
+                       }
 };
 
 var designArray = []; 
 var im_design_pos = 0;
-var intercardDesign = IntentMediaDesign.search_compare_ads.intercard;
-var railDesign = IntentMediaDesign.search_compare_ads.rail;
+var intercardDesign = window.IntentMediaDesign.search_compare_ads.intercard;
+var railDesign = window.IntentMediaDesign.search_compare_ads.rail;
 
 function openDesigner() {
 
-    designArray = Object.keys(IntentMediaDesign.search_compare_ads.intercard);
+    designArray = Object.keys(window.IntentMediaDesign.search_compare_ads.intercard);
 
     if (document.body.children[0].id !== 'designDivs') {
         createDesigner();
