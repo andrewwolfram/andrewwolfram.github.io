@@ -2,7 +2,7 @@
         "manifest_version": 2,
         "name": "Intent Media Integration Validator",
         "description": "This extension validates the Intent Media integration.",
-        "version": "1.0",
+        "version": "1.1",
         "background": {
                 "persistent": true,
                 "scripts": ["background.js"]
