@@ -1,6 +1,6 @@
-window.IntentMediaDesign = window.IntentMediaDesign || {
-    search_compare_ads:{
-                           intercard:{
+window.IntentMediaDesign = {
+    search_compare_ads: {
+                           intercard: {
                                          background_color:'',
                                          border_color:'',
                                          border_radius:'',
@@ -18,7 +18,7 @@ window.IntentMediaDesign = window.IntentMediaDesign || {
                                          secondary_button_text_color:'',
                                          secondary_button_border_color:''
                                      },
-                           rail:{
+                           rail: {
                                     background_color:'',
                                     border_color:'',
                                     border_radius:'',
@@ -35,7 +35,7 @@ window.IntentMediaDesign = window.IntentMediaDesign || {
                                     secondary_button_text_color:'',
                                     secondary_button_border_color:''
                                 },
-                           ribbon:{
+                           ribbon: {
                                     background_color:'',
                                     border_color:'',
                                     border_radius:'',
@@ -52,7 +52,7 @@ window.IntentMediaDesign = window.IntentMediaDesign || {
                                     secondary_button_text_color:'',
                                     secondary_button_border_color:''
                                 },
-                           slimcard:{
+                           slimcard: {
                                     background_color:'',
                                     border_color:'',
                                     border_radius:'',
