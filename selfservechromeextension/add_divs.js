@@ -114,7 +114,11 @@ function insertDiv(e) {
     imDiv.className = imDiv.id;
     imDiv.draggable = "true";
     imDiv.addEventListener("dblclick", openDesigner);
-    if(imDiv.id === 'IntentMediaRibbon') {return;}
+    if(imDiv.id === 'IntentMediaRibbon') {
+        imDiv.id = '';
+        imDiv.removeEventListener("dblclick", openDesigner);
+        document.getElementById('IntentMediaRibbon').addEventListener("dblclick", openDesigner);
+    }
     if(adArray[adArray.length-1].type.indexOf("rail") != -1) {
         e.target.appendChild(imDiv);
     } else {
