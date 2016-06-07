@@ -188,9 +188,9 @@ function closeDesigner() {
 }
 
 function inputChange(e) {
-    if (intercardDesign[e.target.name]) { intercardDesign[e.target.name] = e.target.value; }
-    if (railDesign[e.target.name]) { railDesign[e.target.name] = e.target.value; }
-    if (ribbonDesign[e.target.name]) { ribbonDesign[e.target.name] = e.target.value; }
+    if (typeof intercardDesign[e.target.name] !== 'undefined') { intercardDesign[e.target.name] = e.target.value; }
+    if (typeof railDesign[e.target.name] !== 'undefined') { railDesign[e.target.name] = e.target.value; }
+    if (typeof ribbonDesign[e.target.name] !== 'undefined') { ribbonDesign[e.target.name] = e.target.value; }
     e.target.style.background = e.target.value;
     IntentMedia.trigger("onpage_ads_redraw");
 }
