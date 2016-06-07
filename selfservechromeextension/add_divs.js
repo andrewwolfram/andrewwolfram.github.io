@@ -1,4 +1,4 @@
-var myInterval = setInterval(function(){if(typeof IntentMedia !== 'undefined' && typeof IntentMedia.Config !==  'undefined'){addDivs(); clearInterval(myInterval);}}, 500);
+var myInterval = setInterval(function(){if(typeof IntentMedia !== 'undefined' && typeof IntentMedia.Config.get() !==  'undefined'){addDivs(); clearInterval(myInterval);}}, 500);
 
 var adArray = [];
 var im_op_targets;
@@ -9,26 +9,26 @@ var imDiv;
 
 function addDivs() {
 
-    if(!IntentMedia.Config.on_page)
+    if(!IntentMedia.Config.get().on_page)
         return;
 
-    for(var i = 0; i<IntentMedia.Config.on_page.placements.length; i++) {
-            adArray.push(IntentMedia.Config.on_page.placements[i]);
+    for(var i = 0; i<IntentMedia.Config.get().on_page.placements.length; i++) {
+            adArray.push(IntentMedia.Config.get().on_page.placements[i]);
             console.log("On-page ad placement detected: " + adArray[i].target.substring(1));
     }
     im_op_targets = adArray.slice(0);
 
-    if(IntentMedia.Config.exit_unit) {
-        if(IntentMedia.Config.exit_unit.source.indexOf('home') != -1) {
-            if(IntentMedia.Config.exit_unit.remote_polling) {
+    if(IntentMedia.Config.get().exit_unit) {
+        if(IntentMedia.Config.get().exit_unit.source.indexOf('home') != -1) {
+            if(IntentMedia.Config.get().exit_unit.remote_polling) {
                 window.addEventListener("click", function(){IntentMedia.trigger("fill_exit_unit");});
             }
             else {
-                IntentMedia.Config.exit_unit.opens_remote = false;
+                IntentMedia.Config.get().exit_unit.opens_remote = false;
                 window.addEventListener("click", function(){IntentMedia.trigger("open_exit_unit");});
             }
         } else {
-            IntentMedia.Config.exit_unit.opens_remote = false;
+            IntentMedia.Config.get().exit_unit.opens_remote = false;
         }
     }
 
