@@ -7,10 +7,18 @@ var callback = function(details) {
         code = {'code': '' +
         '(function() {' + 
                        'var script = document.createElement("script");' + 
-                       'script.src="//adapters.cdn.intentmedia.net/extensions/validator/content-script.js";' + 
+                       'script.src="//adapters.cdn.intentmedia.net/extensions/validator/validator.js";' + 
                        'document.getElementsByTagName("head")[0].appendChild(script);' +
                     '}());' 
         };
+        chrome.tabs.executeScript(details.tabId, code);
+    } else if (details.url.match(/config/)) {
+        code = {
+            'code': '' +
+                'var tag = document.createElement("script");' +
+                'tag.innerHTML = "window.im_config_url = "' + ' + "\'' + details.url + '\'";' +
+                'document.getElementsByTagName("head")[0].appendChild(tag);'
+        }; 
         chrome.tabs.executeScript(details.tabId, code);
     }
 }
