@@ -10,7 +10,7 @@ self.addEventListener('fetch', function(event) {
     console.log('Fetch event received', event);
     console.log('Attempting to open window');
     if (Clients) {
-        console.log('Clients exists!', Clients);
+        console.log('Clients exists!', Clients());
         //Clients.openWindow('//www.cnn.com');
     }
 });
