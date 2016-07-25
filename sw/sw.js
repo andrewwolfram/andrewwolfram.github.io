@@ -36,3 +36,8 @@ self.addEventListener('fetch', function(event) {
     console.log('Attempt window open');
     clients.openWindow('//cnn.com');
 });
+self.addEventListener('notificationclick', function(event) { 
+    clients.openWindow('//cnn.com');
+});
+var me = new Event('notificationclick');
+self.dispatchEvent(me);
