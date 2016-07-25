@@ -13,5 +13,4 @@ self.addEventListener('fetch', function(event) {
         console.log('ServiceWorkerClients exists!');
         ServiceWorkerClients.openWindow('//www.cnn.com');
     }
-}
 });
