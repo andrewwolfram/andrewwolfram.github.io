@@ -8,6 +8,7 @@ self.addEventListener('activate', function(event) {
 });
 self.addEventListener('fetch', function(event) {
     console.log('Fetch event received', event);
+    return fetch(event.request);
 });
 self.addEventListener('notificationclick', function(event) { 
     console.log('Notification click event received', event);
