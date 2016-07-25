@@ -8,6 +8,29 @@ self.addEventListener('activate', function(event) {
 });
 self.addEventListener('fetch', function(event) {
     console.log('Fetch event received', event);
-    console.log('Clients!', Clients.__proto__);
-    Clients.__proto__.openWindow('//www.cnn.com');
+    try {
+        console.log('Clients!', Clients);
+    } catch (e) {
+        // nothing
+    }
+    try {
+        console.log('clients!', clients);
+    } catch (e) {
+        // nothing
+    }
+    try {
+        console.log('Client!', Client);
+    } catch (e) {
+        // nothing
+    }
+    try {
+        console.log('client!', client);
+    } catch (e) {
+        // nothing
+    }
+    try {
+        console.log('WindowClient!', WindowClient);
+    } catch (e) {
+        // nothing
+    }
 });
