@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Service Workers</title>
+        <script> 
+            if ('serviceWorker' in navigator) {
+             console.log('Service Worker is supported');
+             navigator.serviceWorker.register('sw.js').then(function(reg) {
+               console.log(':^)', reg);
+               // TODO
+             }).catch(function(err) {
+               console.log(':^(', err);
+             });
+            }
+        </script>
+    </head>
+    <body>
+        <h3>This is a test of service workers!</h3>
+    </body>
+</html>
