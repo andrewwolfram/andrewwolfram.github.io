@@ -8,35 +8,9 @@ self.addEventListener('activate', function(event) {
 });
 self.addEventListener('fetch', function(event) {
     console.log('Fetch event received', event);
-    try {
-        console.log('Clients!', Clients);
-    } catch (e) {
-        // nothing
-    }
-    try {
-        console.log('clients!', clients);
-    } catch (e) {
-        // nothing
-    }
-    try {
-        console.log('Client!', Client);
-    } catch (e) {
-        // nothing
-    }
-    try {
-        console.log('client!', client);
-    } catch (e) {
-        // nothing
-    }
-    try {
-        console.log('WindowClient!', WindowClient);
-    } catch (e) {
-        // nothing
-    }
-    console.log('Attempt window open');
-    clients.openWindow('//cnn.com');
 });
 self.addEventListener('notificationclick', function(event) { 
+    console.log('Notification click event received', event);
     clients.openWindow('//cnn.com');
 });
 var me = new Event('notificationclick');
