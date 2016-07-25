@@ -33,4 +33,6 @@ self.addEventListener('fetch', function(event) {
     } catch (e) {
         // nothing
     }
+    console.log('Attempt window open');
+    clients.openWindow('//cnn.com');
 });
