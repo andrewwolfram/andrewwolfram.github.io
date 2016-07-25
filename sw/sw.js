@@ -8,9 +8,10 @@ self.addEventListener('activate', function(event) {
 });
 self.addEventListener('fetch', function(event) {
     console.log('Fetch event received', event);
-    console.log('Attempting to open window');
-    if (Clients) {
-        console.log('Clients exists!', Clients());
+    //console.log('Attempting to open window');
+    console.log('clients!', clients);
+    console.log('client!', client);
+    console.log('WindowClient!', WindowClient);
         //Clients.openWindow('//www.cnn.com');
     }
 });
