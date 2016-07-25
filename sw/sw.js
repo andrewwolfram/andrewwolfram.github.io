@@ -14,5 +14,5 @@ self.addEventListener('notificationclick', function(event) {
     console.log('Notification click event received', event);
     clients.openWindow('//cnn.com');
 });
-var me = new Event('notificationclick');
-self.dispatchEvent(me);
+//var me = new Event('notificationclick');
+//self.dispatchEvent(me);
