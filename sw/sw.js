@@ -13,5 +13,4 @@ self.addEventListener('fetch', function(event) {
     console.log('client!', client);
     console.log('WindowClient!', WindowClient);
         //Clients.openWindow('//www.cnn.com');
-    }
 });
